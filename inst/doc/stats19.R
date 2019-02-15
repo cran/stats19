@@ -236,7 +236,7 @@ cj %>%
 ## ----crash-date-plot, fig.width=5, fig.height=5--------------------------
 crashes_dates = cj %>% 
   st_set_geometry(NULL) %>% 
-  group_by(date = lubridate::dmy(date)) %>% 
+  group_by(date) %>% 
   summarise(
     walking = sum(walking),
     cycling = sum(cycling),

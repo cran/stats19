@@ -1,16 +1,18 @@
 
-[![The API of a maturing package has been roughed out, but finer details
-likely to
-change.](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
+[![](http://www.r-pkg.org/badges/version/stats19)](http://www.r-pkg.org/pkg/stats19)
 [![Travis build
 status](https://travis-ci.org/ropensci/stats19.svg?branch=master)](https://travis-ci.org/ropensci/stats19)
 [![codecov](https://codecov.io/gh/ropensci/stats19/branch/master/graph/badge.svg)](https://codecov.io/gh/ropensci/stats19)
-[![Gitter
-chat](https://badges.gitter.im/ITSLeeds/stats19.png)](https://gitter.im/stats19/Lobby?source=orgpage)
-[![](http://www.r-pkg.org/badges/version/stats19)](http://www.r-pkg.org/pkg/stats19)
 [![CRAN RStudio mirror
-downloads](http://cranlogs.r-pkg.org/badges/stats19)](http://www.r-pkg.org/pkg/stats19)
+downloads](https://cranlogs.r-pkg.org/badges/grand-total/stats19)](http://www.r-pkg.org/pkg/stats19)
+[![Life
+cycle](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/)
 [![](https://badges.ropensci.org/266_status.svg)](https://github.com/ropensci/onboarding/issues/266)
+[![DOI](http://joss.theoj.org/papers/10.21105/joss.01181/status.svg)](https://doi.org/10.21105/joss.01181)
+
+<!-- [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.2540781.svg)](https://doi.org/10.5281/zenodo.2540781) -->
+
+<!-- [![Gitter chat](https://badges.gitter.im/ITSLeeds/stats19.png)](https://gitter.im/stats19/Lobby?source=orgpage) -->
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
@@ -54,13 +56,12 @@ library(stats19)
 #> www.nationalarchives.gov.uk/doc/open-government-licence/version/3/
 ```
 
-<!-- You can install the released version of stats19 from [CRAN](https://CRAN.R-project.org) with: -->
+You can install the released version of stats19 from
+[CRAN](https://cran.r-project.org/package=stats19) with:
 
-<!-- ``` r -->
-
-<!-- install.packages("stats19") -->
-
-<!-- ``` -->
+``` r
+install.packages("stats19")
+```
 
 ## get\_stats19()
 
@@ -75,20 +76,22 @@ naming crashes, although the DfT refers to the relevant tables as
 ‘accidents’ data):
 
 ``` r
-crashes = get_stats19(year = 2017, type = "accident")
+crashes = get_stats19(year = 2017, type = "accident", ask = FALSE)
 #> Files identified: dftRoadSafetyData_Accidents_2017.zip
 #>    http://data.dft.gov.uk.s3.amazonaws.com/road-accidents-safety-data/dftRoadSafetyData_Accidents_2017.zip
 #> Attempt downloading from:
-#> Data saved at /tmp/RtmpIosDPA/dftRoadSafetyData_Accidents_2017/Acc.csv
+#> Data saved at /tmp/RtmpAW1I3U/dftRoadSafetyData_Accidents_2017/Acc.csv
 #> Reading in:
-#> /tmp/RtmpIosDPA/dftRoadSafetyData_Accidents_2017/Acc.csv
+#> /tmp/RtmpAW1I3U/dftRoadSafetyData_Accidents_2017/Acc.csv
 ```
 
-What just happened? We read-in data on all road crashes recorded by the
-police in 2017 across Great Britain. The dataset contains 32 columns
-(variables) for 129,982 crashes. The contents of this dataset, and other
-datasets provided by **stats19**, are outlined below and described in
-more detail in the [stats19
+What just happened? For the `year` 2017 we read-in crash-level (`type =
+"accident"`) data on all road crashes recorded by the police across
+Great Britain. The dataset contains 32 columns (variables) for 129,982
+crashes. We were not asked to download the file (by default you are
+asked to confirm the file that will be downloaded). The contents of this
+dataset, and other datasets provided by **stats19**, are outlined below
+and described in more detail in the [stats19
 vignette](https://itsleeds.github.io/stats19/articles/stats19.html).
 
 We will see below how the function also works to get the corresponding
@@ -174,11 +177,11 @@ As with `crashes`, casualty data for 2017 can be downloaded, read-in and
 formatted as follows:
 
 ``` r
-casualties = get_stats19(year = 2017, type = "casualties")
+casualties = get_stats19(year = 2017, type = "casualties", ask = FALSE)
 #> Files identified: dftRoadSafetyData_Casualties_2017.zip
 #>    http://data.dft.gov.uk.s3.amazonaws.com/road-accidents-safety-data/dftRoadSafetyData_Casualties_2017.zip
 #> Attempt downloading from:
-#> Data saved at /tmp/RtmpIosDPA/dftRoadSafetyData_Casualties_2017/Cas.csv
+#> Data saved at /tmp/RtmpAW1I3U/dftRoadSafetyData_Casualties_2017/Cas.csv
 nrow(casualties)
 #> [1] 170993
 ncol(casualties)
@@ -235,11 +238,11 @@ Data for vehicles involved in crashes in 2017 can be downloaded, read-in
 and formatted as follows:
 
 ``` r
-vehicles = get_stats19(year = 2017, type = "vehicles")
+vehicles = get_stats19(year = 2017, type = "vehicles", ask = FALSE)
 #> Files identified: dftRoadSafetyData_Vehicles_2017.zip
 #>    http://data.dft.gov.uk.s3.amazonaws.com/road-accidents-safety-data/dftRoadSafetyData_Vehicles_2017.zip
 #> Attempt downloading from:
-#> Data saved at /tmp/RtmpIosDPA/dftRoadSafetyData_Vehicles_2017/Veh.csv
+#> Data saved at /tmp/RtmpAW1I3U/dftRoadSafetyData_Vehicles_2017/Veh.csv
 nrow(vehicles)
 #> [1] 238926
 ncol(vehicles)
@@ -400,27 +403,27 @@ plot(cj["speed_limit"], cex = cex)
 
 The spatial distribution of crashes in West Yorkshire clearly relates to
 the region’s geography. Crashes tend to happen on busy Motorway roads
-(with high speed limits, as shown in the map above) and city centres, of
-Leeds and Bradford in particular. The severity and number of people hurt
-(proportional to circle width in the map above) in crashes is related to
-the speed limit roads. This can be seen by comparing the previous map
-with an overview of the area, from an academic paper on the social,
-spatial and temporal distribution of bike crashes (Lovelace, Roberts,
-and Kellar
+(with a high speed limit, of 70 miles per hour, as shown in the map
+above) and city centres, of Leeds and Bradford in particular. The
+severity and number of people hurt (proportional to circle width in the
+map above) in crashes is related to the speed limit. This can be seen by
+comparing the previous map with an overview of the area, from an
+academic paper on the social, spatial and temporal distribution of bike
+crashes in West Yorkshire (Lovelace, Roberts, and Kellar
 2016):
 
 <img src="https://raw.githubusercontent.com/ropensci/stats19/master/vignettes/wy-overview.jpg" width="100%" />
 
 ## Time series analysis
 
-We can also explore weekly and seasonal trends in crashes by aggregating
-crashes by day of the year:
+We can also explore seasonal trends in crashes by aggregating crashes by
+day of the year:
 
 ``` r
 library(ggplot2)
 crashes_dates = cj %>% 
   st_set_geometry(NULL) %>% 
-  group_by(date = lubridate::dmy(date)) %>% 
+  group_by(date) %>% 
   summarise(
     walking = sum(Pedestrian),
     cycling = sum(Cyclist),
