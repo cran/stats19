@@ -1,10 +1,11 @@
 Package: stats19
 Title: Work with Open Road Traffic Casualty Data from Great Britain
-Version: 0.2.0
+Version: 0.2.1
 Authors@R: c(
     person("Robin", "Lovelace", email = "rob00x@gmail.com", role = c("aut", "cre"),
       comment = c(ORCID = "0000-0001-5679-6536")),
-    person("Malcolm", "Morgan", email = "m.morgan1@leeds.ac.uk", role = c("aut")),
+    person("Malcolm", "Morgan", email = "m.morgan1@leeds.ac.uk", role = c("aut"),
+      comment = c(ORCID = "0000-0002-9488-9183")),
     person("Layik", "Hama", email = "layik.hama@gmail.com", role = c("aut"),
       comment = c(ORCID = "0000-0003-1912-4890")),
     person("Mark", "Padgham", role=c("aut"),
@@ -31,20 +32,21 @@ Encoding: UTF-8
 LazyData: true
 Imports: sf, readr
 Suggests: curl (>= 3.2), dplyr, ggplot2, knitr, lubridate, rmarkdown,
-        stringr, testthat, tidyr, pkgdown, kableExtra, leaflet
+        stringr, testthat, tidyr, pkgdown, kableExtra, leaflet,
+        geojsonsf, htmltools
 VignetteBuilder: knitr
 RoxygenNote: 6.1.1
 Language: en-US
 X-schema.org-keywords: stats19, road-safety, transport, car-crashes,
         ropensci, data
 NeedsCompilation: no
-Packaged: 2019-02-15 12:32:59 UTC; robin
+Packaged: 2019-04-03 08:24:29 UTC; robin
 Author: Robin Lovelace [aut, cre] (<https://orcid.org/0000-0001-5679-6536>),
-  Malcolm Morgan [aut],
+  Malcolm Morgan [aut] (<https://orcid.org/0000-0002-9488-9183>),
   Layik Hama [aut] (<https://orcid.org/0000-0003-1912-4890>),
   Mark Padgham [aut] (<https://orcid.org/0000-0003-2172-5265>),
   David Ranzolin [rev],
   Adam Sparks [rev, ctb] (<https://orcid.org/0000-0002-0061-8359>)
 Maintainer: Robin Lovelace <rob00x@gmail.com>
 Repository: CRAN
-Date/Publication: 2019-02-15 15:00:03 UTC
+Date/Publication: 2019-04-03 08:40:03 UTC
