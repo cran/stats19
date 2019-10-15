@@ -96,7 +96,8 @@ find_file_name = function(years = NULL, type = NULL) {
   if(any(grepl("Stats19-Data1979-2004.zip", result))) {
     # extra warnings
     message("\033[31mThis will download 240 MB+ (1.8 GB unzipped).\033[39m")
-    message("Coordinates unreliable in this data.")
+    message("Coordinates and other variables may be unreliable in these datasets.")
+    message("See https://github.com/ropensci/stats19/issues/101 and https://github.com/ropensci/stats19/issues/102")
   }
 
   if(length(result) < 1)
@@ -124,6 +125,9 @@ locate_files = function(data_dir = tempdir(),
                         quiet = FALSE) {
   stopifnot(dir.exists(data_dir))
   file_names = find_file_name(years = years, type = type)
+  if(all(grepl(pattern = "csv", file_names))) {
+    return(file.path(data_dir, file_names))
+  }
   file_names = tools::file_path_sans_ext(file_names)
   dir_files = list.dirs(data_dir)
   # check is any file names match those on disk
@@ -160,9 +164,12 @@ locate_one_file = function(filename = NULL,
                       type = type,
                       years = year,
                       quiet = TRUE)
-  if(length(path) == 0)
+  if(length(path) == 0) {
     stop("No files found under: ", data_dir, call. = FALSE)
-
+  }
+  if(length(path) == 1 && file.exists(path)) {
+    return(path)
+  }
   scan1 = function(path, type) {
     lf = list.files(file.path(data_dir, path), ".csv$", full.names = TRUE)
     if(!is.null(type))

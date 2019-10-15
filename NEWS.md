@@ -1,3 +1,10 @@
+# stats19 1.0.1
+
+* Now enables the download of 2018 data
+* Various bug fixes, see https://github.com/ropensci/stats19/issues
+* Update website link: https://docs.ropensci.org/stats19/
+* New work-in-progress vignette on vehicles data: https://docs.ropensci.org/stats19/articles/stats19-vehicles.html
+
 # stats19 1.0.0
 
 * Major change to `dl_stats19()`: it is now much easier to download STATS19 data. By default `ask = FALSE` in `get_stats19()` and `dl_stats19()`.

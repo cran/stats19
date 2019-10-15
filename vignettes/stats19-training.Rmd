@@ -1,0 +1,129 @@
+---
+title: "An introduction to road safety analysis with R"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{stats19-training}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+bibliography:
+  - references.bib
+  - packages.bib
+---
+
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  out.width = "50%"
+)
+```
+
+# Pre-requisites
+
+If you are not experienced with R, it is strongly advised that you read-up on and more importantly **test out** R and RStudio before attempting analyse road crash data with R.
+See the `stats19-training-setup` vignette at https://docs.ropensci.org/stats19/articles/stats19-training-setup.html for guidance on getting started with R, RStudio and installing R packages.
+
+The core packages we will be using in this tutorial are as follows:
+
+```{r pkgs, warning=FALSE}
+pkgs = c(
+  "sf",          # spatial data package
+  "stats19",     # downloads and formats open stats19 crash data
+  "dplyr",       # a package data manipulation, part of the tidyverse
+  "tmap"         # for making maps
+)
+```
+
+```{r cite, echo=FALSE}
+knitr::write_bib(x = pkgs, "packages.bib")
+```
+
+```{r, eval=FALSE}
+remotes::install_cran(pkgs)
+# remotes::install_github("ITSLeeds/pct")
+```
+
+# Introduction
+
+This vignette supports workshops on road safety analysis with R.
+It was initially developed for a 2 day [Introduction to R for Road Safety](https://www.racfoundation.org/introduction-to-r-for-road-safety) course funded by the [RAC Foundation](https://www.racfoundation.org/), a charity that supports road safety research.
+
+The course is based on open access road crash data from the UK, which is provided in an accessible form to R users through the R package **stats19** [@lovelace_stats19_2019].
+However, the content should be of use for anyone working with road crash data that has (at a minimum):
+
+- A timestamp
+- A location (or address that can be geocoded)
+- Attribute data, such as severity of crash, mode of vehicles involved etc.
+
+
+# Agenda
+
+The preliminary agenda is as follows:
+
+## Day 1: An introduction to R and RStudio for spatial and temporal data
+
+09:00-09:30 Arrival and set-up
+
+09:30-11:00 Introduction to the course and software
+
+- Introduction to R + coding [video](https://youtu.be/7oyiPBjLAWY?t=357)/[links](https://github.com/jennybc/code-smells-and-feels)
+- R installation questions/debugging
+- How to use RStudio (practical in groups of 2)
+- R classes and working with data frames (CC)
+
+**Break**
+
+11:15-12:30 Working with temporal data
+
+- Time classes
+- Filtering by time of crash
+- Aggregating over time
+- Forecasting crashes over time
+
+**Lunch**
+
+13:30-15:00 Working with spatial data
+
+- Spatial data in R
+- R's spatial ecosystem (see section [1.4 of Geocomputation with R - package ecosystem](https://geocompr.robinlovelace.net/intro.html#rs-spatial-ecosystem))
+- Practical: [Section 3.2 to 3.2.2](https://geocompr.robinlovelace.net/attr.html#vector-attribute-manipulation) of handouts
+- [Exercises](https://geocompr.robinlovelace.net/attr.html#exercises-1): 1 to 3 in the hand-outs
+
+**Break**
+  
+15:15-15:30 Talk on Road Safety 1
+
+15:30-16:15 Practical - Applying the methods to stats19 data - a taster
+
+- How to access data with **stats19**
+- Key **stats19** functions
+- Excercises: analysing road crash data on the Isle of Wight
+
+16:15-16:30 Talk on Road Safety 2
+
+## Day 2 road safety analysis with R
+
+09:30-11:00 Point pattern analysis
+
+- Visualising data with tmap
+- Spatial and temporal subsetting
+- Aggregation
+
+11:15-12:30 Road network data
+
+- Desire lines: using origin-destination data
+- Downloading road network data from OSM
+- Buffers on road networks
+
+**Lunch**
+
+13:30-15:00 Analysing crash data on road network
+
+**Break**
+  
+15:15-15:30: Talk on Road Safety 3
+
+15:30-16:30 Applying the methods to your own data
+
+# References
