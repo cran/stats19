@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 
 <head>
 
 <meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 
 
 
@@ -19,41 +18,69 @@
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css" data-origin="pandoc">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 
 </style>
 <script>
@@ -80,7 +107,187 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 
 
-<link href="data:text/css;charset=utf-8,body%20%7B%0Abackground%2Dcolor%3A%20%23fff%3B%0Amargin%3A%201em%20auto%3B%0Amax%2Dwidth%3A%20700px%3B%0Aoverflow%3A%20visible%3B%0Apadding%2Dleft%3A%202em%3B%0Apadding%2Dright%3A%202em%3B%0Afont%2Dfamily%3A%20%22Open%20Sans%22%2C%20%22Helvetica%20Neue%22%2C%20Helvetica%2C%20Arial%2C%20sans%2Dserif%3B%0Afont%2Dsize%3A%2014px%3B%0Aline%2Dheight%3A%201%2E35%3B%0A%7D%0A%23header%20%7B%0Atext%2Dalign%3A%20center%3B%0A%7D%0A%23TOC%20%7B%0Aclear%3A%20both%3B%0Amargin%3A%200%200%2010px%2010px%3B%0Apadding%3A%204px%3B%0Awidth%3A%20400px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Aborder%2Dradius%3A%205px%3B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Afont%2Dsize%3A%2013px%3B%0Aline%2Dheight%3A%201%2E3%3B%0A%7D%0A%23TOC%20%2Etoctitle%20%7B%0Afont%2Dweight%3A%20bold%3B%0Afont%2Dsize%3A%2015px%3B%0Amargin%2Dleft%3A%205px%3B%0A%7D%0A%23TOC%20ul%20%7B%0Apadding%2Dleft%3A%2040px%3B%0Amargin%2Dleft%3A%20%2D1%2E5em%3B%0Amargin%2Dtop%3A%205px%3B%0Amargin%2Dbottom%3A%205px%3B%0A%7D%0A%23TOC%20ul%20ul%20%7B%0Amargin%2Dleft%3A%20%2D2em%3B%0A%7D%0A%23TOC%20li%20%7B%0Aline%2Dheight%3A%2016px%3B%0A%7D%0Atable%20%7B%0Amargin%3A%201em%20auto%3B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dcolor%3A%20%23DDDDDD%3B%0Aborder%2Dstyle%3A%20outset%3B%0Aborder%2Dcollapse%3A%20collapse%3B%0A%7D%0Atable%20th%20%7B%0Aborder%2Dwidth%3A%202px%3B%0Apadding%3A%205px%3B%0Aborder%2Dstyle%3A%20inset%3B%0A%7D%0Atable%20td%20%7B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dstyle%3A%20inset%3B%0Aline%2Dheight%3A%2018px%3B%0Apadding%3A%205px%205px%3B%0A%7D%0Atable%2C%20table%20th%2C%20table%20td%20%7B%0Aborder%2Dleft%2Dstyle%3A%20none%3B%0Aborder%2Dright%2Dstyle%3A%20none%3B%0A%7D%0Atable%20thead%2C%20table%20tr%2Eeven%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Ap%20%7B%0Amargin%3A%200%2E5em%200%3B%0A%7D%0Ablockquote%20%7B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Apadding%3A%200%2E25em%200%2E75em%3B%0A%7D%0Ahr%20%7B%0Aborder%2Dstyle%3A%20solid%3B%0Aborder%3A%20none%3B%0Aborder%2Dtop%3A%201px%20solid%20%23777%3B%0Amargin%3A%2028px%200%3B%0A%7D%0Adl%20%7B%0Amargin%2Dleft%3A%200%3B%0A%7D%0Adl%20dd%20%7B%0Amargin%2Dbottom%3A%2013px%3B%0Amargin%2Dleft%3A%2013px%3B%0A%7D%0Adl%20dt%20%7B%0Afont%2Dweight%3A%20bold%3B%0A%7D%0Aul%20%7B%0Amargin%2Dtop%3A%200%3B%0A%7D%0Aul%20li%20%7B%0Alist%2Dstyle%3A%20circle%20outside%3B%0A%7D%0Aul%20ul%20%7B%0Amargin%2Dbottom%3A%200%3B%0A%7D%0Apre%2C%20code%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0Aborder%2Dradius%3A%203px%3B%0Acolor%3A%20%23333%3B%0Awhite%2Dspace%3A%20pre%2Dwrap%3B%20%0A%7D%0Apre%20%7B%0Aborder%2Dradius%3A%203px%3B%0Amargin%3A%205px%200px%2010px%200px%3B%0Apadding%3A%2010px%3B%0A%7D%0Apre%3Anot%28%5Bclass%5D%29%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Acode%20%7B%0Afont%2Dfamily%3A%20Consolas%2C%20Monaco%2C%20%27Courier%20New%27%2C%20monospace%3B%0Afont%2Dsize%3A%2085%25%3B%0A%7D%0Ap%20%3E%20code%2C%20li%20%3E%20code%20%7B%0Apadding%3A%202px%200px%3B%0A%7D%0Adiv%2Efigure%20%7B%0Atext%2Dalign%3A%20center%3B%0A%7D%0Aimg%20%7B%0Abackground%2Dcolor%3A%20%23FFFFFF%3B%0Apadding%3A%202px%3B%0Aborder%3A%201px%20solid%20%23DDDDDD%3B%0Aborder%2Dradius%3A%203px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Amargin%3A%200%205px%3B%0A%7D%0Ah1%20%7B%0Amargin%2Dtop%3A%200%3B%0Afont%2Dsize%3A%2035px%3B%0Aline%2Dheight%3A%2040px%3B%0A%7D%0Ah2%20%7B%0Aborder%2Dbottom%3A%204px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Apadding%2Dbottom%3A%202px%3B%0Afont%2Dsize%3A%20145%25%3B%0A%7D%0Ah3%20%7B%0Aborder%2Dbottom%3A%202px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Afont%2Dsize%3A%20120%25%3B%0A%7D%0Ah4%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23f7f7f7%3B%0Amargin%2Dleft%3A%208px%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Ah5%2C%20h6%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23ccc%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Aa%20%7B%0Acolor%3A%20%230033dd%3B%0Atext%2Ddecoration%3A%20none%3B%0A%7D%0Aa%3Ahover%20%7B%0Acolor%3A%20%236666ff%3B%20%7D%0Aa%3Avisited%20%7B%0Acolor%3A%20%23800080%3B%20%7D%0Aa%3Avisited%3Ahover%20%7B%0Acolor%3A%20%23BB00BB%3B%20%7D%0Aa%5Bhref%5E%3D%22http%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0Aa%5Bhref%5E%3D%22https%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0A%0Acode%20%3E%20span%2Ekw%20%7B%20color%3A%20%23555%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Edt%20%7B%20color%3A%20%23902000%3B%20%7D%20%0Acode%20%3E%20span%2Edv%20%7B%20color%3A%20%2340a070%3B%20%7D%20%0Acode%20%3E%20span%2Ebn%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Efl%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Ech%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Est%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Eco%20%7B%20color%3A%20%23888888%3B%20font%2Dstyle%3A%20italic%3B%20%7D%20%0Acode%20%3E%20span%2Eot%20%7B%20color%3A%20%23007020%3B%20%7D%20%0Acode%20%3E%20span%2Eal%20%7B%20color%3A%20%23ff0000%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Efu%20%7B%20color%3A%20%23900%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%20code%20%3E%20span%2Eer%20%7B%20color%3A%20%23a61717%3B%20background%2Dcolor%3A%20%23e3d2d2%3B%20%7D%20%0A" rel="stylesheet" type="text/css" />
+<style type="text/css">body {
+background-color: #fff;
+margin: 1em auto;
+max-width: 700px;
+overflow: visible;
+padding-left: 2em;
+padding-right: 2em;
+font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 1.35;
+}
+#TOC {
+clear: both;
+margin: 0 0 10px 10px;
+padding: 4px;
+width: 400px;
+border: 1px solid #CCCCCC;
+border-radius: 5px;
+background-color: #f6f6f6;
+font-size: 13px;
+line-height: 1.3;
+}
+#TOC .toctitle {
+font-weight: bold;
+font-size: 15px;
+margin-left: 5px;
+}
+#TOC ul {
+padding-left: 40px;
+margin-left: -1.5em;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+#TOC ul ul {
+margin-left: -2em;
+}
+#TOC li {
+line-height: 16px;
+}
+table {
+margin: 1em auto;
+border-width: 1px;
+border-color: #DDDDDD;
+border-style: outset;
+border-collapse: collapse;
+}
+table th {
+border-width: 2px;
+padding: 5px;
+border-style: inset;
+}
+table td {
+border-width: 1px;
+border-style: inset;
+line-height: 18px;
+padding: 5px 5px;
+}
+table, table th, table td {
+border-left-style: none;
+border-right-style: none;
+}
+table thead, table tr.even {
+background-color: #f7f7f7;
+}
+p {
+margin: 0.5em 0;
+}
+blockquote {
+background-color: #f6f6f6;
+padding: 0.25em 0.75em;
+}
+hr {
+border-style: solid;
+border: none;
+border-top: 1px solid #777;
+margin: 28px 0;
+}
+dl {
+margin-left: 0;
+}
+dl dd {
+margin-bottom: 13px;
+margin-left: 13px;
+}
+dl dt {
+font-weight: bold;
+}
+ul {
+margin-top: 0;
+}
+ul li {
+list-style: circle outside;
+}
+ul ul {
+margin-bottom: 0;
+}
+pre, code {
+background-color: #f7f7f7;
+border-radius: 3px;
+color: #333;
+white-space: pre-wrap; 
+}
+pre {
+border-radius: 3px;
+margin: 5px 0px 10px 0px;
+padding: 10px;
+}
+pre:not([class]) {
+background-color: #f7f7f7;
+}
+code {
+font-family: Consolas, Monaco, 'Courier New', monospace;
+font-size: 85%;
+}
+p > code, li > code {
+padding: 2px 0px;
+}
+div.figure {
+text-align: center;
+}
+img {
+background-color: #FFFFFF;
+padding: 2px;
+border: 1px solid #DDDDDD;
+border-radius: 3px;
+border: 1px solid #CCCCCC;
+margin: 0 5px;
+}
+h1 {
+margin-top: 0;
+font-size: 35px;
+line-height: 40px;
+}
+h2 {
+border-bottom: 4px solid #f7f7f7;
+padding-top: 10px;
+padding-bottom: 2px;
+font-size: 145%;
+}
+h3 {
+border-bottom: 2px solid #f7f7f7;
+padding-top: 10px;
+font-size: 120%;
+}
+h4 {
+border-bottom: 1px solid #f7f7f7;
+margin-left: 8px;
+font-size: 105%;
+}
+h5, h6 {
+border-bottom: 1px solid #ccc;
+font-size: 105%;
+}
+a {
+color: #0033dd;
+text-decoration: none;
+}
+a:hover {
+color: #6666ff; }
+a:visited {
+color: #800080; }
+a:visited:hover {
+color: #BB00BB; }
+a[href^="http:"] {
+text-decoration: underline; }
+a[href^="https:"] {
+text-decoration: underline; }
+
+code > span.kw { color: #555; font-weight: bold; } 
+code > span.dt { color: #902000; } 
+code > span.dv { color: #40a070; } 
+code > span.bn { color: #d14; } 
+code > span.fl { color: #d14; } 
+code > span.ch { color: #d14; } 
+code > span.st { color: #d14; } 
+code > span.co { color: #888888; font-style: italic; } 
+code > span.ot { color: #007020; } 
+code > span.al { color: #ff0000; font-weight: bold; } 
+code > span.fu { color: #900; font-weight: bold; } 
+code > span.er { color: #a61717; background-color: #e3d2d2; } 
+</style>
 
 
 
@@ -96,74 +303,71 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 
 
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(stats19)
-<span class="kw">library</span>(dplyr)</code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">library</span>(stats19)</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="kw">library</span>(dplyr)</span></code></pre></div>
 <div id="vehicle-level-variables-in-the-stats19-datasets" class="section level1">
 <h1>Vehicle level variables in the STATS19 datasets</h1>
 <p>Of the three dataset types in STATS19, the vehicle tables are perhaps the most revealing yet under-explored. They look like this:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">v =<span class="st"> </span><span class="kw">get_stats19</span>(<span class="dt">year =</span> <span class="dv">2017</span>, <span class="dt">type =</span> <span class="st">&quot;vehicles&quot;</span>)
-<span class="co">#&gt; Files identified: dftRoadSafetyData_Vehicles_2017.zip</span>
-<span class="co">#&gt;    http://data.dft.gov.uk.s3.amazonaws.com/road-accidents-safety-data/dftRoadSafetyData_Vehicles_2017.zip</span>
-<span class="co">#&gt; Data already exists in data_dir, not downloading</span>
-<span class="co">#&gt; Data saved at /tmp/RtmpAph2kW/dftRoadSafetyData_Vehicles_2017/Veh.csv</span>
-v
-<span class="co">#&gt; # A tibble: 238,926 x 23</span>
-<span class="co">#&gt;    accident_index vehicle_referen… vehicle_type towing_and_arti…</span>
-<span class="co">#&gt;    &lt;chr&gt;                     &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;           </span>
-<span class="co">#&gt;  1 2017010001708                 1 Car          No tow/articula…</span>
-<span class="co">#&gt;  2 2017010001708                 2 Motorcycle … No tow/articula…</span>
-<span class="co">#&gt;  3 2017010009342                 1 Car          No tow/articula…</span>
-<span class="co">#&gt;  4 2017010009342                 2 Car          No tow/articula…</span>
-<span class="co">#&gt;  5 2017010009344                 1 Car          No tow/articula…</span>
-<span class="co">#&gt;  6 2017010009344                 2 Car          No tow/articula…</span>
-<span class="co">#&gt;  7 2017010009344                 3 Car          No tow/articula…</span>
-<span class="co">#&gt;  8 2017010009348                 1 Car          No tow/articula…</span>
-<span class="co">#&gt;  9 2017010009348                 2 Car          No tow/articula…</span>
-<span class="co">#&gt; 10 2017010009350                 1 Car          No tow/articula…</span>
-<span class="co">#&gt; # … with 238,916 more rows, and 19 more variables:</span>
-<span class="co">#&gt; #   vehicle_manoeuvre &lt;chr&gt;, vehicle_location_restricted_lane &lt;int&gt;,</span>
-<span class="co">#&gt; #   junction_location &lt;chr&gt;, skidding_and_overturning &lt;chr&gt;,</span>
-<span class="co">#&gt; #   hit_object_in_carriageway &lt;int&gt;, vehicle_leaving_carriageway &lt;int&gt;,</span>
-<span class="co">#&gt; #   hit_object_off_carriageway &lt;int&gt;, first_point_of_impact &lt;chr&gt;,</span>
-<span class="co">#&gt; #   was_vehicle_left_hand_drive &lt;chr&gt;, journey_purpose_of_driver &lt;chr&gt;,</span>
-<span class="co">#&gt; #   sex_of_driver &lt;chr&gt;, age_of_driver &lt;int&gt;, age_band_of_driver &lt;int&gt;,</span>
-<span class="co">#&gt; #   engine_capacity_cc &lt;int&gt;, propulsion_code &lt;chr&gt;, age_of_vehicle &lt;int&gt;,</span>
-<span class="co">#&gt; #   driver_imd_decile &lt;chr&gt;, driver_home_area_type &lt;int&gt;,</span>
-<span class="co">#&gt; #   vehicle_imd_decile &lt;int&gt;</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>v =<span class="st"> </span><span class="kw">get_stats19</span>(<span class="dt">year =</span> <span class="dv">2018</span>, <span class="dt">type =</span> <span class="st">&quot;vehicles&quot;</span>)</span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="co">#&gt; Files identified: dftRoadSafetyData_Vehicles_2018.csv</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="co">#&gt;    http://data.dft.gov.uk.s3.amazonaws.com/road-accidents-safety-data/dftRoadSafetyData_Vehicles_2018.csv</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="co">#&gt; Data already exists in data_dir, not downloading</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="co">#&gt; Data saved at ~/stats19-data/dftRoadSafetyData_Vehicles_2018.csv</span></span>
+<span id="cb2-6"><a href="#cb2-6"></a>v</span>
+<span id="cb2-7"><a href="#cb2-7"></a><span class="co">#&gt; # A tibble: 226,409 x 23</span></span>
+<span id="cb2-8"><a href="#cb2-8"></a><span class="co">#&gt;    accident_index vehicle_referen… vehicle_type towing_and_arti…</span></span>
+<span id="cb2-9"><a href="#cb2-9"></a><span class="co">#&gt;    &lt;chr&gt;                     &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;           </span></span>
+<span id="cb2-10"><a href="#cb2-10"></a><span class="co">#&gt;  1 2018010080971                 1 Car          No tow/articula…</span></span>
+<span id="cb2-11"><a href="#cb2-11"></a><span class="co">#&gt;  2 2018010080971                 2 Taxi/Privat… No tow/articula…</span></span>
+<span id="cb2-12"><a href="#cb2-12"></a><span class="co">#&gt;  3 2018010080973                 1 Car          No tow/articula…</span></span>
+<span id="cb2-13"><a href="#cb2-13"></a><span class="co">#&gt;  4 2018010080974                 1 Taxi/Privat… No tow/articula…</span></span>
+<span id="cb2-14"><a href="#cb2-14"></a><span class="co">#&gt;  5 2018010080974                 2 Car          No tow/articula…</span></span>
+<span id="cb2-15"><a href="#cb2-15"></a><span class="co">#&gt;  6 2018010080981                 1 Car          No tow/articula…</span></span>
+<span id="cb2-16"><a href="#cb2-16"></a><span class="co">#&gt;  7 2018010080981                 2 Van / Goods… No tow/articula…</span></span>
+<span id="cb2-17"><a href="#cb2-17"></a><span class="co">#&gt;  8 2018010080982                 1 Taxi/Privat… No tow/articula…</span></span>
+<span id="cb2-18"><a href="#cb2-18"></a><span class="co">#&gt;  9 2018010080982                 2 Car          No tow/articula…</span></span>
+<span id="cb2-19"><a href="#cb2-19"></a><span class="co">#&gt; 10 2018010080983                 1 Car          No tow/articula…</span></span>
+<span id="cb2-20"><a href="#cb2-20"></a><span class="co">#&gt; # … with 226,399 more rows, and 19 more variables: vehicle_manoeuvre &lt;chr&gt;,</span></span>
+<span id="cb2-21"><a href="#cb2-21"></a><span class="co">#&gt; #   vehicle_location_restricted_lane &lt;int&gt;, junction_location &lt;chr&gt;,</span></span>
+<span id="cb2-22"><a href="#cb2-22"></a><span class="co">#&gt; #   skidding_and_overturning &lt;chr&gt;, hit_object_in_carriageway &lt;int&gt;,</span></span>
+<span id="cb2-23"><a href="#cb2-23"></a><span class="co">#&gt; #   vehicle_leaving_carriageway &lt;int&gt;, hit_object_off_carriageway &lt;int&gt;,</span></span>
+<span id="cb2-24"><a href="#cb2-24"></a><span class="co">#&gt; #   first_point_of_impact &lt;chr&gt;, was_vehicle_left_hand_drive &lt;chr&gt;,</span></span>
+<span id="cb2-25"><a href="#cb2-25"></a><span class="co">#&gt; #   journey_purpose_of_driver &lt;chr&gt;, sex_of_driver &lt;chr&gt;, age_of_driver &lt;int&gt;,</span></span>
+<span id="cb2-26"><a href="#cb2-26"></a><span class="co">#&gt; #   age_band_of_driver &lt;int&gt;, engine_capacity_cc &lt;int&gt;, propulsion_code &lt;chr&gt;,</span></span>
+<span id="cb2-27"><a href="#cb2-27"></a><span class="co">#&gt; #   age_of_vehicle &lt;int&gt;, driver_imd_decile &lt;chr&gt;, driver_home_area_type &lt;int&gt;,</span></span>
+<span id="cb2-28"><a href="#cb2-28"></a><span class="co">#&gt; #   vehicle_imd_decile &lt;int&gt;</span></span></code></pre></div>
 <p>We will categorise the vehicle types to simplify subsequent results:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">v =<span class="st"> </span>v <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">vehicle_type2 =</span> <span class="kw">case_when</span>(
-  <span class="kw">grepl</span>(<span class="dt">pattern =</span> <span class="st">&quot;motorcycle&quot;</span>, vehicle_type, <span class="dt">ignore.case =</span> <span class="ot">TRUE</span>) <span class="op">~</span><span class="st"> &quot;Motorbike&quot;</span>,
-  <span class="kw">grepl</span>(<span class="dt">pattern =</span> <span class="st">&quot;Car&quot;</span>, vehicle_type, <span class="dt">ignore.case =</span> <span class="ot">TRUE</span>) <span class="op">~</span><span class="st"> &quot;Car&quot;</span>,
-  <span class="kw">grepl</span>(<span class="dt">pattern =</span> <span class="st">&quot;Bus&quot;</span>, vehicle_type, <span class="dt">ignore.case =</span> <span class="ot">TRUE</span>) <span class="op">~</span><span class="st"> &quot;Bus&quot;</span>,
-  <span class="kw">grepl</span>(<span class="dt">pattern =</span> <span class="st">&quot;cycle&quot;</span>, vehicle_type, <span class="dt">ignore.case =</span> <span class="ot">TRUE</span>) <span class="op">~</span><span class="st"> &quot;Cycle&quot;</span>,
-  <span class="co"># grepl(pattern = &quot;Van&quot;, vehicle_type, ignore.case = TRUE) ~ &quot;Van&quot;,</span>
-  <span class="kw">grepl</span>(<span class="dt">pattern =</span> <span class="st">&quot;Goods&quot;</span>, vehicle_type, <span class="dt">ignore.case =</span> <span class="ot">TRUE</span>) <span class="op">~</span><span class="st"> &quot;Goods&quot;</span>,
-  
-  <span class="ot">TRUE</span> <span class="op">~</span><span class="st"> &quot;Other&quot;</span>
-))
-<span class="co"># barplot(table(v$vehicle_type2))</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>v =<span class="st"> </span>v <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">vehicle_type2 =</span> <span class="kw">case_when</span>(</span>
+<span id="cb3-2"><a href="#cb3-2"></a>  <span class="kw">grepl</span>(<span class="dt">pattern =</span> <span class="st">&quot;motorcycle&quot;</span>, vehicle_type, <span class="dt">ignore.case =</span> <span class="ot">TRUE</span>) <span class="op">~</span><span class="st"> &quot;Motorbike&quot;</span>,</span>
+<span id="cb3-3"><a href="#cb3-3"></a>  <span class="kw">grepl</span>(<span class="dt">pattern =</span> <span class="st">&quot;Car&quot;</span>, vehicle_type, <span class="dt">ignore.case =</span> <span class="ot">TRUE</span>) <span class="op">~</span><span class="st"> &quot;Car&quot;</span>,</span>
+<span id="cb3-4"><a href="#cb3-4"></a>  <span class="kw">grepl</span>(<span class="dt">pattern =</span> <span class="st">&quot;Bus&quot;</span>, vehicle_type, <span class="dt">ignore.case =</span> <span class="ot">TRUE</span>) <span class="op">~</span><span class="st"> &quot;Bus&quot;</span>,</span>
+<span id="cb3-5"><a href="#cb3-5"></a>  <span class="kw">grepl</span>(<span class="dt">pattern =</span> <span class="st">&quot;cycle&quot;</span>, vehicle_type, <span class="dt">ignore.case =</span> <span class="ot">TRUE</span>) <span class="op">~</span><span class="st"> &quot;Cycle&quot;</span>,</span>
+<span id="cb3-6"><a href="#cb3-6"></a>  <span class="co"># grepl(pattern = &quot;Van&quot;, vehicle_type, ignore.case = TRUE) ~ &quot;Van&quot;,</span></span>
+<span id="cb3-7"><a href="#cb3-7"></a>  <span class="kw">grepl</span>(<span class="dt">pattern =</span> <span class="st">&quot;Goods&quot;</span>, vehicle_type, <span class="dt">ignore.case =</span> <span class="ot">TRUE</span>) <span class="op">~</span><span class="st"> &quot;Goods&quot;</span>,</span>
+<span id="cb3-8"><a href="#cb3-8"></a>  </span>
+<span id="cb3-9"><a href="#cb3-9"></a>  <span class="ot">TRUE</span> <span class="op">~</span><span class="st"> &quot;Other&quot;</span></span>
+<span id="cb3-10"><a href="#cb3-10"></a>))</span>
+<span id="cb3-11"><a href="#cb3-11"></a><span class="co"># barplot(table(v$vehicle_type2))</span></span></code></pre></div>
 <p>All of these variables are of potential interest to road safety researchers. Let’s take a look at summaries of a few of them:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">table</span>(v<span class="op">$</span>vehicle_type2)
-<span class="co">#&gt; </span>
-<span class="co">#&gt;       Bus       Car     Cycle     Goods Motorbike     Other </span>
-<span class="co">#&gt;      5455    173686     18954     18907     19204      2720</span>
-<span class="kw">summary</span>(v<span class="op">$</span>age_of_driver)
-<span class="co">#&gt;    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. </span>
-<span class="co">#&gt;   -1.00   23.00   35.00   35.58   50.00  100.00</span>
-<span class="kw">summary</span>(v<span class="op">$</span>engine_capacity_cc)
-<span class="co">#&gt;    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. </span>
-<span class="co">#&gt;      -1     125    1398    1454    1956   16400</span>
-<span class="kw">table</span>(v<span class="op">$</span>propulsion_code)
-<span class="co">#&gt; </span>
-<span class="co">#&gt;            Electric     Electric diesel                 Gas </span>
-<span class="co">#&gt;                 200                  74                  23 </span>
-<span class="co">#&gt;         Gas/Bi-fuel           Heavy oil     Hybrid electric </span>
-<span class="co">#&gt;                 144               80600                3202 </span>
-<span class="co">#&gt; New fuel technology              Petrol    Petrol/Gas (LPG) </span>
-<span class="co">#&gt;                   2              101724                  27</span>
-<span class="kw">summary</span>(v<span class="op">$</span>age_of_vehicle)
-<span class="co">#&gt;    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. </span>
-<span class="co">#&gt;  -1.000  -1.000   5.000   5.759  10.000  85.000</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">table</span>(v<span class="op">$</span>vehicle_type2)</span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="co">#&gt; </span></span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="co">#&gt;       Bus       Car     Cycle     Goods Motorbike     Other </span></span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="co">#&gt;      4918    164645     18125     18020     17890      2811</span></span>
+<span id="cb4-5"><a href="#cb4-5"></a><span class="kw">summary</span>(v<span class="op">$</span>age_of_driver)</span>
+<span id="cb4-6"><a href="#cb4-6"></a><span class="co">#&gt;    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. </span></span>
+<span id="cb4-7"><a href="#cb4-7"></a><span class="co">#&gt;   -1.00   23.00   35.00   35.52   50.00  101.00</span></span>
+<span id="cb4-8"><a href="#cb4-8"></a><span class="kw">summary</span>(v<span class="op">$</span>engine_capacity_cc)</span>
+<span id="cb4-9"><a href="#cb4-9"></a><span class="co">#&gt;    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. </span></span>
+<span id="cb4-10"><a href="#cb4-10"></a><span class="co">#&gt;      -1     125    1398    1444    1956   99999</span></span>
+<span id="cb4-11"><a href="#cb4-11"></a><span class="kw">table</span>(v<span class="op">$</span>propulsion_code)</span>
+<span id="cb4-12"><a href="#cb4-12"></a><span class="co">#&gt; </span></span>
+<span id="cb4-13"><a href="#cb4-13"></a><span class="co">#&gt;         Electric  Electric diesel              Gas      Gas/Bi-fuel </span></span>
+<span id="cb4-14"><a href="#cb4-14"></a><span class="co">#&gt;              266               67               31              130 </span></span>
+<span id="cb4-15"><a href="#cb4-15"></a><span class="co">#&gt;        Heavy oil  Hybrid electric           Petrol Petrol/Gas (LPG) </span></span>
+<span id="cb4-16"><a href="#cb4-16"></a><span class="co">#&gt;            77109             3821            93644               29</span></span>
+<span id="cb4-17"><a href="#cb4-17"></a><span class="kw">summary</span>(v<span class="op">$</span>age_of_vehicle)</span>
+<span id="cb4-18"><a href="#cb4-18"></a><span class="co">#&gt;    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. </span></span>
+<span id="cb4-19"><a href="#cb4-19"></a><span class="co">#&gt;  -1.000  -1.000   5.000   5.727  10.000  84.000</span></span></code></pre></div>
 <p>The output shows vehicle type (a wide range of vehicles are represented), age of driver (with young and elderly drivers often seen as more risky), engine capacity and populsion (related to vehicle type and size) and age of vehicle. In addition to these factors appearing in prior road safety research and debate, they are also things that policy makers can influence, e.g by:</p>
 <ul>
 <li>Encouraging modal shift away more dangerous modes and towards safer modes</li>
@@ -174,32 +378,99 @@ v
 <div id="relationships-between-vehicle-type-and-crash-severity" class="section level1">
 <h1>Relationships between vehicle type and crash severity</h1>
 <p>To explore the relationship between vehicles and crash severity, we must first join on the ‘accidents’ table:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a =<span class="st"> </span><span class="kw">get_stats19</span>(<span class="dt">year =</span> <span class="dv">2017</span>, <span class="dt">type =</span> <span class="st">&quot;accidents&quot;</span>)
-<span class="co">#&gt; Files identified: dftRoadSafetyData_Accidents_2017.zip</span>
-<span class="co">#&gt;    http://data.dft.gov.uk.s3.amazonaws.com/road-accidents-safety-data/dftRoadSafetyData_Accidents_2017.zip</span>
-<span class="co">#&gt; Data already exists in data_dir, not downloading</span>
-<span class="co">#&gt; Data saved at /tmp/RtmpAph2kW/dftRoadSafetyData_Accidents_2017/Acc.csv</span>
-<span class="co">#&gt; Reading in:</span>
-<span class="co">#&gt; /tmp/RtmpAph2kW/dftRoadSafetyData_Accidents_2017/Acc.csv</span>
-va =<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">inner_join</span>(v, a)
-<span class="co">#&gt; Joining, by = &quot;accident_index&quot;</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>a =<span class="st"> </span><span class="kw">get_stats19</span>(<span class="dt">year =</span> <span class="dv">2018</span>, <span class="dt">type =</span> <span class="st">&quot;accidents&quot;</span>)</span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="co">#&gt; Files identified: dftRoadSafetyData_Accidents_2018.csv</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="co">#&gt;    http://data.dft.gov.uk.s3.amazonaws.com/road-accidents-safety-data/dftRoadSafetyData_Accidents_2018.csv</span></span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="co">#&gt; Data already exists in data_dir, not downloading</span></span>
+<span id="cb5-5"><a href="#cb5-5"></a><span class="co">#&gt; Data saved at ~/stats19-data/dftRoadSafetyData_Accidents_2018.csv</span></span>
+<span id="cb5-6"><a href="#cb5-6"></a><span class="co">#&gt; Reading in:</span></span>
+<span id="cb5-7"><a href="#cb5-7"></a><span class="co">#&gt; ~/stats19-data/dftRoadSafetyData_Accidents_2018.csv</span></span>
+<span id="cb5-8"><a href="#cb5-8"></a><span class="co">#&gt; date and time columns present, creating formatted datetime column</span></span>
+<span id="cb5-9"><a href="#cb5-9"></a>va =<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">inner_join</span>(v, a)</span>
+<span id="cb5-10"><a href="#cb5-10"></a><span class="co">#&gt; Joining, by = &quot;accident_index&quot;</span></span></code></pre></div>
 <p>Now we have additional variables available to us:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dim</span>(v)
-<span class="co">#&gt; [1] 238926     24</span>
-<span class="kw">dim</span>(va)
-<span class="co">#&gt; [1] 238926     55</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw">dim</span>(v)</span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="co">#&gt; [1] 226409     24</span></span>
+<span id="cb6-3"><a href="#cb6-3"></a><span class="kw">dim</span>(va)</span>
+<span id="cb6-4"><a href="#cb6-4"></a><span class="co">#&gt; [1] 226409     56</span></span>
+<span id="cb6-5"><a href="#cb6-5"></a><span class="kw">names</span>(va)</span>
+<span id="cb6-6"><a href="#cb6-6"></a><span class="co">#&gt;  [1] &quot;accident_index&quot;                             </span></span>
+<span id="cb6-7"><a href="#cb6-7"></a><span class="co">#&gt;  [2] &quot;vehicle_reference&quot;                          </span></span>
+<span id="cb6-8"><a href="#cb6-8"></a><span class="co">#&gt;  [3] &quot;vehicle_type&quot;                               </span></span>
+<span id="cb6-9"><a href="#cb6-9"></a><span class="co">#&gt;  [4] &quot;towing_and_articulation&quot;                    </span></span>
+<span id="cb6-10"><a href="#cb6-10"></a><span class="co">#&gt;  [5] &quot;vehicle_manoeuvre&quot;                          </span></span>
+<span id="cb6-11"><a href="#cb6-11"></a><span class="co">#&gt;  [6] &quot;vehicle_location_restricted_lane&quot;           </span></span>
+<span id="cb6-12"><a href="#cb6-12"></a><span class="co">#&gt;  [7] &quot;junction_location&quot;                          </span></span>
+<span id="cb6-13"><a href="#cb6-13"></a><span class="co">#&gt;  [8] &quot;skidding_and_overturning&quot;                   </span></span>
+<span id="cb6-14"><a href="#cb6-14"></a><span class="co">#&gt;  [9] &quot;hit_object_in_carriageway&quot;                  </span></span>
+<span id="cb6-15"><a href="#cb6-15"></a><span class="co">#&gt; [10] &quot;vehicle_leaving_carriageway&quot;                </span></span>
+<span id="cb6-16"><a href="#cb6-16"></a><span class="co">#&gt; [11] &quot;hit_object_off_carriageway&quot;                 </span></span>
+<span id="cb6-17"><a href="#cb6-17"></a><span class="co">#&gt; [12] &quot;first_point_of_impact&quot;                      </span></span>
+<span id="cb6-18"><a href="#cb6-18"></a><span class="co">#&gt; [13] &quot;was_vehicle_left_hand_drive&quot;                </span></span>
+<span id="cb6-19"><a href="#cb6-19"></a><span class="co">#&gt; [14] &quot;journey_purpose_of_driver&quot;                  </span></span>
+<span id="cb6-20"><a href="#cb6-20"></a><span class="co">#&gt; [15] &quot;sex_of_driver&quot;                              </span></span>
+<span id="cb6-21"><a href="#cb6-21"></a><span class="co">#&gt; [16] &quot;age_of_driver&quot;                              </span></span>
+<span id="cb6-22"><a href="#cb6-22"></a><span class="co">#&gt; [17] &quot;age_band_of_driver&quot;                         </span></span>
+<span id="cb6-23"><a href="#cb6-23"></a><span class="co">#&gt; [18] &quot;engine_capacity_cc&quot;                         </span></span>
+<span id="cb6-24"><a href="#cb6-24"></a><span class="co">#&gt; [19] &quot;propulsion_code&quot;                            </span></span>
+<span id="cb6-25"><a href="#cb6-25"></a><span class="co">#&gt; [20] &quot;age_of_vehicle&quot;                             </span></span>
+<span id="cb6-26"><a href="#cb6-26"></a><span class="co">#&gt; [21] &quot;driver_imd_decile&quot;                          </span></span>
+<span id="cb6-27"><a href="#cb6-27"></a><span class="co">#&gt; [22] &quot;driver_home_area_type&quot;                      </span></span>
+<span id="cb6-28"><a href="#cb6-28"></a><span class="co">#&gt; [23] &quot;vehicle_imd_decile&quot;                         </span></span>
+<span id="cb6-29"><a href="#cb6-29"></a><span class="co">#&gt; [24] &quot;vehicle_type2&quot;                              </span></span>
+<span id="cb6-30"><a href="#cb6-30"></a><span class="co">#&gt; [25] &quot;location_easting_osgr&quot;                      </span></span>
+<span id="cb6-31"><a href="#cb6-31"></a><span class="co">#&gt; [26] &quot;location_northing_osgr&quot;                     </span></span>
+<span id="cb6-32"><a href="#cb6-32"></a><span class="co">#&gt; [27] &quot;longitude&quot;                                  </span></span>
+<span id="cb6-33"><a href="#cb6-33"></a><span class="co">#&gt; [28] &quot;latitude&quot;                                   </span></span>
+<span id="cb6-34"><a href="#cb6-34"></a><span class="co">#&gt; [29] &quot;police_force&quot;                               </span></span>
+<span id="cb6-35"><a href="#cb6-35"></a><span class="co">#&gt; [30] &quot;accident_severity&quot;                          </span></span>
+<span id="cb6-36"><a href="#cb6-36"></a><span class="co">#&gt; [31] &quot;number_of_vehicles&quot;                         </span></span>
+<span id="cb6-37"><a href="#cb6-37"></a><span class="co">#&gt; [32] &quot;number_of_casualties&quot;                       </span></span>
+<span id="cb6-38"><a href="#cb6-38"></a><span class="co">#&gt; [33] &quot;date&quot;                                       </span></span>
+<span id="cb6-39"><a href="#cb6-39"></a><span class="co">#&gt; [34] &quot;day_of_week&quot;                                </span></span>
+<span id="cb6-40"><a href="#cb6-40"></a><span class="co">#&gt; [35] &quot;time&quot;                                       </span></span>
+<span id="cb6-41"><a href="#cb6-41"></a><span class="co">#&gt; [36] &quot;local_authority_district&quot;                   </span></span>
+<span id="cb6-42"><a href="#cb6-42"></a><span class="co">#&gt; [37] &quot;local_authority_highway&quot;                    </span></span>
+<span id="cb6-43"><a href="#cb6-43"></a><span class="co">#&gt; [38] &quot;first_road_class&quot;                           </span></span>
+<span id="cb6-44"><a href="#cb6-44"></a><span class="co">#&gt; [39] &quot;first_road_number&quot;                          </span></span>
+<span id="cb6-45"><a href="#cb6-45"></a><span class="co">#&gt; [40] &quot;road_type&quot;                                  </span></span>
+<span id="cb6-46"><a href="#cb6-46"></a><span class="co">#&gt; [41] &quot;speed_limit&quot;                                </span></span>
+<span id="cb6-47"><a href="#cb6-47"></a><span class="co">#&gt; [42] &quot;junction_detail&quot;                            </span></span>
+<span id="cb6-48"><a href="#cb6-48"></a><span class="co">#&gt; [43] &quot;junction_control&quot;                           </span></span>
+<span id="cb6-49"><a href="#cb6-49"></a><span class="co">#&gt; [44] &quot;second_road_class&quot;                          </span></span>
+<span id="cb6-50"><a href="#cb6-50"></a><span class="co">#&gt; [45] &quot;second_road_number&quot;                         </span></span>
+<span id="cb6-51"><a href="#cb6-51"></a><span class="co">#&gt; [46] &quot;pedestrian_crossing_human_control&quot;          </span></span>
+<span id="cb6-52"><a href="#cb6-52"></a><span class="co">#&gt; [47] &quot;pedestrian_crossing_physical_facilities&quot;    </span></span>
+<span id="cb6-53"><a href="#cb6-53"></a><span class="co">#&gt; [48] &quot;light_conditions&quot;                           </span></span>
+<span id="cb6-54"><a href="#cb6-54"></a><span class="co">#&gt; [49] &quot;weather_conditions&quot;                         </span></span>
+<span id="cb6-55"><a href="#cb6-55"></a><span class="co">#&gt; [50] &quot;road_surface_conditions&quot;                    </span></span>
+<span id="cb6-56"><a href="#cb6-56"></a><span class="co">#&gt; [51] &quot;special_conditions_at_site&quot;                 </span></span>
+<span id="cb6-57"><a href="#cb6-57"></a><span class="co">#&gt; [52] &quot;carriageway_hazards&quot;                        </span></span>
+<span id="cb6-58"><a href="#cb6-58"></a><span class="co">#&gt; [53] &quot;urban_or_rural_area&quot;                        </span></span>
+<span id="cb6-59"><a href="#cb6-59"></a><span class="co">#&gt; [54] &quot;did_police_officer_attend_scene_of_accident&quot;</span></span>
+<span id="cb6-60"><a href="#cb6-60"></a><span class="co">#&gt; [55] &quot;lsoa_of_accident_location&quot;                  </span></span>
+<span id="cb6-61"><a href="#cb6-61"></a><span class="co">#&gt; [56] &quot;datetime&quot;</span></span></code></pre></div>
 <p>Let’s see how crash severity relates to the variables of interest mentioned above:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">xtabs</span>(<span class="op">~</span>vehicle_type2 <span class="op">+</span><span class="st"> </span>accident_severity, <span class="dt">data =</span> va) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">prop.table</span>()
-<span class="co">#&gt;              accident_severity</span>
-<span class="co">#&gt; vehicle_type2        Fatal      Serious       Slight</span>
-<span class="co">#&gt;     Bus       0.0002553092 0.0033315755 0.0192444523</span>
-<span class="co">#&gt;     Car       0.0079145844 0.1022324904 0.6167976696</span>
-<span class="co">#&gt;     Cycle     0.0004896914 0.0165490570 0.0622912534</span>
-<span class="co">#&gt;     Goods     0.0019294677 0.0130416949 0.0641621255</span>
-<span class="co">#&gt;     Motorbike 0.0015862652 0.0249365912 0.0538534944</span>
-<span class="co">#&gt;     Other     0.0002260114 0.0023228950 0.0088353716</span>
-<span class="kw">xtabs</span>(<span class="op">~</span>vehicle_type2 <span class="op">+</span><span class="st"> </span>accident_severity, <span class="dt">data =</span> va) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">prop.table</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">plot</span>()</code></pre></div>
-<p><img src="data:image/png;base64,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" width="100%" /></p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw">xtabs</span>(<span class="op">~</span>vehicle_type2 <span class="op">+</span><span class="st"> </span>accident_severity, <span class="dt">data =</span> va) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">prop.table</span>()</span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="co">#&gt;              accident_severity</span></span>
+<span id="cb7-3"><a href="#cb7-3"></a><span class="co">#&gt; vehicle_type2        Fatal      Serious       Slight</span></span>
+<span id="cb7-4"><a href="#cb7-4"></a><span class="co">#&gt;     Bus       0.0002605903 0.0035820131 0.0178791479</span></span>
+<span id="cb7-5"><a href="#cb7-5"></a><span class="co">#&gt;     Car       0.0082063876 0.1146465026 0.6043487671</span></span>
+<span id="cb7-6"><a href="#cb7-6"></a><span class="co">#&gt;     Cycle     0.0004814296 0.0174993044 0.0620735041</span></span>
+<span id="cb7-7"><a href="#cb7-7"></a><span class="co">#&gt;     Goods     0.0020626389 0.0144075545 0.0631202823</span></span>
+<span id="cb7-8"><a href="#cb7-8"></a><span class="co">#&gt;     Motorbike 0.0017181296 0.0259574487 0.0513407153</span></span>
+<span id="cb7-9"><a href="#cb7-9"></a><span class="co">#&gt;     Other     0.0004019275 0.0025308181 0.0094828386</span></span>
+<span id="cb7-10"><a href="#cb7-10"></a><span class="kw">xtabs</span>(<span class="op">~</span>vehicle_type2 <span class="op">+</span><span class="st"> </span>accident_severity, <span class="dt">data =</span> va) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">prop.table</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">plot</span>()</span></code></pre></div>
+<p><img src="data:image/png;base64,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" width="100%" /></p>
+<p>As expected, crashes involving large vehicles such as buses and good vehicles tend to be more serious (involve proportionally more deaths) than crashes involving smaller vehicles.</p>
+<p>To focus only on cars, we can filter the <code>va</code> table as follows:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>vac =<span class="st"> </span>va <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(vehicle_type2 <span class="op">==</span><span class="st"> &quot;Car&quot;</span>)</span></code></pre></div>
+<p>The best proxy we have for car type in the open STATS19 data (there are non-open versions of the data with additional columns) is engine capacity, measured in cubic centimetres (cc). The distribution of engine cc’s in the cars dataset created above is shown below.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="kw">summary</span>(vac<span class="op">$</span>engine_capacity_cc)</span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="co">#&gt;    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. </span></span>
+<span id="cb9-3"><a href="#cb9-3"></a><span class="co">#&gt;      -1    1198    1560    1440    1968   19997</span></span></code></pre></div>
+<p>The output shows that there are some impossible values in the data, likely due to recording error. Very few cars have an engine capacity above 5 litres (5000 cc) and we can be confident that none have an engine capacity below 300 cc. We’ll identify these records and remove them as follows:</p>
+<p>We have set the anomolous vehicle size data to NA meaning it will not be used in the subsequent analysis.</p>
 </div>
 
 

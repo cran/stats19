@@ -1,44 +1,43 @@
-## ----setup, include = FALSE----------------------------------------------
+## ----setup, include = FALSE---------------------------------------------------
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
   out.width = "100%"
 )
 
-## ---- eval=FALSE---------------------------------------------------------
+## ---- eval=FALSE--------------------------------------------------------------
 #  # from CRAN
 #  install.packages("stats19")
 #  # you can install the latest development (discoraged) using:
 #  remotes::install_github("ITSLeeds/stats19")
 
-## ------------------------------------------------------------------------
+## -----------------------------------------------------------------------------
 library(stats19)
 
-## ----dl2017-accidents----------------------------------------------------
+## ----dl2017-accidents---------------------------------------------------------
 dl_stats19(year = 2017, type = "Accidents", ask = FALSE)
 
-## ------------------------------------------------------------------------
+## -----------------------------------------------------------------------------
 stats19::file_names$dftRoadSafetyData_Vehicles_2017.zip
 
-## ----dl2017-all, eval=FALSE----------------------------------------------
+## ----dl2017-all, eval=FALSE---------------------------------------------------
 #  dl_stats19(year = 2017)
 
-## ----dl2017-search-------------------------------------------------------
+## ----dl2017-search------------------------------------------------------------
 d17 = "dftRoadSafetyData_Accidents_2017"
 dl_stats19(file_name = paste0(d17, ".zip"))
 
-## ----dl2017-read---------------------------------------------------------
+## ----dl2017-read--------------------------------------------------------------
 d17 = "dftRoadSafetyData_Accidents_2017"
 dl_stats19(file_name = paste0(d17, ".zip"))
-crashes_2017_raw = read_accidents(data_dir = tempdir(),
-                                  year = 2017,
+crashes_2017_raw = read_accidents(year = 2017,
                                   filename = "Acc.csv")
 
-## ----crashes2017-class---------------------------------------------------
+## ----crashes2017-class--------------------------------------------------------
 class(crashes_2017_raw)
 dim(crashes_2017_raw)
 
-## ----read2017-raw-format-------------------------------------------------
+## ----read2017-raw-format------------------------------------------------------
 crashes_2017_raw = read_accidents(year = 2017, format = FALSE)
 crashes_2017 = format_accidents(crashes_2017_raw)
 nrow(crashes_2017_raw)
@@ -46,11 +45,11 @@ ncol(crashes_2017_raw)
 nrow(crashes_2017)
 ncol(crashes_2017)
 
-## ----crashes2017-columns-------------------------------------------------
+## ----crashes2017-columns------------------------------------------------------
 crashes_2017_raw[c(7, 18, 23, 25)]
 crashes_2017[c(7, 18, 23, 25)]
 
-## ---- echo=FALSE, eval=FALSE---------------------------------------------
+## ---- echo=FALSE, eval=FALSE--------------------------------------------------
 #  # commented out as confusing...
 #  key_patt = "severity|speed|light|human"
 #  key_vars = grep(key_patt, x = names(crashes_2017_raw), ignore.case = TRUE)
@@ -58,14 +57,14 @@ crashes_2017[c(7, 18, 23, 25)]
 #  crashes_2017_raw[random_n, key_vars]
 #  crashes_2017[random_n, key_vars]
 
-## ----variables-and-schema------------------------------------------------
+## ----variables-and-schema-----------------------------------------------------
 stats19_variables
 stats19_schema
 
-## ----format-col-names----------------------------------------------------
+## ----format-col-names---------------------------------------------------------
 format_column_names(stats19_variables$variable[1:3])
 
-## ----format-main---------------------------------------------------------
+## ----format-main--------------------------------------------------------------
 crashes_2017 = format_accidents(crashes_2017_raw)
 
 # vehicle data for 2017
@@ -77,59 +76,60 @@ vehicles_2017 = format_vehicles(vehicles_2017_raw)
 dl_stats19(year = 2017, type = "casualties", ask = FALSE)
 casualties_2017 = read_casualties(year = 2017)
 
-## ----summarise-stats19---------------------------------------------------
+## ----summarise-stats19--------------------------------------------------------
 summarise_stats19 = function(x) {
   data.frame(row.names = 1:length(x),
     name = substr(names(x), 1, 19),
-    class = sapply(x, class),
+    class = sapply(x, function(v) class(v)[1]),
     n_unique = sapply(x, function(v) length(unique(v))),
-    first_label = sapply(x, function(v) substr(unique(v)[1], 1, 9)),
-    second_label = sapply(x, function(v) substr(unique(v)[2], 1, 9))
+    first_label = sapply(x, function(v) substr(unique(v)[1], 1, 16)),
+    most_common_value = sapply(x, function(v) 
+      substr(names(sort(table(v), decreasing = TRUE)[1]), 1, 16)[1])
   )
 }
 
-## ----summarise-crashes---------------------------------------------------
+## ----summarise-crashes--------------------------------------------------------
 knitr::kable(summarise_stats19(crashes_2017), 
              caption = "Summary of formatted crash data.")
 
-## ----summarise-vehicles--------------------------------------------------
+## ----summarise-vehicles-------------------------------------------------------
 knitr::kable(summarise_stats19(vehicles_2017), 
              caption = "Summary of formatted vehicles data.")
 
-## ----summarise-casualties------------------------------------------------
+## ----summarise-casualties-----------------------------------------------------
 knitr::kable(summarise_stats19(casualties_2017), 
              caption = "Summary of formatted casualty data.")
 
-## ---- echo=FALSE, results='asis'-----------------------------------------
+## ---- echo=FALSE, results='asis'----------------------------------------------
 key_patt = "severity|speed|light|human"
 key_vars = grep(key_patt, x = names(stats19::accidents_sample_raw), ignore.case = TRUE)
 knitr::kable(stats19::accidents_sample_raw[, key_vars])
 
-## ----2017-cas------------------------------------------------------------
+## ----2017-cas-----------------------------------------------------------------
 dl_stats19(year = 2017, type = "casualties", ask = FALSE)
 casualties_2017 = read_casualties(year = 2017)
 nrow(casualties_2017)
 ncol(casualties_2017)
 
-## ----2017-cas-columns----------------------------------------------------
+## ----2017-cas-columns---------------------------------------------------------
 casualties_2017[c(4, 5, 6, 14)]
 
-## ----2017-cas-columns-all------------------------------------------------
+## ----2017-cas-columns-all-----------------------------------------------------
 names(casualties_2017)
 
-## ----dl2017-vehicles-----------------------------------------------------
+## ----dl2017-vehicles----------------------------------------------------------
 dl_stats19(year = 2017, type = "vehicles", ask = FALSE)
 vehicles_2017 = read_vehicles(year = 2017)
 nrow(vehicles_2017)
 ncol(vehicles_2017)
 
-## ----2017-veh-columns----------------------------------------------------
+## ----2017-veh-columns---------------------------------------------------------
 vehicles_2017[c(3, 14:16)]
 
-## ----2017-veh-columns-all------------------------------------------------
+## ----2017-veh-columns-all-----------------------------------------------------
 names(vehicles_2017)
 
-## ---- eval=FALSE, echo=FALSE---------------------------------------------
+## ---- eval=FALSE, echo=FALSE--------------------------------------------------
 #  # old code to be up-dated
 #  d14 = "Stats19_Data_2005-2014"
 #  crashes_2005_2014 = read_accidents(data_dir = d14)
@@ -143,10 +143,10 @@ names(vehicles_2017)
 #  all_crashes = rbind(crashes_2015_f, crashes_2016_f, crashes_2017_f)
 #  table(ac$Accident_Severity)
 
-## ----format-crashes-sf---------------------------------------------------
+## ----format-crashes-sf--------------------------------------------------------
 crashes_sf = format_sf(crashes_2017)
 
-## ----nfatalities---------------------------------------------------------
+## ----nfatalities--------------------------------------------------------------
 library(sf)
 library(dplyr)
 crashes_sf %>% 
@@ -155,16 +155,16 @@ crashes_sf %>%
   aggregate(by = police_boundaries, FUN = length) %>% 
   plot()
 
-## ----ukboundaries--------------------------------------------------------
+## ----ukboundaries-------------------------------------------------------------
 west_yorkshire =
   police_boundaries[police_boundaries$pfa16nm == "West Yorkshire", ]
 
-## ----crashes-west_yorkshire----------------------------------------------
+## ----crashes-west_yorkshire---------------------------------------------------
 crashes_wy = crashes_sf[west_yorkshire, ]
 nrow(crashes_sf)
 nrow(crashes_wy)
 
-## ----table-join, message = FALSE-----------------------------------------
+## ----table-join, message = FALSE----------------------------------------------
 library(tidyr)
 library(dplyr)
 sel = casualties_2017$accident_index %in% crashes_wy$accident_index
@@ -180,10 +180,10 @@ cas_types = casualties_wy %>%
     ) 
 cj = left_join(crashes_wy, cas_types)
 
-## ----table-join-examples-------------------------------------------------
+## ----table-join-examples------------------------------------------------------
 base::setdiff(names(cj), names(crashes_wy))
 
-## ---- out.width="90%", fig.show='hold'-----------------------------------
+## ---- out.width="90%", fig.show='hold'----------------------------------------
 plot(
   cj[cj$cycling > 0, "speed_limit", ],
   cex = cj$Total[cj$cycling > 0] / 3,
@@ -195,7 +195,7 @@ plot(
   main = "Speed limit (passenger)"
   )
 
-## ---- echo=FALSE---------------------------------------------------------
+## ---- echo=FALSE--------------------------------------------------------------
 knitr::include_graphics("wy-overview.jpg")
 
 ## ----sfplot, fig.show='hold', out.width="100%", fig.cap="Spatial distribution of serious and fatal crashes in West Yorkshire, for cycling, walking, being a car passenger and other modes of travel. Colour is related to the speed limit where the crash happened (red is faster) and size is proportional to the total number of people hurt in each crash (legend not shown).", fig.width=9, fig.height=7----
@@ -218,7 +218,7 @@ ggplot(crashes_types, aes(size = Total, colour = speed_limit)) +
   scale_color_gradientn(colours = c("blue", "yellow", "red")) +
   theme(axis.text = element_blank(), axis.ticks = element_blank())
 
-## ----ggplot-ped-severity, fig.height=5, fig.width=6----------------------
+## ----ggplot-ped-severity, fig.height=5, fig.width=6---------------------------
 table(cj$light_conditions)
 cj %>% 
   filter(walking > 0) %>% 
@@ -233,7 +233,7 @@ cj %>%
   scale_color_continuous(low = "blue", high = "red") +
   theme(axis.text = element_blank(), axis.ticks = element_blank())
 
-## ----crash-date-plot, fig.width=5, fig.height=5--------------------------
+## ----crash-date-plot, fig.width=5, fig.height=5-------------------------------
 crashes_dates = cj %>% 
   st_set_geometry(NULL) %>% 
   group_by(date) %>% 
@@ -247,7 +247,7 @@ ggplot(crashes_dates, aes(date, casualties)) +
   geom_smooth(aes(colour = mode), method = "loess") +
   ylab("Casualties per day")
 
-## ----crash-time-plot, fig.width=5, fig.height=5--------------------------
+## ----crash-time-plot, fig.width=5, fig.height=5-------------------------------
 library(stringr)
 
 crash_times = cj %>% 

@@ -16,7 +16,6 @@ test_that("format_vehicles works", {
   # read it
   read = read_vehicles(
     year = 2016,
-    data_dir = tempdir(),
     filename = "Veh.csv"
   )
   df = format_vehicles(head(read))
@@ -32,7 +31,6 @@ test_that("format_casualties works", {
   # read it
   read = read_casualties(
     year = 2016,
-    data_dir = tempdir(),
     filename = "Cas.csv"
   )
   df = format_casualties(head(read))
@@ -53,4 +51,34 @@ test_that("format_sf works", {
   expect_equal(nrow(df2), nrow(rd))
   expect_true(is(df1, "sf"))
   expect_true(is(df2, "sf"))
+})
+
+test_that("format_ppp returns ppp object", {
+  rd = accidents_sample
+  rd_ppp = format_ppp(rd)
+  expect_true(is(rd_ppp, "ppp"))
+})
+
+test_that("is it possible to change window object in format_ppp", {
+  rd = accidents_sample
+  rd_ppp = format_ppp(rd)
+  rd_ppp2 = format_ppp(
+    rd,
+    # bounding box of leeds which is smaller the default bbox which
+    # covers all UK
+    window = spatstat::owin(c(425046.1, 435046.1), c(428577.2, 438577.2))
+  )
+  # since the bbox is smaller there must be fewer points
+  expect_true(rd_ppp2$n <= rd_ppp$n)
+})
+
+test_that("format_ppp exclude events with missing coordinates", {
+  rd = accidents_sample
+  rd_ppp = format_ppp(rd)
+  rd2 = rd
+  rd2[1, "location_easting_osgr"] = NA
+  rd2[1, "location_northing_osgr"] = NA
+  rd_ppp2 = format_ppp(rd2)
+  # since the bbox is smaller there must be fewer points
+  expect_true(rd_ppp2$n <= rd_ppp$n)
 })

@@ -1,43 +1,43 @@
-## ---- eval=FALSE, message=FALSE------------------------------------------
+## ---- eval=FALSE, message=FALSE-----------------------------------------------
 #  # release version - currently 0.2.0
 #  install.packages("stats19")
 #  # dev version
 #  # remotes::install_github("ropensci/stats19")
 
-## ------------------------------------------------------------------------
+## -----------------------------------------------------------------------------
 library(stats19)
 
-## ----dl2017-accidents, message=FALSE-------------------------------------
+## ----dl2017-accidents, message=FALSE------------------------------------------
 crashes_2017 = get_stats19(year = 2017, type = "Accidents", ask = FALSE)
 nrow(crashes_2017)
 
-## ----crashes_2017-explore------------------------------------------------
+## ----crashes_2017-explore-----------------------------------------------------
 column_names = names(crashes_2017)
 length(column_names)
 head(column_names)
 class(crashes_2017)
 kableExtra::kable(head(crashes_2017[, c(1, 4, 5, 7, 10)]))
 
-## ----file_names----------------------------------------------------------
+## ----file_names---------------------------------------------------------------
 stats19::file_names$dftRoadSafetyData_Vehicles_2017.zip
 
-## ------------------------------------------------------------------------
+## -----------------------------------------------------------------------------
 crashes_2017_raw = get_stats19(year = 2017, type = "Accidents", ask = FALSE, format = FALSE)
 
-## ----crashes_2017-raw----------------------------------------------------
+## ----crashes_2017-raw---------------------------------------------------------
 kableExtra::kable(cbind(head(crashes_2017_raw[1:2, c(7, 10)]), head(crashes_2017[1:2, c(7, 10)])))
 class(crashes_2017_raw$Date)
 class(crashes_2017$date)
 
-## ------------------------------------------------------------------------
+## -----------------------------------------------------------------------------
 class(crashes_2017$date)
 class(crashes_2017_raw$Date)
 
-## ----format-crashes-sf---------------------------------------------------
+## ----format-crashes-sf--------------------------------------------------------
 crashes_sf = format_sf(crashes_2017)
 # crashes_sf = format_sf(crashes_2017, lonlat = TRUE) # provides the data in lon/lat format
 
-## ----nfatalities, message=FALSE------------------------------------------
+## ----nfatalities, message=FALSE-----------------------------------------------
 library(sf)
 library(dplyr)
 crashes_sf %>% 
@@ -46,22 +46,22 @@ crashes_sf %>%
   aggregate(by = police_boundaries, FUN = length) %>% 
   plot()
 
-## ----ukboundaries--------------------------------------------------------
+## ----ukboundaries-------------------------------------------------------------
 west_yorkshire =
   police_boundaries[police_boundaries$pfa16nm == "West Yorkshire", ]
 
-## ----crashes-west_yorkshire----------------------------------------------
+## ----crashes-west_yorkshire---------------------------------------------------
 crashes_wy = crashes_sf[west_yorkshire, ]
 nrow(crashes_wy) # which is 3.36%
 
-## ----dl2017-vehcas, message=FALSE----------------------------------------
+## ----dl2017-vehcas, message=FALSE---------------------------------------------
 #crashes_2017 = get_stats19(year = 2017, type = "Accidents", ask = FALSE)
 casualties_2017 = get_stats19(year = 2017, type = "Casualties", ask = FALSE)
 nrow(casualties_2017)
 vehicles_2017 = get_stats19(year = 2017, type = "Vehicles", ask = FALSE)
 nrow(vehicles_2017)
 
-## ----table-join, message = FALSE-----------------------------------------
+## ----table-join, message = FALSE----------------------------------------------
 library(tidyr)
 library(dplyr)
 sel = casualties_2017$accident_index %in% crashes_wy$accident_index
@@ -77,7 +77,7 @@ cas_types = casualties_wy %>%
     ) 
 cj = left_join(crashes_wy, cas_types)
 
-## ----table-join-examples-------------------------------------------------
+## ----table-join-examples------------------------------------------------------
 base::setdiff(names(cj), names(crashes_wy))
 
 ## ----sfplot, fig.show='hold', out.width="100%", fig.cap="Spatial distribution of serious and fatal collisions in which people who were walking on the road network ('pedestrians') were hit by a car or other vehicle.", fig.width=9, fig.height=7----
@@ -114,12 +114,11 @@ map = leaflet(data = crashes_pedestrians_lonlat, height = "280px") %>%
   leaflet::addMiniMap(toggleDisplay = TRUE)
 # map # if you like to see the leaflet version
 
-## ----custom-leaflet------------------------------------------------------
+## ----custom-leaflet-----------------------------------------------------------
 library(geojsonsf)
 library(htmltools)
 geojson = sf_geojson(
-  crashes_pedestrians_lonlat[,c("accident_severity")],
-factors_as_string = FALSE)
+  crashes_pedestrians_lonlat[,c("accident_severity")])
 template = paste0('
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin=""/>
 <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js" integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==" crossorigin=""></script>

@@ -1,11 +1,14 @@
-## ---- include = FALSE----------------------------------------------------
+## ---- include = FALSE---------------------------------------------------------
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
   out.width = "50%"
 )
 
-## ---- eval=FALSE---------------------------------------------------------
+## ---- eval=FALSE--------------------------------------------------------------
+#  source("https://git.io/JeaZH")
+
+## ---- eval=FALSE--------------------------------------------------------------
 #  install.packages("remotes")
 #  pkgs = c(
 #    "pct",         # package for getting travel data in the UK
@@ -18,7 +21,7 @@ knitr::opts_chunk$set(
 #  remotes::install_cran(pkgs)
 #  # remotes::install_github("ITSLeeds/pct")
 
-## ----message=FALSE, eval=FALSE-------------------------------------------
+## ----message=FALSE, eval=FALSE------------------------------------------------
 #  library(stats19)
 #  library(tidyverse)
 #  library(tmap) # installed alongside mapview
