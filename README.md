@@ -1,14 +1,14 @@
 
-[![](http://www.r-pkg.org/badges/version/stats19)](http://www.r-pkg.org/pkg/stats19)
+[![](http://www.r-pkg.org/badges/version/stats19)](https://www.r-pkg.org/pkg/stats19)
 [![Travis build
 status](https://travis-ci.org/ropensci/stats19.svg?branch=master)](https://travis-ci.org/ropensci/stats19)
 [![codecov](https://codecov.io/gh/ropensci/stats19/branch/master/graph/badge.svg)](https://codecov.io/gh/ropensci/stats19)
 [![CRAN RStudio mirror
-downloads](https://cranlogs.r-pkg.org/badges/grand-total/stats19)](http://www.r-pkg.org/pkg/stats19)
+downloads](https://cranlogs.r-pkg.org/badges/grand-total/stats19)](https://www.r-pkg.org/pkg/stats19)
 [![Life
 cycle](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/)
-[![](https://badges.ropensci.org/266_status.svg)](https://github.com/ropensci/onboarding/issues/266)
-[![DOI](http://joss.theoj.org/papers/10.21105/joss.01181/status.svg)](https://doi.org/10.21105/joss.01181)
+[![](https://badges.ropensci.org/266_status.svg)](https://github.com/ropensci/software-review/issues/266)
+[![DOI](https://joss.theoj.org/papers/10.21105/joss.01181/status.svg)](https://doi.org/10.21105/joss.01181)
 
 <!-- [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.2540781.svg)](https://doi.org/10.5281/zenodo.2540781) -->
 
@@ -71,7 +71,7 @@ provision of STATS19 data files, which are categorised by year (from
 vehicles, as outlined below). The following command, for example, gets
 crash data from 2017 (**note**: we follow the “crash not accident”
 campaign of
-[RoadPeace](http://www.roadpeace.org/take-action/crash-not-accident/) in
+[RoadPeace](https://www.roadpeace.org/take-action/crash-not-accident/) in
 naming crashes, although the DfT refers to the relevant tables as
 ‘accidents’ data):
 
