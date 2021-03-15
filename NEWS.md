@@ -1,3 +1,10 @@
+# stats19 1.4.0
+
+* Add `get_stats19_adjustments()` function
+* Use GH Actions for CI (#177)
+* Fixed a problem with `get_stats19()` and multiple years that could be linked with the same data file (#168)
+* Fix issues with vignettes for CRAN (#190)
+
 # stats19 1.3.0
 
 * Support for 2019 data (#171)

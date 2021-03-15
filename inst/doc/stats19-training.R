@@ -420,14 +420,23 @@ tmap_mode("plot")
 
 ## ----plot3, fig.show='hold', out.width="33%", echo=FALSE----------------------
 plot(zones[c("all", "bicycle")])
-tm_shape(zones) + 
-  tm_polygons(c("all", "bicycle"))
-tmap_mode("view")
-m = tm_shape(zones_joined) + 
-  tm_polygons(c("casualty_type")) +
-  tm_scale_bar()
-m
+# tm_shape(zones) + 
+#   tm_polygons(c("all", "bicycle"))
+# tmap_mode("view")
+# m = tm_shape(zones_joined) + 
+#   tm_polygons(c("casualty_type")) +
+#   tm_scale_bar()
+# m
 # knitr::include_graphics("tmap-zones-interactive.png")
+# piggyback::pb_upload("zones_joined.Rds")
+# create bug report:
+# See https://github.com/mtennekes/tmap/issues/551
+# piggyback::pb_download_url("zones_joined.Rds")
+# "https://github.com/ropensci/stats19/releases/download/1.3.0/zones_joined.Rds"
+# library(tmap)
+# u = "https://github.com/ropensci/stats19/releases/download/1.3.0/zones_joined.Rds"
+# zones_joined = readRDS(url(u))
+# qtm(zones_joined)
 
 ## ---- eval=FALSE--------------------------------------------------------------
 #  vignette(package = "stats19") # view all vignettes available on stats19
@@ -474,9 +483,9 @@ crashes_outside_roads = crashes_iow[roads_buffer, , op = sf::st_disjoint]
 roads_agg = aggregate(crashes_iow[1], by = roads_buffer, FUN = length)
 # plot(roads_agg, border = NA, main = "")
 names(roads_agg)[1] = "N. Crashes"
-tmap_mode("plot")
-tm_shape(roads_agg) + tm_fill("N. Crashes") +
-  tm_shape(crashes_outside_roads) + tm_dots(col = "blue")
+# tmap_mode("plot")
+# tm_shape(roads_agg) + tm_fill("N. Crashes") +
+#   tm_shape(crashes_outside_roads) + tm_dots(col = "blue")
 
 ## ----final-plot, echo=FALSE, out.width="100%"---------------------------------
 # knitr::include_graphics("final-figure.png")
