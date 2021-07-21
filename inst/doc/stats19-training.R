@@ -7,6 +7,7 @@
 #  library(tmap)     # interactive maps
 
 ## ---- include = FALSE---------------------------------------------------------
+
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
@@ -332,44 +333,47 @@ plot(crashes_sf[2:3, "dark"])
 #  read_sf("zmapinfo") # read in mapinfo file
 
 ## -----------------------------------------------------------------------------
-zones = pct::get_pct_zones("isle-of-wight")[1:9]
+knitr::opts_chunk$set(eval = FALSE)
+
+## -----------------------------------------------------------------------------
+#  zones = pct::get_pct_zones("isle-of-wight")[1:9]
 
 ## ---- echo=FALSE--------------------------------------------------------------
-# class(zones)
-# names(zones)
-zones[1:2, c(1, 5, 6, 7, 8)]
+#  # class(zones)
+#  # names(zones)
+#  zones[1:2, c(1, 5, 6, 7, 8)]
 
 ## ---- message=FALSE-----------------------------------------------------------
-zones_containing_crashes = zones[crashes_sf, ]
+#  zones_containing_crashes = zones[crashes_sf, ]
 
 ## ----sp-ex, echo=FALSE, out.width="33%", fig.show='hold', message=FALSE, warning=FALSE----
-plot(zones$geometry)
-plot(zones_containing_crashes$geometry, col = "red", add = TRUE)
-plot(zones$geometry)
-plot(zones[crashes_sf[2, ], ], col = "blue", add = TRUE)
-plot(zones$geometry)
-plot(zones[zones_containing_crashes, ], col = "yellow", add = TRUE)
-plot(crashes_sf$geometry, pch = 20, add = TRUE)
+#  plot(zones$geometry)
+#  plot(zones_containing_crashes$geometry, col = "red", add = TRUE)
+#  plot(zones$geometry)
+#  plot(zones[crashes_sf[2, ], ], col = "blue", add = TRUE)
+#  plot(zones$geometry)
+#  plot(zones[zones_containing_crashes, ], col = "yellow", add = TRUE)
+#  plot(crashes_sf$geometry, pch = 20, add = TRUE)
 
 ## ---- message=FALSE-----------------------------------------------------------
-zones_joined = st_join(zones[1], crashes_sf)
+#  zones_joined = st_join(zones[1], crashes_sf)
 
 ## ----joinf, echo=FALSE, out.width="40%", fig.show='hold', message=FALSE-------
-plot(zones_joined["casualty_age"])
-zjd = st_join(zones[1], crashes_sf["dark"], left = FALSE)
-plot(zjd)
+#  plot(zones_joined["casualty_age"])
+#  zjd = st_join(zones[1], crashes_sf["dark"], left = FALSE)
+#  plot(zjd)
 
 ## ----crs1---------------------------------------------------------------------
-crashes_osgb = st_transform(crashes_sf, 27700)
+#  crashes_osgb = st_transform(crashes_sf, 27700)
 
-## ---- eval=TRUE---------------------------------------------------------------
-# load example dataset if it doesn't already exist
-zones = pct::get_pct_zones("isle-of-wight")
-sel = zones$all > 3000  # create a subsetting object
-zones_large = zones[sel, ] # subset areas with a popualtion over 100,000
-zones_2 = zones[zones$geo_name == "Isle of Wight 002",] # subset based on 'equality' query
-zones_first_and_third_column = zones[c(1, 3)]
-zones_just_all = zones["all"]
+## -----------------------------------------------------------------------------
+#  # load example dataset if it doesn't already exist
+#  zones = pct::get_pct_zones("isle-of-wight")
+#  sel = zones$all > 3000  # create a subsetting object
+#  zones_large = zones[sel, ] # subset areas with a popualtion over 100,000
+#  zones_2 = zones[zones$geo_name == "Isle of Wight 002",] # subset based on 'equality' query
+#  zones_first_and_third_column = zones[c(1, 3)]
+#  zones_just_all = zones["all"]
 
 ## ---- echo=FALSE, eval=FALSE--------------------------------------------------
 #  # 1. Practice subsetting techniques you have learned on the `sf data.frame` object `zones`:
@@ -415,28 +419,28 @@ zones_just_all = zones["all"]
 #    summarise(mean_car = sum(car_driver) / sum(all) )
 
 ## -----------------------------------------------------------------------------
-library(tmap)
-tmap_mode("plot")
+#  library(tmap)
+#  tmap_mode("plot")
 
 ## ----plot3, fig.show='hold', out.width="33%", echo=FALSE----------------------
-plot(zones[c("all", "bicycle")])
-# tm_shape(zones) + 
-#   tm_polygons(c("all", "bicycle"))
-# tmap_mode("view")
-# m = tm_shape(zones_joined) + 
-#   tm_polygons(c("casualty_type")) +
-#   tm_scale_bar()
-# m
-# knitr::include_graphics("tmap-zones-interactive.png")
-# piggyback::pb_upload("zones_joined.Rds")
-# create bug report:
-# See https://github.com/mtennekes/tmap/issues/551
-# piggyback::pb_download_url("zones_joined.Rds")
-# "https://github.com/ropensci/stats19/releases/download/1.3.0/zones_joined.Rds"
-# library(tmap)
-# u = "https://github.com/ropensci/stats19/releases/download/1.3.0/zones_joined.Rds"
-# zones_joined = readRDS(url(u))
-# qtm(zones_joined)
+#  plot(zones[c("all", "bicycle")])
+#  # tm_shape(zones) +
+#  #   tm_polygons(c("all", "bicycle"))
+#  # tmap_mode("view")
+#  # m = tm_shape(zones_joined) +
+#  #   tm_polygons(c("casualty_type")) +
+#  #   tm_scale_bar()
+#  # m
+#  # knitr::include_graphics("tmap-zones-interactive.png")
+#  # piggyback::pb_upload("zones_joined.Rds")
+#  # create bug report:
+#  # See https://github.com/mtennekes/tmap/issues/551
+#  # piggyback::pb_download_url("zones_joined.Rds")
+#  # "https://github.com/ropensci/stats19/releases/download/1.3.0/zones_joined.Rds"
+#  # library(tmap)
+#  # u = "https://github.com/ropensci/stats19/releases/download/1.3.0/zones_joined.Rds"
+#  # zones_joined = readRDS(url(u))
+#  # qtm(zones_joined)
 
 ## ---- eval=FALSE--------------------------------------------------------------
 #  vignette(package = "stats19") # view all vignettes available on stats19
@@ -467,26 +471,26 @@ plot(zones[c("all", "bicycle")])
 #  class(a$date)
 
 ## -----------------------------------------------------------------------------
-u = "https://github.com/ropensci/stats19/releases/download/1.1.0/roads_key.Rds"
-roads_wgs = readRDS(url(u))
-roads = roads_wgs %>% st_transform(crs = 27700)
+#  u = "https://github.com/ropensci/stats19/releases/download/1.1.0/roads_key.Rds"
+#  roads_wgs = readRDS(url(u))
+#  roads = roads_wgs %>% st_transform(crs = 27700)
 
 ## -----------------------------------------------------------------------------
-u = "https://github.com/ropensci/stats19/releases/download/1.1.0/car_accidents_2017_iow.Rds"
-crashes_iow = readRDS(url(u))
+#  u = "https://github.com/ropensci/stats19/releases/download/1.1.0/car_accidents_2017_iow.Rds"
+#  crashes_iow = readRDS(url(u))
 
 ## ---- echo=FALSE, out.width="49%", fig.show='hold', message=FALSE-------------
-plot(roads$geometry)
-plot(crashes_iow["accident_severity"], add = TRUE)
-roads_buffer = st_buffer(roads, 200, endCapStyle = "FLAT")
-crashes_outside_roads = crashes_iow[roads_buffer, , op = sf::st_disjoint]
-roads_agg = aggregate(crashes_iow[1], by = roads_buffer, FUN = length)
-# plot(roads_agg, border = NA, main = "")
-names(roads_agg)[1] = "N. Crashes"
-# tmap_mode("plot")
-# tm_shape(roads_agg) + tm_fill("N. Crashes") +
-#   tm_shape(crashes_outside_roads) + tm_dots(col = "blue")
+#  plot(roads$geometry)
+#  plot(crashes_iow["accident_severity"], add = TRUE)
+#  roads_buffer = st_buffer(roads, 200, endCapStyle = "FLAT")
+#  crashes_outside_roads = crashes_iow[roads_buffer, , op = sf::st_disjoint]
+#  roads_agg = aggregate(crashes_iow[1], by = roads_buffer, FUN = length)
+#  # plot(roads_agg, border = NA, main = "")
+#  names(roads_agg)[1] = "N. Crashes"
+#  # tmap_mode("plot")
+#  # tm_shape(roads_agg) + tm_fill("N. Crashes") +
+#  #   tm_shape(crashes_outside_roads) + tm_dots(col = "blue")
 
 ## ----final-plot, echo=FALSE, out.width="100%"---------------------------------
-# knitr::include_graphics("final-figure.png")
+#  # knitr::include_graphics("final-figure.png")
 
