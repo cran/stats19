@@ -2,7 +2,8 @@
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
-  out.width = "100%"
+  out.width = "100%",
+  eval = curl::has_internet()
 )
 
 ## ---- eval=FALSE--------------------------------------------------------------
@@ -15,23 +16,22 @@ knitr::opts_chunk$set(
 library(stats19)
 
 ## ----dl2017-accidents---------------------------------------------------------
-dl_stats19(year = 2017, type = "Accidents", ask = FALSE)
+dl_stats19(year = 2017, type = "accident", ask = FALSE)
 
 ## -----------------------------------------------------------------------------
-stats19::file_names$dftRoadSafetyData_Vehicles_2017.zip
+stats19::file_names$DigitalBreathTestData2013.zip
 
 ## ----dl2017-all, eval=FALSE---------------------------------------------------
 #  dl_stats19(year = 2017)
 
-## ----dl2017-search------------------------------------------------------------
-d17 = "dftRoadSafetyData_Accidents_2017"
-dl_stats19(file_name = paste0(d17, ".zip"))
-
 ## ----dl2017-read--------------------------------------------------------------
-d17 = "dftRoadSafetyData_Accidents_2017"
-dl_stats19(file_name = paste0(d17, ".zip"))
-crashes_2017_raw = read_accidents(year = 2017,
-                                  filename = "Acc.csv")
+crashes_2017_raw = get_stats19(year = 2017, type = "acc", format = FALSE)
+
+## ---- echo=FALSE--------------------------------------------------------------
+# skip vignettes if resource unavailable
+if(object.size(crashes_2017_raw) < 1000) {
+  knitr::opts_chunk$set(eval = FALSE)
+}
 
 ## ----crashes2017-class--------------------------------------------------------
 class(crashes_2017_raw)
@@ -68,12 +68,12 @@ format_column_names(stats19_variables$variable[1:3])
 crashes_2017 = format_accidents(crashes_2017_raw)
 
 # vehicle data for 2017
-dl_stats19(year = 2017, type = "vehicles", ask = FALSE)
+dl_stats19(year = 2017, type = "vehicle", ask = FALSE)
 vehicles_2017_raw = read_vehicles(year = 2017)
 vehicles_2017 = format_vehicles(vehicles_2017_raw)
 
 # casualties data for 2017
-dl_stats19(year = 2017, type = "casualties", ask = FALSE)
+dl_stats19(year = 2017, type = "casualty", ask = FALSE)
 casualties_2017 = read_casualties(year = 2017)
 
 ## ----summarise-stats19--------------------------------------------------------
@@ -106,7 +106,7 @@ key_vars = grep(key_patt, x = names(stats19::accidents_sample_raw), ignore.case 
 knitr::kable(stats19::accidents_sample_raw[, key_vars])
 
 ## ----2017-cas-----------------------------------------------------------------
-dl_stats19(year = 2017, type = "casualties", ask = FALSE)
+dl_stats19(year = 2017, type = "casualty", ask = FALSE)
 casualties_2017 = read_casualties(year = 2017)
 nrow(casualties_2017)
 ncol(casualties_2017)
@@ -118,7 +118,7 @@ casualties_2017[c(4, 5, 6, 14)]
 names(casualties_2017)
 
 ## ----dl2017-vehicles----------------------------------------------------------
-dl_stats19(year = 2017, type = "vehicles", ask = FALSE)
+dl_stats19(year = 2017, type = "vehicle", ask = FALSE)
 vehicles_2017 = read_vehicles(year = 2017)
 nrow(vehicles_2017)
 ncol(vehicles_2017)
@@ -208,6 +208,7 @@ crashes_types = cj %>%
     passenger > 0 ~ "Passenger",
     TRUE ~ "Other"
   ))
+table(crashes_types$speed_limit)
 ggplot(crashes_types, aes(size = Total, colour = speed_limit)) +
   geom_sf(show.legend = "point", alpha = 0.3) +
   facet_grid(vars(type), vars(accident_severity)) +

@@ -412,7 +412,7 @@ div.csl-indent {
 <!-- now talk about loading packages -->
 <p>Installed packages are loaded with the command <code>library()</code>. Usually, the package will load silently. In some cases the package will provide a message, as illustrated below.</p>
 <div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1</span></span></code></pre></div>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Linking to GEOS 3.9.1, GDAL 3.3.2, PROJ 7.2.1</span></span></code></pre></div>
 <p>To use a function in a package without first loading the package, use double colons, as shown below (this calls the <code>tibble()</code> function from the <code>tibble</code> package).</p>
 <div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>crashes_tibble <span class="ot">=</span> tibble<span class="sc">::</span><span class="fu">tibble</span>(</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  vehicle_type,</span>
@@ -479,7 +479,7 @@ div.csl-indent {
 <div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span></code></pre></div>
 <p>The simplest example of a Date object that we can analyze is just the current date, i.e.</p>
 <div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">today</span>()</span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;2021-07-21&quot;</span></span></code></pre></div>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;2021-10-25&quot;</span></span></code></pre></div>
 <p>We can manipulate this object using several <code>lubridate</code> functions to extract the current day, month, year, weekday and so on…</p>
 <div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">today</span>()</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">day</span>(x)</span>

@@ -59,9 +59,9 @@ knitr::opts_chunk$set(eval = FALSE)
 
 ## ----dl2017-vehcas, message=FALSE---------------------------------------------
 #  #crashes_2017 = get_stats19(year = 2017, type = "Accidents", ask = FALSE)
-#  casualties_2017 = get_stats19(year = 2017, type = "Casualties", ask = FALSE)
+#  casualties_2017 = get_stats19(year = 2017, type = "casualty", ask = FALSE)
 #  nrow(casualties_2017)
-#  vehicles_2017 = get_stats19(year = 2017, type = "Vehicles", ask = FALSE)
+#  vehicles_2017 = get_stats19(year = 2017, type = "vehicle", ask = FALSE)
 #  nrow(vehicles_2017)
 
 ## ----table-join, message = FALSE----------------------------------------------

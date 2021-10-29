@@ -1,55 +1,57 @@
 ## ---- include = FALSE---------------------------------------------------------
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>"
+  comment = "#>",
+  eval = FALSE
 )
 
 ## ----setup, message=FALSE-----------------------------------------------------
-library(stats19)
-library(dplyr)
+#  library(stats19)
+#  library(dplyr)
 
 ## -----------------------------------------------------------------------------
-v = get_stats19(year = 2018, type = "vehicles")
-v
+#  v = get_stats19(year = 2018, type = "vehicle")
+#  names(v)
+#  v
 
 ## -----------------------------------------------------------------------------
-v = v %>% mutate(vehicle_type2 = case_when(
-  grepl(pattern = "motorcycle", vehicle_type, ignore.case = TRUE) ~ "Motorbike",
-  grepl(pattern = "Car", vehicle_type, ignore.case = TRUE) ~ "Car",
-  grepl(pattern = "Bus", vehicle_type, ignore.case = TRUE) ~ "Bus",
-  grepl(pattern = "cycle", vehicle_type, ignore.case = TRUE) ~ "Cycle",
-  # grepl(pattern = "Van", vehicle_type, ignore.case = TRUE) ~ "Van",
-  grepl(pattern = "Goods", vehicle_type, ignore.case = TRUE) ~ "Goods",
-  
-  TRUE ~ "Other"
-))
-# barplot(table(v$vehicle_type2))
+#  v = v %>% mutate(vehicle_type2 = case_when(
+#    grepl(pattern = "motorcycle", vehicle_type, ignore.case = TRUE) ~ "Motorbike",
+#    grepl(pattern = "Car", vehicle_type, ignore.case = TRUE) ~ "Car",
+#    grepl(pattern = "Bus", vehicle_type, ignore.case = TRUE) ~ "Bus",
+#    grepl(pattern = "cycle", vehicle_type, ignore.case = TRUE) ~ "Cycle",
+#    # grepl(pattern = "Van", vehicle_type, ignore.case = TRUE) ~ "Van",
+#    grepl(pattern = "Goods", vehicle_type, ignore.case = TRUE) ~ "Goods",
+#  
+#    TRUE ~ "Other"
+#  ))
+#  # barplot(table(v$vehicle_type2))
 
 ## -----------------------------------------------------------------------------
-table(v$vehicle_type2)
-summary(v$age_of_driver)
-summary(v$engine_capacity_cc)
-table(v$propulsion_code)
-summary(v$age_of_vehicle)
+#  table(v$vehicle_type2)
+#  summary(v$age_of_driver)
+#  summary(v$engine_capacity_cc)
+#  table(v$propulsion_code)
+#  summary(v$age_of_vehicle)
 
 ## -----------------------------------------------------------------------------
-a = get_stats19(year = 2018, type = "accidents")
-va = dplyr::inner_join(v, a)
+#  a = get_stats19(year = 2018, type = "accidents")
+#  va = dplyr::inner_join(v, a)
 
 ## -----------------------------------------------------------------------------
-dim(v)
-dim(va)
-names(va)
+#  dim(v)
+#  dim(va)
+#  names(va)
 
 ## ---- out.width="100%"--------------------------------------------------------
-xtabs(~vehicle_type2 + accident_severity, data = va) %>% prop.table()
-xtabs(~vehicle_type2 + accident_severity, data = va) %>% prop.table() %>% plot()
+#  xtabs(~vehicle_type2 + accident_severity, data = va) %>% prop.table()
+#  xtabs(~vehicle_type2 + accident_severity, data = va) %>% prop.table() %>% plot()
 
 ## -----------------------------------------------------------------------------
-vac = va %>% filter(vehicle_type2 == "Car")
+#  vac = va %>% filter(vehicle_type2 == "Car")
 
 ## -----------------------------------------------------------------------------
-summary(vac$engine_capacity_cc)
+#  summary(vac$engine_capacity_cc)
 
 ## ---- echo=FALSE, eval=FALSE--------------------------------------------------
 #  library(tidyverse)

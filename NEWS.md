@@ -1,3 +1,16 @@
+# stats19 2.0.0 2020-10
+
+* Major changes to the datasets provided by the DfT have led to major changes to the package. See (#212) for details.
+* To reduce code complexity the package no longer supports reading in multiple years
+* This puts the onus on the user of the package to understand the input data, rather than relying on clever coding to join everything together. Note: you can easily join different years, e.g. with the command `purrr::map_dfr()`.
+
+
+# stats19 1.5.0 2021-10
+
+* Support new https download links (#208)
+* Package tests now pass when wifi is turned off
+* URLs have been fixed
+
 # stats19 1.4.3 2021-07-21
 
 * Use 1st edition of `readr` on Windows to prevent errors on reading data (#205)

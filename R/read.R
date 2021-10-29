@@ -16,11 +16,13 @@
 #' @export
 #' @examples
 #' \donttest{
-#' dl_stats19(year = 2011, type = "Accidents")
-#' ac = read_accidents(year = 2011)
+#' if(curl::has_internet()) {
+#' dl_stats19(year = 2019, type = "accident")
+#' ac = read_accidents(year = 2019)
 #'
-#' dl_stats19(year = 2009, type = "Accidents")
-#' ac_2009 = read_accidents(year = 2009)
+#' dl_stats19(year = 2019, type = "accident")
+#' ac_2019 = read_accidents(year = 2019)
+#' }
 #' }
 read_accidents = function(year = NULL,
                           filename = "",
@@ -35,7 +37,7 @@ read_accidents = function(year = NULL,
 
   path = check_input_file(
     filename = filename,
-    type = "accidents",
+    type = "accident",
     data_dir = data_dir,
     year = year
   )
@@ -45,19 +47,7 @@ read_accidents = function(year = NULL,
   }
   # read the data in
   suppressWarnings({
-    ac = readr::read_csv(
-      path,
-      col_types = readr::cols(
-        .default = readr::col_integer(),
-        Accident_Index = readr::col_character(),
-        Longitude = readr::col_double(),
-        Latitude = readr::col_double(),
-        Date = readr::col_character(),
-        Time = readr::col_character(),
-        `Local_Authority_(Highway)` = readr::col_character(),
-        LSOA_of_Accident_Location = readr::col_character()
-      )
-    )
+    ac = readr::read_csv(path)
   })
 
   if(format)
@@ -76,8 +66,10 @@ read_accidents = function(year = NULL,
 #' @export
 #' @examples
 #' \donttest{
-#' dl_stats19(year = 2009, type = "vehicles")
-#' ve = read_vehicles(year = 2009)
+#' if(curl::has_internet()) {
+#' dl_stats19(year = 2019, type = "vehicle")
+#' ve = read_vehicles(year = 2019)
+#' }
 #' }
 read_vehicles = function(year = NULL,
                          filename = "",
@@ -86,7 +78,7 @@ read_vehicles = function(year = NULL,
   # check inputs
   path = check_input_file(
     filename = filename,
-    type = "vehicles",
+    type = "vehicle",
     data_dir = data_dir,
     year = year
   )
@@ -109,8 +101,10 @@ read_vehicles = function(year = NULL,
 #' @export
 #' @examples
 #' \donttest{
-#' dl_stats19(year = 2017, type = "casualties")
+#' if(curl::has_internet()) {
+#' dl_stats19(year = 2017, type = "casualty")
 #' casualties = read_casualties(year = 2017)
+#' }
 #' }
 read_casualties = function(year = NULL,
                            filename = "",
@@ -141,9 +135,6 @@ check_input_file = function(filename = NULL,
                             type = NULL,
                             data_dir = NULL,
                             year = NULL) {
-  if(!is.null (year)) {
-    year = check_year(year)
-  }
   path = locate_one_file(
     type = type,
     filename = filename,
@@ -156,38 +147,27 @@ check_input_file = function(filename = NULL,
   if (is.null(path) || length(path) == 0 || !endsWith(path, ".csv")
       || !file.exists(path)) {
     # locate_files malfunctioned or just path returned with no filename
-    message(path)
-    stop("Change data_dir, filename, year or run dl_stats19() first.",
-         call. = FALSE)
+    message(path, " not found")
+    message(
+      "Try running dl_stats19(), change arguments or try later.",
+      call. = FALSE
+      )
+    return(NULL)
   }
   return(path)
 }
 
-# # informal test
-# dl_stats19(year = 2009, type = "vehicles")
-# f = "DfTRoadSafety_Vehicles_2009/DfTRoadSafety_Vehicles_2009.csv"
-# path = file.path(get_data_directory(), f)
-# read_ve_ca(path)
 read_ve_ca = function(path) {
   # Set the local edition for readr.
   # See https://github.com/ropensci/stats19/issues/205
   if (.Platform$OS.type == "windows" && utils::packageVersion("readr") >= "2.0.0") {
     readr::local_edition(1)
   }
-
-  h = utils::read.csv(path, nrows = 1)
-  if(grepl("Accident_Index", names(h)[1])) {
-    readr::read_csv(path, col_types = readr::cols(
-      .default = readr::col_integer(),
-      Accident_Index = readr::col_character()
-    ))
-  } else {
-    x = readr::read_csv(path, col_types = readr::cols(
-      .default = readr::col_integer(),
-      Acc_Index = readr::col_character()
-    ))
-    names(x)[names(x) == "Acc_Index"] = "Accident_Index"
-    x
-  }
+  x = read_null(path)
+  x
 }
 
+read_null = function(path, ...) {
+  if(is.null(path)) return(NULL)
+  readr::read_csv(path, ...)
+}

@@ -37,10 +37,12 @@ STATS19 data.
 
 \examples{
 \donttest{
-dl_stats19(year = 2011, type = "Accidents")
-ac = read_accidents(year = 2011)
+if(curl::has_internet()) {
+dl_stats19(year = 2019, type = "accident")
+ac = read_accidents(year = 2019)
 
-dl_stats19(year = 2009, type = "Accidents")
-ac_2009 = read_accidents(year = 2009)
+dl_stats19(year = 2019, type = "accident")
+ac_2019 = read_accidents(year = 2019)
+}
 }
 }

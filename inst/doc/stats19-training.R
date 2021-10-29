@@ -11,7 +11,8 @@
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
-  out.width = "50%"
+  out.width = "50%",
+  eval = curl::has_internet()
 )
 
 ## ----pkgs, warning=FALSE, echo=FALSE------------------------------------------
