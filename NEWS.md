@@ -1,3 +1,7 @@
+# stats19 2.0.1 2022-11
+
+* Changes spatstat.core related code (#217)
+
 # stats19 2.0.0 2020-10
 
 * Major changes to the datasets provided by the DfT have led to major changes to the package. See (#212) for details.
