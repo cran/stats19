@@ -1,7 +1,7 @@
 ## -----------------------------------------------------------------------------
 knitr::opts_chunk$set(eval = FALSE)
 
-## ---- eval=FALSE, message=FALSE-----------------------------------------------
+## ----eval=FALSE, message=FALSE------------------------------------------------
 #  # release version - currently 0.2.0
 #  install.packages("stats19")
 #  # dev version
@@ -10,35 +10,35 @@ knitr::opts_chunk$set(eval = FALSE)
 ## -----------------------------------------------------------------------------
 #  library(stats19)
 
-## ----dl2017-accidents, message=FALSE------------------------------------------
-#  crashes_2017 = get_stats19(year = 2017, type = "Accidents", ask = FALSE)
-#  nrow(crashes_2017)
+## ----dl2022-accidents, message=FALSE------------------------------------------
+#  crashes_2022 = get_stats19(year = 2022, type = "Accidents", ask = FALSE)
+#  nrow(crashes_2022)
 
-## ----crashes_2017-explore-----------------------------------------------------
-#  column_names = names(crashes_2017)
+## ----crashes_2022-explore-----------------------------------------------------
+#  column_names = names(crashes_2022)
 #  length(column_names)
 #  head(column_names)
-#  class(crashes_2017)
-#  kableExtra::kable(head(crashes_2017[, c(1, 4, 5, 7, 10)]))
+#  class(crashes_2022)
+#  kableExtra::kable(head(crashes_2022[, c(1, 4, 5, 7, 10)]))
 
 ## ----file_names---------------------------------------------------------------
-#  stats19::file_names$dftRoadSafetyData_Vehicles_2017.zip
+#  stats19::file_names$dftRoadSafetyData_Vehicles_2022.zip
 
 ## -----------------------------------------------------------------------------
-#  crashes_2017_raw = get_stats19(year = 2017, type = "Accidents", ask = FALSE, format = FALSE)
+#  crashes_2022_raw = get_stats19(year = 2022, type = "Accidents", ask = FALSE, format = FALSE)
 
-## ----crashes_2017-raw---------------------------------------------------------
-#  kableExtra::kable(cbind(head(crashes_2017_raw[1:2, c(7, 10)]), head(crashes_2017[1:2, c(7, 10)])))
-#  class(crashes_2017_raw$Date)
-#  class(crashes_2017$date)
+## ----crashes_2022-raw---------------------------------------------------------
+#  kableExtra::kable(cbind(head(crashes_2022_raw[1:2, c(7, 10)]), head(crashes_2022[1:2, c(7, 10)])))
+#  class(crashes_2022_raw$Date)
+#  class(crashes_2022$date)
 
 ## -----------------------------------------------------------------------------
-#  class(crashes_2017$date)
-#  class(crashes_2017_raw$Date)
+#  class(crashes_2022$date)
+#  class(crashes_2022_raw$Date)
 
 ## ----format-crashes-sf--------------------------------------------------------
-#  crashes_sf = format_sf(crashes_2017)
-#  # crashes_sf = format_sf(crashes_2017, lonlat = TRUE) # provides the data in lon/lat format
+#  crashes_sf = format_sf(crashes_2022)
+#  # crashes_sf = format_sf(crashes_2022, lonlat = TRUE) # provides the data in lon/lat format
 
 ## ----nfatalities, message=FALSE-----------------------------------------------
 #  library(sf)
@@ -57,18 +57,18 @@ knitr::opts_chunk$set(eval = FALSE)
 #  crashes_wy = crashes_sf[west_yorkshire, ]
 #  nrow(crashes_wy) # which is 3.36%
 
-## ----dl2017-vehcas, message=FALSE---------------------------------------------
-#  #crashes_2017 = get_stats19(year = 2017, type = "Accidents", ask = FALSE)
-#  casualties_2017 = get_stats19(year = 2017, type = "casualty", ask = FALSE)
-#  nrow(casualties_2017)
-#  vehicles_2017 = get_stats19(year = 2017, type = "vehicle", ask = FALSE)
-#  nrow(vehicles_2017)
+## ----dl2022-vehcas, message=FALSE---------------------------------------------
+#  #crashes_2022 = get_stats19(year = 2022, type = "Accidents", ask = FALSE)
+#  casualties_2022 = get_stats19(year = 2022, type = "casualty", ask = FALSE)
+#  nrow(casualties_2022)
+#  vehicles_2022 = get_stats19(year = 2022, type = "vehicle", ask = FALSE)
+#  nrow(vehicles_2022)
 
 ## ----table-join, message = FALSE----------------------------------------------
 #  library(tidyr)
 #  library(dplyr)
-#  sel = casualties_2017$accident_index %in% crashes_wy$accident_index
-#  casualties_wy = casualties_2017[sel, ]
+#  sel = casualties_2022$accident_index %in% crashes_wy$accident_index
+#  casualties_wy = casualties_2022[sel, ]
 #  cas_types = casualties_wy %>%
 #    select(accident_index, casualty_type) %>%
 #    group_by(accident_index) %>%
@@ -103,7 +103,7 @@ knitr::opts_chunk$set(eval = FALSE)
 #    scale_color_gradientn(colours = c("blue", "yellow", "red")) +
 #    theme(axis.text = element_blank(), axis.ticks = element_blank())
 
-## ----crashes-map, fig.show='hold', out.width="100%", fig.cap="Spatial distribution of all collisions in which people who were walking on the road network ('pedestrians') were hit by a car or other vehicle in 2017 within West Yorkshire boundary.", fig.width=9, fig.height=7----
+## ----crashes-map, fig.show='hold', out.width="100%", fig.cap="Spatial distribution of all collisions in which people who were walking on the road network ('pedestrians') were hit by a car or other vehicle in 2022 within West Yorkshire boundary.", fig.width=9, fig.height=7----
 #  library(leaflet)
 #  crashes_pedestrians = crashes_types %>%
 #    filter(walking > 0)
@@ -171,7 +171,7 @@ knitr::opts_chunk$set(eval = FALSE)
 #  		return this._div;
 #  	};
 #  	info.update = function (props) {
-#  		this._div.innerHTML = "<h6>Crashes in West Yorkshire (2017)</h6>";
+#  		this._div.innerHTML = "<h6>Crashes in West Yorkshire (2022)</h6>";
 #  	};
 #  	info.addTo(map);
 #  </script>

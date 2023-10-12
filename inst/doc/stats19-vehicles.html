@@ -341,35 +341,35 @@ with STATS19 data</h1>
 
 
 
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stats19)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">library</span>(stats19)</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code></pre></div>
 <div id="vehicle-level-variables-in-the-stats19-datasets" class="section level1">
 <h1>Vehicle level variables in the STATS19 datasets</h1>
 <p>Of the three dataset types in STATS19, the vehicle tables are perhaps
 the most revealing yet under-explored. They look like this:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>v <span class="ot">=</span> <span class="fu">get_stats19</span>(<span class="at">year =</span> <span class="dv">2018</span>, <span class="at">type =</span> <span class="st">&quot;vehicle&quot;</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(v)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>v</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>v <span class="ot">=</span> <span class="fu">get_stats19</span>(<span class="at">year =</span> <span class="dv">2018</span>, <span class="at">type =</span> <span class="st">&quot;vehicle&quot;</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="fu">names</span>(v)</span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a>v</span></code></pre></div>
 <p>We will categorise the vehicle types to simplify subsequent
 results:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>v <span class="ot">=</span> v <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">vehicle_type2 =</span> <span class="fu">case_when</span>(</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">grepl</span>(<span class="at">pattern =</span> <span class="st">&quot;motorcycle&quot;</span>, vehicle_type, <span class="at">ignore.case =</span> <span class="cn">TRUE</span>) <span class="sc">~</span> <span class="st">&quot;Motorbike&quot;</span>,</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">grepl</span>(<span class="at">pattern =</span> <span class="st">&quot;Car&quot;</span>, vehicle_type, <span class="at">ignore.case =</span> <span class="cn">TRUE</span>) <span class="sc">~</span> <span class="st">&quot;Car&quot;</span>,</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">grepl</span>(<span class="at">pattern =</span> <span class="st">&quot;Bus&quot;</span>, vehicle_type, <span class="at">ignore.case =</span> <span class="cn">TRUE</span>) <span class="sc">~</span> <span class="st">&quot;Bus&quot;</span>,</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">grepl</span>(<span class="at">pattern =</span> <span class="st">&quot;cycle&quot;</span>, vehicle_type, <span class="at">ignore.case =</span> <span class="cn">TRUE</span>) <span class="sc">~</span> <span class="st">&quot;Cycle&quot;</span>,</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># grepl(pattern = &quot;Van&quot;, vehicle_type, ignore.case = TRUE) ~ &quot;Van&quot;,</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">grepl</span>(<span class="at">pattern =</span> <span class="st">&quot;Goods&quot;</span>, vehicle_type, <span class="at">ignore.case =</span> <span class="cn">TRUE</span>) <span class="sc">~</span> <span class="st">&quot;Goods&quot;</span>,</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">&quot;Other&quot;</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>))</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co"># barplot(table(v$vehicle_type2))</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>v <span class="ot">=</span> v <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">vehicle_type2 =</span> <span class="fu">case_when</span>(</span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>  <span class="fu">grepl</span>(<span class="at">pattern =</span> <span class="st">&quot;motorcycle&quot;</span>, vehicle_type, <span class="at">ignore.case =</span> <span class="cn">TRUE</span>) <span class="sc">~</span> <span class="st">&quot;Motorbike&quot;</span>,</span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>  <span class="fu">grepl</span>(<span class="at">pattern =</span> <span class="st">&quot;Car&quot;</span>, vehicle_type, <span class="at">ignore.case =</span> <span class="cn">TRUE</span>) <span class="sc">~</span> <span class="st">&quot;Car&quot;</span>,</span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a>  <span class="fu">grepl</span>(<span class="at">pattern =</span> <span class="st">&quot;Bus&quot;</span>, vehicle_type, <span class="at">ignore.case =</span> <span class="cn">TRUE</span>) <span class="sc">~</span> <span class="st">&quot;Bus&quot;</span>,</span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a>  <span class="fu">grepl</span>(<span class="at">pattern =</span> <span class="st">&quot;cycle&quot;</span>, vehicle_type, <span class="at">ignore.case =</span> <span class="cn">TRUE</span>) <span class="sc">~</span> <span class="st">&quot;Cycle&quot;</span>,</span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a>  <span class="co"># grepl(pattern = &quot;Van&quot;, vehicle_type, ignore.case = TRUE) ~ &quot;Van&quot;,</span></span>
+<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a>  <span class="fu">grepl</span>(<span class="at">pattern =</span> <span class="st">&quot;Goods&quot;</span>, vehicle_type, <span class="at">ignore.case =</span> <span class="cn">TRUE</span>) <span class="sc">~</span> <span class="st">&quot;Goods&quot;</span>,</span>
+<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a>  </span>
+<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a>  <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">&quot;Other&quot;</span></span>
+<span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a>))</span>
+<span id="cb3-11"><a href="#cb3-11" tabindex="-1"></a><span class="co"># barplot(table(v$vehicle_type2))</span></span></code></pre></div>
 <p>All of these variables are of potential interest to road safety
 researchers. Let’s take a look at summaries of a few of them:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(v<span class="sc">$</span>vehicle_type2)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(v<span class="sc">$</span>age_of_driver)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(v<span class="sc">$</span>engine_capacity_cc)</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(v<span class="sc">$</span>propulsion_code)</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(v<span class="sc">$</span>age_of_vehicle)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">table</span>(v<span class="sc">$</span>vehicle_type2)</span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="fu">summary</span>(v<span class="sc">$</span>age_of_driver)</span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="fu">summary</span>(v<span class="sc">$</span>engine_capacity_cc)</span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a><span class="fu">table</span>(v<span class="sc">$</span>propulsion_code)</span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a><span class="fu">summary</span>(v<span class="sc">$</span>age_of_vehicle)</span></code></pre></div>
 <p>The output shows vehicle type (a wide range of vehicles are
 represented), age of driver (with young and elderly drivers often seen
 as more risky), engine capacity and populsion (related to vehicle type
@@ -389,27 +389,27 @@ policies</li>
 <h1>Relationships between vehicle type and crash severity</h1>
 <p>To explore the relationship between vehicles and crash severity, we
 must first join on the ‘accidents’ table:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">=</span> <span class="fu">get_stats19</span>(<span class="at">year =</span> <span class="dv">2018</span>, <span class="at">type =</span> <span class="st">&quot;accidents&quot;</span>)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>va <span class="ot">=</span> dplyr<span class="sc">::</span><span class="fu">inner_join</span>(v, a)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>a <span class="ot">=</span> <span class="fu">get_stats19</span>(<span class="at">year =</span> <span class="dv">2018</span>, <span class="at">type =</span> collision)</span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a>va <span class="ot">=</span> dplyr<span class="sc">::</span><span class="fu">inner_join</span>(v, a)</span></code></pre></div>
 <p>Now we have additional variables available to us:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(v)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(va)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(va)</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="fu">dim</span>(v)</span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="fu">dim</span>(va)</span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a><span class="fu">names</span>(va)</span></code></pre></div>
 <p>Let’s see how crash severity relates to the variables of interest
 mentioned above:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">xtabs</span>(<span class="sc">~</span>vehicle_type2 <span class="sc">+</span> accident_severity, <span class="at">data =</span> va) <span class="sc">%&gt;%</span> <span class="fu">prop.table</span>()</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">xtabs</span>(<span class="sc">~</span>vehicle_type2 <span class="sc">+</span> accident_severity, <span class="at">data =</span> va) <span class="sc">%&gt;%</span> <span class="fu">prop.table</span>() <span class="sc">%&gt;%</span> <span class="fu">plot</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="fu">xtabs</span>(<span class="sc">~</span>vehicle_type2 <span class="sc">+</span> accident_severity, <span class="at">data =</span> va) <span class="sc">%&gt;%</span> <span class="fu">prop.table</span>()</span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a><span class="fu">xtabs</span>(<span class="sc">~</span>vehicle_type2 <span class="sc">+</span> accident_severity, <span class="at">data =</span> va) <span class="sc">%&gt;%</span> <span class="fu">prop.table</span>() <span class="sc">%&gt;%</span> <span class="fu">plot</span>()</span></code></pre></div>
 <p>As expected, crashes involving large vehicles such as buses and good
 vehicles tend to be more serious (involve proportionally more deaths)
 than crashes involving smaller vehicles.</p>
 <p>To focus only on cars, we can filter the <code>va</code> table as
 follows:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>vac <span class="ot">=</span> va <span class="sc">%&gt;%</span> <span class="fu">filter</span>(vehicle_type2 <span class="sc">==</span> <span class="st">&quot;Car&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a>vac <span class="ot">=</span> va <span class="sc">%&gt;%</span> <span class="fu">filter</span>(vehicle_type2 <span class="sc">==</span> <span class="st">&quot;Car&quot;</span>)</span></code></pre></div>
 <p>The best proxy we have for car type in the open STATS19 data (there
 are non-open versions of the data with additional columns) is engine
 capacity, measured in cubic centimetres (cc). The distribution of engine
 cc’s in the cars dataset created above is shown below.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(vac<span class="sc">$</span>engine_capacity_cc)</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="fu">summary</span>(vac<span class="sc">$</span>engine_capacity_cc)</span></code></pre></div>
 <p>The output shows that there are some impossible values in the data,
 likely due to recording error. Very few cars have an engine capacity
 above 5 litres (5000 cc) and we can be confident that none have an

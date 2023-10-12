@@ -12,7 +12,7 @@
 
 <meta name="author" content="Layik Hama and Robin Lovelace" />
 
-<meta name="date" content="2022-11-17" />
+<meta name="date" content="2023-10-11" />
 
 <title>stats19: a package for road safety research</title>
 
@@ -145,28 +145,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; }
 
 
 
-<style type="text/css">
-
-div.csl-bib-body { }
-div.csl-entry {
-clear: both;
-}
-.hanging div.csl-entry {
-margin-left:2em;
-text-indent:-2em;
-}
-div.csl-left-margin {
-min-width:2em;
-float:left;
-}
-div.csl-right-inline {
-margin-left:2em;
-padding-left:1em;
-}
-div.csl-indent {
-margin-left: 2em;
-}
-</style>
 
 <style type="text/css">body {
 background-color: #fff;
@@ -363,7 +341,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <h1 class="title toc-ignore">stats19: a package for road safety
 research</h1>
 <h4 class="author">Layik Hama and Robin Lovelace</h4>
-<h4 class="date">2022-11-17</h4>
+<h4 class="date">2023-10-11</h4>
 
 
 
@@ -375,7 +353,7 @@ processing of Great Britain’s official road traffic casualty database,
 <p>We started the package in late 2018 following three main
 motivations:</p>
 <ol style="list-style-type: decimal">
-<li>The release of the 2017 road crash statistics, which showed
+<li>The release of the 2022 road crash statistics, which showed
 worsening road safety in some areas, increasing the importance of making
 the data more accessible.</li>
 <li>The realisation that many researchers were writing add-hoc code to
@@ -460,7 +438,7 @@ that uses data from the package to explore car-pedestrian
 crashes</a>:</p>
 <blockquote>
 <p>While so many people die on the roads each year in the UK (1,793
-people in 2017, 3 deaths per 100,000) and worldwide (1,250,000 people in
+people in 2022, 3 deaths per 100,000) and worldwide (1,250,000 people in
 2015, 17 deaths per 100,000) and ‘vision zero’ remains a Swedish dream
 (Johansson 2009), we urge people researching STATS19 and other road
 safety datasets to focus on a more urgent question: how to stop this
@@ -478,22 +456,22 @@ contain into meaningful data.</p>
 <p>The annual statistics have not been released in a consistent way
 either, making it hard for people to download, or even find, the
 relevant files. For example, there are separate files for each of the
-above tables for certain years (e.g. 2016, 2017) but not for all of 1979
-- 2017 or 2018 now. The largest chunk is the 1979 - 2004 data, which is
+above tables for certain years (e.g. 2016, 2022) but not for all of 1979
+- 2022 or 2018 now. The largest chunk is the 1979 - 2004 data, which is
 made available in a huge ZIP file (<a href="https://data.dft.gov.uk/road-accidents-safety-data/Stats19-Data1979-2004.zip">link</a>).
 Unzipped this contains the following 3 files, which occupy almost 2 GB
 on your hard drive:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">721M</span> Apr  3  2013 Accidents7904.csv</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">344M</span> Apr  3  2013 Casualty7904.csv</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">688M</span> Apr  3  2013 Vehicles7904.csv</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># total 1.753 GB data</span></span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="ex">721M</span> Apr  3  2013 Accidents7904.csv</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="ex">344M</span> Apr  3  2013 Casualty7904.csv</span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="ex">688M</span> Apr  3  2013 Vehicles7904.csv</span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a><span class="co"># total 1.753 GB data</span></span></code></pre></div>
 </div>
 <div id="note" class="section level4">
 <h4>Note</h4>
 <p>As of February 2021 we do not run any of the code in this vignette
 due to CRAN check issues. See <a href="https://ropensci.org/blog/2019/02/26/stats19/" class="uri">https://ropensci.org/blog/2019/02/26/stats19/</a> for the
 final version of this vignette.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">eval =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">eval =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 </div>
 <div id="how-stats19-works" class="section level4">
 <h4>How stats19 works</h4>
@@ -503,103 +481,103 @@ academics, policy makers and road safety campaigners and R
 programmers/analysts wanting to test their skills on a large
 spatio-temporal dataset) to access STATS19 data, back to 1979. First
 install the package in the usual way:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># release version - currently 0.2.0</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;stats19&quot;</span>) </span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># dev version</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># remotes::install_github(&quot;ropensci/stats19&quot;) </span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="co"># release version - currently 0.2.0</span></span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;stats19&quot;</span>) </span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="co"># dev version</span></span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a><span class="co"># remotes::install_github(&quot;ropensci/stats19&quot;) </span></span></code></pre></div>
 <p>Attach the package as follows:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stats19)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">library</span>(stats19)</span></code></pre></div>
 <p>The easiest way to get STATS19 data is with
 <code>get_stats19()</code>. This function takes 2 main arguments,
 <code>year</code> and <code>type</code>. The year can be any year
-between 1979 and 2017.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>crashes_2017 <span class="ot">=</span> <span class="fu">get_stats19</span>(<span class="at">year =</span> <span class="dv">2017</span>, <span class="at">type =</span> <span class="st">&quot;Accidents&quot;</span>, <span class="at">ask =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(crashes_2017)</span></code></pre></div>
+between 1979 and 2022.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>crashes_2022 <span class="ot">=</span> <span class="fu">get_stats19</span>(<span class="at">year =</span> <span class="dv">2022</span>, <span class="at">type =</span> <span class="st">&quot;Accidents&quot;</span>, <span class="at">ask =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a><span class="fu">nrow</span>(crashes_2022)</span></code></pre></div>
 <p>What just happened? We just downloaded, cleaned and read-in data on
-all road crashes recorded by the police in 2017 across Great Britain. We
-can explore the <code>crashes_2017</code> object a little more:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>column_names <span class="ot">=</span> <span class="fu">names</span>(crashes_2017)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(column_names)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(column_names)</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(crashes_2017)</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>kableExtra<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">head</span>(crashes_2017[, <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">10</span>)]))</span></code></pre></div>
+all road crashes recorded by the police in 2022 across Great Britain. We
+can explore the <code>crashes_2022</code> object a little more:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a>column_names <span class="ot">=</span> <span class="fu">names</span>(crashes_2022)</span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="fu">length</span>(column_names)</span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a><span class="fu">head</span>(column_names)</span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a><span class="fu">class</span>(crashes_2022)</span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a>kableExtra<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">head</span>(crashes_2022[, <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">10</span>)]))</span></code></pre></div>
 <p>The package contains the names of all “zip” files released by the DfT
 and hosted on Amazon servers to download. These file names have been
 included in the package and can be found under <code>file_names</code>
 variable name. for example:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>stats19<span class="sc">::</span>file_names<span class="sc">$</span>dftRoadSafetyData_Vehicles_2017.zip</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>stats19<span class="sc">::</span>file_names<span class="sc">$</span>dftRoadSafetyData_Vehicles_2022.zip</span></code></pre></div>
 <p>You can also get the raw data (if you really want!) to see how much
 more useful the data is after it has been cleaned and labelled by the
 <code>stats19</code> package, compared with the data provided by
 government:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>crashes_2017_raw <span class="ot">=</span> <span class="fu">get_stats19</span>(<span class="at">year =</span> <span class="dv">2017</span>, <span class="at">type =</span> <span class="st">&quot;Accidents&quot;</span>, <span class="at">ask =</span> <span class="cn">FALSE</span>, <span class="at">format =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a>crashes_2022_raw <span class="ot">=</span> <span class="fu">get_stats19</span>(<span class="at">year =</span> <span class="dv">2022</span>, <span class="at">type =</span> <span class="st">&quot;Accidents&quot;</span>, <span class="at">ask =</span> <span class="cn">FALSE</span>, <span class="at">format =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 <p>The first two columns are raw read, the next two are formatted by
 <code>stats19</code> package:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>kableExtra<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">cbind</span>(<span class="fu">head</span>(crashes_2017_raw[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="fu">c</span>(<span class="dv">7</span>, <span class="dv">10</span>)]), <span class="fu">head</span>(crashes_2017[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="fu">c</span>(<span class="dv">7</span>, <span class="dv">10</span>)])))</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(crashes_2017_raw<span class="sc">$</span>Date)</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(crashes_2017<span class="sc">$</span>date)</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a>kableExtra<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">cbind</span>(<span class="fu">head</span>(crashes_2022_raw[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="fu">c</span>(<span class="dv">7</span>, <span class="dv">10</span>)]), <span class="fu">head</span>(crashes_2022[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="fu">c</span>(<span class="dv">7</span>, <span class="dv">10</span>)])))</span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a><span class="fu">class</span>(crashes_2022_raw<span class="sc">$</span>Date)</span>
+<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a><span class="fu">class</span>(crashes_2022<span class="sc">$</span>date)</span></code></pre></div>
 <p>Note: the severity type is not labelled (this problem affects dozens
 of columns), the column names are inconsistent, and the dates have note
 been cleaned and converted into a user-friendly date
 (<code>POSIXct</code>) class:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(crashes_2017<span class="sc">$</span>date)</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(crashes_2017_raw<span class="sc">$</span>Date)</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="fu">class</span>(crashes_2022<span class="sc">$</span>date)</span>
+<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a><span class="fu">class</span>(crashes_2022_raw<span class="sc">$</span>Date)</span></code></pre></div>
 </div>
 <div id="creating-geographic-crash-data" class="section level4">
 <h4>Creating geographic crash data</h4>
-<p>An important feature of STATS19 data is that the “accidents” table
+<p>An important feature of STATS19 data is that the collision table
 contains geographic coordinates. These are provided at ~10m resolution
 in the UK’s official coordinate reference system (the Ordnance Survey
 National Grid, EPSG code 27700). <strong>stats19</strong> converts the
-non-geographic tables created by <code>format_accidents()</code> into
+non-geographic tables created by <code>format_collisions()</code> into
 the geographic data form of the <a href="https://cran.r-project.org/package=sf"><code>sf</code> package</a>
 with the function <code>format_sf()</code> as follows:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>crashes_sf <span class="ot">=</span> <span class="fu">format_sf</span>(crashes_2017)</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co"># crashes_sf = format_sf(crashes_2017, lonlat = TRUE) # provides the data in lon/lat format</span></span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a>crashes_sf <span class="ot">=</span> <span class="fu">format_sf</span>(crashes_2022)</span>
+<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a><span class="co"># crashes_sf = format_sf(crashes_2022, lonlat = TRUE) # provides the data in lon/lat format</span></span></code></pre></div>
 <p>An example of an administrative zone dataset of relevance to STATS19
 data is the boundaries of police forces in England, which is provided in
 the packaged dataset <code>police_boundaries</code>. The following code
 chunk demonstrates the kind of spatial operations that can be performed
 on geographic STATS19 data, by counting and plotting the number of
 fatalities per police force:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>crashes_sf <span class="sc">%&gt;%</span> </span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(accident_severity <span class="sc">==</span> <span class="st">&quot;Fatal&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="at">n_fatalities =</span> accident_index) <span class="sc">%&gt;%</span> </span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aggregate</span>(<span class="at">by =</span> police_boundaries, <span class="at">FUN =</span> length) <span class="sc">%&gt;%</span> </span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot</span>()</span></code></pre></div>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>west_yorkshire <span class="ot">=</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  police_boundaries[police_boundaries<span class="sc">$</span>pfa16nm <span class="sc">==</span> <span class="st">&quot;West Yorkshire&quot;</span>, ]</span></code></pre></div>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>crashes_wy <span class="ot">=</span> crashes_sf[west_yorkshire, ]</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(crashes_wy) <span class="co"># which is 3.36%</span></span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
+<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb12-3"><a href="#cb12-3" tabindex="-1"></a>crashes_sf <span class="sc">%&gt;%</span> </span>
+<span id="cb12-4"><a href="#cb12-4" tabindex="-1"></a>  <span class="fu">filter</span>(accident_severity <span class="sc">==</span> <span class="st">&quot;Fatal&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-5"><a href="#cb12-5" tabindex="-1"></a>  <span class="fu">select</span>(<span class="at">n_fatalities =</span> accident_index) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-6"><a href="#cb12-6" tabindex="-1"></a>  <span class="fu">aggregate</span>(<span class="at">by =</span> police_boundaries, <span class="at">FUN =</span> length) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-7"><a href="#cb12-7" tabindex="-1"></a>  <span class="fu">plot</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a>west_yorkshire <span class="ot">=</span></span>
+<span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a>  police_boundaries[police_boundaries<span class="sc">$</span>pfa16nm <span class="sc">==</span> <span class="st">&quot;West Yorkshire&quot;</span>, ]</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a>crashes_wy <span class="ot">=</span> crashes_sf[west_yorkshire, ]</span>
+<span id="cb14-2"><a href="#cb14-2" tabindex="-1"></a><span class="fu">nrow</span>(crashes_wy) <span class="co"># which is 3.36%</span></span></code></pre></div>
 </div>
 <div id="the-big-picture-road-safety" class="section level4">
 <h4>The big picture: road safety</h4>
 <p>We can combine the three sets of tables to analyse the data further.
 Lets read the datasets first:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">#crashes_2017 = get_stats19(year = 2017, type = &quot;Accidents&quot;, ask = FALSE)</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>casualties_2017 <span class="ot">=</span> <span class="fu">get_stats19</span>(<span class="at">year =</span> <span class="dv">2017</span>, <span class="at">type =</span> <span class="st">&quot;casualty&quot;</span>, <span class="at">ask =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(casualties_2017)</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>vehicles_2017 <span class="ot">=</span> <span class="fu">get_stats19</span>(<span class="at">year =</span> <span class="dv">2017</span>, <span class="at">type =</span> <span class="st">&quot;vehicle&quot;</span>, <span class="at">ask =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(vehicles_2017)</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a><span class="co">#crashes_2022 = get_stats19(year = 2022, type = &quot;Accidents&quot;, ask = FALSE)</span></span>
+<span id="cb15-2"><a href="#cb15-2" tabindex="-1"></a>casualties_2022 <span class="ot">=</span> <span class="fu">get_stats19</span>(<span class="at">year =</span> <span class="dv">2022</span>, <span class="at">type =</span> <span class="st">&quot;casualty&quot;</span>, <span class="at">ask =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb15-3"><a href="#cb15-3" tabindex="-1"></a><span class="fu">nrow</span>(casualties_2022)</span>
+<span id="cb15-4"><a href="#cb15-4" tabindex="-1"></a>vehicles_2022 <span class="ot">=</span> <span class="fu">get_stats19</span>(<span class="at">year =</span> <span class="dv">2022</span>, <span class="at">type =</span> <span class="st">&quot;vehicle&quot;</span>, <span class="at">ask =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb15-5"><a href="#cb15-5" tabindex="-1"></a><span class="fu">nrow</span>(vehicles_2022)</span></code></pre></div>
 <p>Lets now read in casualties that took place in West Yorkshire (using
 <code>crashes_wy</code> object above), and count the number of
 casualties by severity for each crash:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>sel <span class="ot">=</span> casualties_2017<span class="sc">$</span>accident_index <span class="sc">%in%</span> crashes_wy<span class="sc">$</span>accident_index</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>casualties_wy <span class="ot">=</span> casualties_2017[sel, ]</span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>cas_types <span class="ot">=</span> casualties_wy <span class="sc">%&gt;%</span> </span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(accident_index, casualty_type) <span class="sc">%&gt;%</span> </span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(accident_index) <span class="sc">%&gt;%</span> </span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">Total =</span> <span class="fu">n</span>(),</span>
-<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">walking =</span> <span class="fu">sum</span>(casualty_type <span class="sc">==</span> <span class="st">&quot;Pedestrian&quot;</span>),</span>
-<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">cycling =</span> <span class="fu">sum</span>(casualty_type <span class="sc">==</span> <span class="st">&quot;Cyclist&quot;</span>),</span>
-<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">passenger =</span> <span class="fu">sum</span>(casualty_type <span class="sc">==</span> <span class="st">&quot;Car occupant&quot;</span>)</span>
-<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>    ) </span>
-<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>cj <span class="ot">=</span> <span class="fu">left_join</span>(crashes_wy, cas_types)</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb16-2"><a href="#cb16-2" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb16-3"><a href="#cb16-3" tabindex="-1"></a>sel <span class="ot">=</span> casualties_2022<span class="sc">$</span>accident_index <span class="sc">%in%</span> crashes_wy<span class="sc">$</span>accident_index</span>
+<span id="cb16-4"><a href="#cb16-4" tabindex="-1"></a>casualties_wy <span class="ot">=</span> casualties_2022[sel, ]</span>
+<span id="cb16-5"><a href="#cb16-5" tabindex="-1"></a>cas_types <span class="ot">=</span> casualties_wy <span class="sc">%&gt;%</span> </span>
+<span id="cb16-6"><a href="#cb16-6" tabindex="-1"></a>  <span class="fu">select</span>(accident_index, casualty_type) <span class="sc">%&gt;%</span> </span>
+<span id="cb16-7"><a href="#cb16-7" tabindex="-1"></a>  <span class="fu">group_by</span>(accident_index) <span class="sc">%&gt;%</span> </span>
+<span id="cb16-8"><a href="#cb16-8" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb16-9"><a href="#cb16-9" tabindex="-1"></a>    <span class="at">Total =</span> <span class="fu">n</span>(),</span>
+<span id="cb16-10"><a href="#cb16-10" tabindex="-1"></a>    <span class="at">walking =</span> <span class="fu">sum</span>(casualty_type <span class="sc">==</span> <span class="st">&quot;Pedestrian&quot;</span>),</span>
+<span id="cb16-11"><a href="#cb16-11" tabindex="-1"></a>    <span class="at">cycling =</span> <span class="fu">sum</span>(casualty_type <span class="sc">==</span> <span class="st">&quot;Cyclist&quot;</span>),</span>
+<span id="cb16-12"><a href="#cb16-12" tabindex="-1"></a>    <span class="at">passenger =</span> <span class="fu">sum</span>(casualty_type <span class="sc">==</span> <span class="st">&quot;Car occupant&quot;</span>)</span>
+<span id="cb16-13"><a href="#cb16-13" tabindex="-1"></a>    ) </span>
+<span id="cb16-14"><a href="#cb16-14" tabindex="-1"></a>cj <span class="ot">=</span> <span class="fu">left_join</span>(crashes_wy, cas_types)</span></code></pre></div>
 <p>What just happened?</p>
 <p>We found the subset of casualties that took place in West Yorkshire
 with reference to the <code>accident_index</code> variable in the
@@ -610,7 +588,7 @@ dataset is joined onto the <code>crashes_wy</code> dataset. The result
 is a spatial (<code>sf</code>) data frame of crashes in West Yorkshire,
 with columns counting how many road users of different types were hurt.
 The joined data has additional variables:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>base<span class="sc">::</span><span class="fu">setdiff</span>(<span class="fu">names</span>(cj), <span class="fu">names</span>(crashes_wy))</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a>base<span class="sc">::</span><span class="fu">setdiff</span>(<span class="fu">names</span>(cj), <span class="fu">names</span>(crashes_wy))</span></code></pre></div>
 <p>In addition to the <code>Total</code> number of people hurt/killed,
 <code>cj</code> contains a column for each type of casualty (cyclist,
 car occupant, etc.), and a number corresponding to the number of each
@@ -619,105 +597,105 @@ column from <code>crashes_sf</code>. In other words, joins allow the
 casualties and vehicles tables to be geo-referenced. We can then explore
 the spatial distribution of different casualty types. The following
 figure, for example, shows the spatial distribution of pedestrians and
-car passengers hurt in car crashes across West Yorkshire in 2017:</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>crashes_types <span class="ot">=</span> cj <span class="sc">%&gt;%</span> </span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(accident_severity <span class="sc">!=</span> <span class="st">&quot;Slight&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">type =</span> <span class="fu">case_when</span>(</span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    walking <span class="sc">&gt;</span> <span class="dv">0</span> <span class="sc">~</span> <span class="st">&quot;Walking&quot;</span>,</span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>    cycling <span class="sc">&gt;</span> <span class="dv">0</span> <span class="sc">~</span> <span class="st">&quot;Cycling&quot;</span>,</span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>    passenger <span class="sc">&gt;</span> <span class="dv">0</span> <span class="sc">~</span> <span class="st">&quot;Passenger&quot;</span>,</span>
-<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">&quot;Other&quot;</span></span>
-<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>  ))</span>
-<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(crashes_types, <span class="fu">aes</span>(<span class="at">size =</span> Total, <span class="at">colour =</span> speed_limit)) <span class="sc">+</span></span>
-<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">show.legend =</span> <span class="st">&quot;point&quot;</span>, <span class="at">alpha =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
-<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(<span class="fu">vars</span>(type), <span class="fu">vars</span>(accident_severity)) <span class="sc">+</span></span>
-<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_size</span>(</span>
-<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="dv">12</span>),</span>
-<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="st">&quot;3+&quot;</span>, <span class="dv">12</span>)</span>
-<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
-<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_gradientn</span>(<span class="at">colours =</span> <span class="fu">c</span>(<span class="st">&quot;blue&quot;</span>, <span class="st">&quot;yellow&quot;</span>, <span class="st">&quot;red&quot;</span>)) <span class="sc">+</span></span>
-<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text =</span> <span class="fu">element_blank</span>(), <span class="at">axis.ticks =</span> <span class="fu">element_blank</span>())</span></code></pre></div>
+car passengers hurt in car crashes across West Yorkshire in 2022:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb18-2"><a href="#cb18-2" tabindex="-1"></a>crashes_types <span class="ot">=</span> cj <span class="sc">%&gt;%</span> </span>
+<span id="cb18-3"><a href="#cb18-3" tabindex="-1"></a>  <span class="fu">filter</span>(accident_severity <span class="sc">!=</span> <span class="st">&quot;Slight&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb18-4"><a href="#cb18-4" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">type =</span> <span class="fu">case_when</span>(</span>
+<span id="cb18-5"><a href="#cb18-5" tabindex="-1"></a>    walking <span class="sc">&gt;</span> <span class="dv">0</span> <span class="sc">~</span> <span class="st">&quot;Walking&quot;</span>,</span>
+<span id="cb18-6"><a href="#cb18-6" tabindex="-1"></a>    cycling <span class="sc">&gt;</span> <span class="dv">0</span> <span class="sc">~</span> <span class="st">&quot;Cycling&quot;</span>,</span>
+<span id="cb18-7"><a href="#cb18-7" tabindex="-1"></a>    passenger <span class="sc">&gt;</span> <span class="dv">0</span> <span class="sc">~</span> <span class="st">&quot;Passenger&quot;</span>,</span>
+<span id="cb18-8"><a href="#cb18-8" tabindex="-1"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">&quot;Other&quot;</span></span>
+<span id="cb18-9"><a href="#cb18-9" tabindex="-1"></a>  ))</span>
+<span id="cb18-10"><a href="#cb18-10" tabindex="-1"></a><span class="fu">ggplot</span>(crashes_types, <span class="fu">aes</span>(<span class="at">size =</span> Total, <span class="at">colour =</span> speed_limit)) <span class="sc">+</span></span>
+<span id="cb18-11"><a href="#cb18-11" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">show.legend =</span> <span class="st">&quot;point&quot;</span>, <span class="at">alpha =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
+<span id="cb18-12"><a href="#cb18-12" tabindex="-1"></a>  <span class="fu">facet_grid</span>(<span class="fu">vars</span>(type), <span class="fu">vars</span>(accident_severity)) <span class="sc">+</span></span>
+<span id="cb18-13"><a href="#cb18-13" tabindex="-1"></a>  <span class="fu">scale_size</span>(</span>
+<span id="cb18-14"><a href="#cb18-14" tabindex="-1"></a>    <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="dv">12</span>),</span>
+<span id="cb18-15"><a href="#cb18-15" tabindex="-1"></a>    <span class="at">labels =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="st">&quot;3+&quot;</span>, <span class="dv">12</span>)</span>
+<span id="cb18-16"><a href="#cb18-16" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb18-17"><a href="#cb18-17" tabindex="-1"></a>  <span class="fu">scale_color_gradientn</span>(<span class="at">colours =</span> <span class="fu">c</span>(<span class="st">&quot;blue&quot;</span>, <span class="st">&quot;yellow&quot;</span>, <span class="st">&quot;red&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb18-18"><a href="#cb18-18" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text =</span> <span class="fu">element_blank</span>(), <span class="at">axis.ticks =</span> <span class="fu">element_blank</span>())</span></code></pre></div>
 <p>To show what is possible when the data are in this form, and allude
 to next steps, let’s create an interactive map. We will plot crashes in
 which pedestrians were hurt, from the <code>crashes_types</code>, using
 <code>leaflet</code> package:</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(leaflet)</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>crashes_pedestrians <span class="ot">=</span> crashes_types <span class="sc">%&gt;%</span> </span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(walking <span class="sc">&gt;</span> <span class="dv">0</span>)</span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="co"># convert to lon lat CRS</span></span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>crashes_pedestrians_lonlat <span class="ot">=</span> <span class="fu">st_transform</span>(crashes_pedestrians, <span class="at">crs =</span> <span class="dv">4326</span>)</span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>pal <span class="ot">=</span> <span class="fu">colorFactor</span>(<span class="at">palette =</span> <span class="st">&quot;Reds&quot;</span>, <span class="at">domain =</span> crashes_pedestrians_lonlat<span class="sc">$</span>accident_severity, <span class="at">reverse =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>map <span class="ot">=</span> <span class="fu">leaflet</span>(<span class="at">data =</span> crashes_pedestrians_lonlat, <span class="at">height =</span> <span class="st">&quot;280px&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addProviderTiles</span>(<span class="at">provider =</span> providers<span class="sc">$</span>OpenStreetMap.BlackAndWhite) <span class="sc">%&gt;%</span></span>
-<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addCircleMarkers</span>(<span class="at">radius =</span> <span class="fl">0.5</span>, <span class="at">color =</span> <span class="sc">~</span><span class="fu">pal</span>(accident_severity)) <span class="sc">%&gt;%</span> </span>
-<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addLegend</span>(<span class="at">pal =</span> pal, <span class="at">values =</span> <span class="sc">~</span>accident_severity) <span class="sc">%&gt;%</span> </span>
-<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>  leaflet<span class="sc">::</span><span class="fu">addMiniMap</span>(<span class="at">toggleDisplay =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a><span class="co"># map # if you like to see the leaflet version</span></span></code></pre></div>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(geojsonsf)</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(htmltools)</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>geojson <span class="ot">=</span> <span class="fu">sf_geojson</span>(</span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  crashes_pedestrians_lonlat[,<span class="fu">c</span>(<span class="st">&quot;accident_severity&quot;</span>)])</span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>template <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;</span></span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;link rel=&quot;stylesheet&quot; href=&quot;https://unpkg.com/leaflet@1.4.0/dist/leaflet.css&quot; integrity=&quot;sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==&quot; crossorigin=&quot;&quot;/&gt;</span></span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;script src=&quot;https://unpkg.com/leaflet@1.4.0/dist/leaflet.js&quot; integrity=&quot;sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==&quot; crossorigin=&quot;&quot;&gt;&lt;/script&gt;</span></span>
-<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;div id=&quot;mapid&quot; style=&quot;width: 100%; height: 400px;&quot;&gt;</span></span>
-<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;script&gt;</span></span>
-<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a><span class="st">    var map = L.map(&quot;mapid&quot;);</span></span>
-<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a><span class="st">    L.tileLayer(&quot;https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw&quot;, {</span></span>
-<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a><span class="st">        maxZoom: 18,</span></span>
-<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a><span class="st">        attribution: </span><span class="sc">\&#39;</span><span class="st">Map data &amp;copy; &lt;a href=&quot;https://www.openstreetmap.org/&quot;&gt;OpenStreetMap&lt;/a&gt; contributors, &lt;a href=&quot;https://creativecommons.org/licenses/by-sa/2.0/&quot;&gt;CC-BY-SA&lt;/a&gt;, Imagery © &lt;a href=&quot;https://www.mapbox.com/&quot;&gt;Mapbox&lt;/a&gt;</span><span class="sc">\&#39;</span><span class="st">,</span></span>
-<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a><span class="st">        id: &quot;mapbox.streets&quot;</span></span>
-<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a><span class="st">  }).addTo(map);   </span></span>
-<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a><span class="st">  var json = &#39;</span>, geojson, <span class="st">&#39;;&#39;</span>, </span>
-<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a>  <span class="st">&#39;</span></span>
-<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a><span class="st">  var geojsonMarkerOptions = {</span></span>
-<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a><span class="st">    radius: 6,</span></span>
-<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a><span class="st">    color: &quot;#000&quot;,</span></span>
-<span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a><span class="st">    weight: 1,</span></span>
-<span id="cb20-22"><a href="#cb20-22" aria-hidden="true" tabindex="-1"></a><span class="st">    opacity: 1,</span></span>
-<span id="cb20-23"><a href="#cb20-23" aria-hidden="true" tabindex="-1"></a><span class="st">    fillOpacity: 0.5</span></span>
-<span id="cb20-24"><a href="#cb20-24" aria-hidden="true" tabindex="-1"></a><span class="st">  };</span></span>
-<span id="cb20-25"><a href="#cb20-25" aria-hidden="true" tabindex="-1"></a><span class="st">  var layer = L.geoJSON(json, {</span></span>
-<span id="cb20-26"><a href="#cb20-26" aria-hidden="true" tabindex="-1"></a><span class="st">    pointToLayer: function (feature, latlng) {</span></span>
-<span id="cb20-27"><a href="#cb20-27" aria-hidden="true" tabindex="-1"></a><span class="st">        return L.circleMarker(latlng, geojsonMarkerOptions);</span></span>
-<span id="cb20-28"><a href="#cb20-28" aria-hidden="true" tabindex="-1"></a><span class="st">    },</span></span>
-<span id="cb20-29"><a href="#cb20-29" aria-hidden="true" tabindex="-1"></a><span class="st">    style: function(feature) {</span></span>
-<span id="cb20-30"><a href="#cb20-30" aria-hidden="true" tabindex="-1"></a><span class="st">      switch (feature.properties.accident_severity) {</span></span>
-<span id="cb20-31"><a href="#cb20-31" aria-hidden="true" tabindex="-1"></a><span class="st">          case &quot;Serious&quot;: return {color: &quot;#FEB24C&quot;};</span></span>
-<span id="cb20-32"><a href="#cb20-32" aria-hidden="true" tabindex="-1"></a><span class="st">          case &quot;Fatal&quot;:   return {color: &quot;#BD0026&quot;};</span></span>
-<span id="cb20-33"><a href="#cb20-33" aria-hidden="true" tabindex="-1"></a><span class="st">       }</span></span>
-<span id="cb20-34"><a href="#cb20-34" aria-hidden="true" tabindex="-1"></a><span class="st">    }</span></span>
-<span id="cb20-35"><a href="#cb20-35" aria-hidden="true" tabindex="-1"></a><span class="st">  }).addTo(map);</span></span>
-<span id="cb20-36"><a href="#cb20-36" aria-hidden="true" tabindex="-1"></a><span class="st">  map.fitBounds(layer.getBounds());</span></span>
-<span id="cb20-37"><a href="#cb20-37" aria-hidden="true" tabindex="-1"></a><span class="st">  var legend = L.control({position: &quot;bottomright&quot;});</span></span>
-<span id="cb20-38"><a href="#cb20-38" aria-hidden="true" tabindex="-1"></a><span class="st">    legend.onAdd = function (map) {</span></span>
-<span id="cb20-39"><a href="#cb20-39" aria-hidden="true" tabindex="-1"></a><span class="st">        var div = L.DomUtil.create(&quot;div&quot;, &quot;info legend&quot;), labels = [];</span></span>
-<span id="cb20-40"><a href="#cb20-40" aria-hidden="true" tabindex="-1"></a><span class="st">    labels.push(&quot;&lt;i style=</span><span class="sc">\&#39;</span><span class="st">background:#FEB24C</span><span class="sc">\&#39;</span><span class="st">&gt;&lt;/i&gt;Serious&quot;);</span></span>
-<span id="cb20-41"><a href="#cb20-41" aria-hidden="true" tabindex="-1"></a><span class="st">    labels.push(&quot;&lt;i style=</span><span class="sc">\&#39;</span><span class="st">background:#BD0026</span><span class="sc">\&#39;</span><span class="st">&gt;&lt;/i&gt;Fatal&quot;);</span></span>
-<span id="cb20-42"><a href="#cb20-42" aria-hidden="true" tabindex="-1"></a><span class="st">        div.innerHTML = labels.join(&quot;&lt;br&gt;&quot;);</span></span>
-<span id="cb20-43"><a href="#cb20-43" aria-hidden="true" tabindex="-1"></a><span class="st">        return div;</span></span>
-<span id="cb20-44"><a href="#cb20-44" aria-hidden="true" tabindex="-1"></a><span class="st">    };</span></span>
-<span id="cb20-45"><a href="#cb20-45" aria-hidden="true" tabindex="-1"></a><span class="st">  legend.addTo(map);</span></span>
-<span id="cb20-46"><a href="#cb20-46" aria-hidden="true" tabindex="-1"></a><span class="st">  // control that shows state info on hover</span></span>
-<span id="cb20-47"><a href="#cb20-47" aria-hidden="true" tabindex="-1"></a><span class="st">    var info = L.control();</span></span>
-<span id="cb20-48"><a href="#cb20-48" aria-hidden="true" tabindex="-1"></a><span class="st">    info.onAdd = function (map) {</span></span>
-<span id="cb20-49"><a href="#cb20-49" aria-hidden="true" tabindex="-1"></a><span class="st">        this._div = L.DomUtil.create(&quot;div&quot;, &quot;info&quot;);</span></span>
-<span id="cb20-50"><a href="#cb20-50" aria-hidden="true" tabindex="-1"></a><span class="st">        this.update();</span></span>
-<span id="cb20-51"><a href="#cb20-51" aria-hidden="true" tabindex="-1"></a><span class="st">        return this._div;</span></span>
-<span id="cb20-52"><a href="#cb20-52" aria-hidden="true" tabindex="-1"></a><span class="st">    };</span></span>
-<span id="cb20-53"><a href="#cb20-53" aria-hidden="true" tabindex="-1"></a><span class="st">    info.update = function (props) {</span></span>
-<span id="cb20-54"><a href="#cb20-54" aria-hidden="true" tabindex="-1"></a><span class="st">        this._div.innerHTML = &quot;&lt;h6&gt;Crashes in West Yorkshire (2017)&lt;/h6&gt;&quot;;</span></span>
-<span id="cb20-55"><a href="#cb20-55" aria-hidden="true" tabindex="-1"></a><span class="st">    };</span></span>
-<span id="cb20-56"><a href="#cb20-56" aria-hidden="true" tabindex="-1"></a><span class="st">    info.addTo(map);</span></span>
-<span id="cb20-57"><a href="#cb20-57" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;/script&gt;</span></span>
-<span id="cb20-58"><a href="#cb20-58" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;style&gt;</span></span>
-<span id="cb20-59"><a href="#cb20-59" aria-hidden="true" tabindex="-1"></a><span class="st">.info { padding: 6px 8px; font: 14px/16px Arial, Helvetica, sans-serif; background: white; background: rgba(255,255,255,0.8); box-shadow: 0 0 15px rgba(0,0,0,0.2); border-radius: 5px; } .info h4 { margin: 0 0 5px; color: #777; }</span></span>
-<span id="cb20-60"><a href="#cb20-60" aria-hidden="true" tabindex="-1"></a><span class="st">.legend { text-align: left; line-height: 18px; color: #555; } .legend i { width: 18px; height: 18px; float: left; margin-right: 8px; opacity: 0.7; }&lt;/style&gt;</span></span>
-<span id="cb20-61"><a href="#cb20-61" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;/div&gt;&#39;</span>)</span>
-<span id="cb20-62"><a href="#cb20-62" aria-hidden="true" tabindex="-1"></a>path <span class="ot">=</span> <span class="fu">file.path</span>(<span class="fu">tempdir</span>(), <span class="st">&quot;temp.html&quot;</span>)</span>
-<span id="cb20-63"><a href="#cb20-63" aria-hidden="true" tabindex="-1"></a><span class="fu">write</span>(template, path)</span>
-<span id="cb20-64"><a href="#cb20-64" aria-hidden="true" tabindex="-1"></a><span class="fu">includeHTML</span>(path)</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a><span class="fu">library</span>(leaflet)</span>
+<span id="cb19-2"><a href="#cb19-2" tabindex="-1"></a>crashes_pedestrians <span class="ot">=</span> crashes_types <span class="sc">%&gt;%</span> </span>
+<span id="cb19-3"><a href="#cb19-3" tabindex="-1"></a>  <span class="fu">filter</span>(walking <span class="sc">&gt;</span> <span class="dv">0</span>)</span>
+<span id="cb19-4"><a href="#cb19-4" tabindex="-1"></a><span class="co"># convert to lon lat CRS</span></span>
+<span id="cb19-5"><a href="#cb19-5" tabindex="-1"></a>crashes_pedestrians_lonlat <span class="ot">=</span> <span class="fu">st_transform</span>(crashes_pedestrians, <span class="at">crs =</span> <span class="dv">4326</span>)</span>
+<span id="cb19-6"><a href="#cb19-6" tabindex="-1"></a>pal <span class="ot">=</span> <span class="fu">colorFactor</span>(<span class="at">palette =</span> <span class="st">&quot;Reds&quot;</span>, <span class="at">domain =</span> crashes_pedestrians_lonlat<span class="sc">$</span>accident_severity, <span class="at">reverse =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb19-7"><a href="#cb19-7" tabindex="-1"></a>map <span class="ot">=</span> <span class="fu">leaflet</span>(<span class="at">data =</span> crashes_pedestrians_lonlat, <span class="at">height =</span> <span class="st">&quot;280px&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb19-8"><a href="#cb19-8" tabindex="-1"></a>  <span class="fu">addProviderTiles</span>(<span class="at">provider =</span> providers<span class="sc">$</span>OpenStreetMap.BlackAndWhite) <span class="sc">%&gt;%</span></span>
+<span id="cb19-9"><a href="#cb19-9" tabindex="-1"></a>  <span class="fu">addCircleMarkers</span>(<span class="at">radius =</span> <span class="fl">0.5</span>, <span class="at">color =</span> <span class="sc">~</span><span class="fu">pal</span>(accident_severity)) <span class="sc">%&gt;%</span> </span>
+<span id="cb19-10"><a href="#cb19-10" tabindex="-1"></a>  <span class="fu">addLegend</span>(<span class="at">pal =</span> pal, <span class="at">values =</span> <span class="sc">~</span>accident_severity) <span class="sc">%&gt;%</span> </span>
+<span id="cb19-11"><a href="#cb19-11" tabindex="-1"></a>  leaflet<span class="sc">::</span><span class="fu">addMiniMap</span>(<span class="at">toggleDisplay =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb19-12"><a href="#cb19-12" tabindex="-1"></a><span class="co"># map # if you like to see the leaflet version</span></span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" tabindex="-1"></a><span class="fu">library</span>(geojsonsf)</span>
+<span id="cb20-2"><a href="#cb20-2" tabindex="-1"></a><span class="fu">library</span>(htmltools)</span>
+<span id="cb20-3"><a href="#cb20-3" tabindex="-1"></a>geojson <span class="ot">=</span> <span class="fu">sf_geojson</span>(</span>
+<span id="cb20-4"><a href="#cb20-4" tabindex="-1"></a>  crashes_pedestrians_lonlat[,<span class="fu">c</span>(<span class="st">&quot;accident_severity&quot;</span>)])</span>
+<span id="cb20-5"><a href="#cb20-5" tabindex="-1"></a>template <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;</span></span>
+<span id="cb20-6"><a href="#cb20-6" tabindex="-1"></a><span class="st">&lt;link rel=&quot;stylesheet&quot; href=&quot;https://unpkg.com/leaflet@1.4.0/dist/leaflet.css&quot; integrity=&quot;sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==&quot; crossorigin=&quot;&quot;/&gt;</span></span>
+<span id="cb20-7"><a href="#cb20-7" tabindex="-1"></a><span class="st">&lt;script src=&quot;https://unpkg.com/leaflet@1.4.0/dist/leaflet.js&quot; integrity=&quot;sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==&quot; crossorigin=&quot;&quot;&gt;&lt;/script&gt;</span></span>
+<span id="cb20-8"><a href="#cb20-8" tabindex="-1"></a><span class="st">&lt;div id=&quot;mapid&quot; style=&quot;width: 100%; height: 400px;&quot;&gt;</span></span>
+<span id="cb20-9"><a href="#cb20-9" tabindex="-1"></a><span class="st">&lt;script&gt;</span></span>
+<span id="cb20-10"><a href="#cb20-10" tabindex="-1"></a><span class="st">    var map = L.map(&quot;mapid&quot;);</span></span>
+<span id="cb20-11"><a href="#cb20-11" tabindex="-1"></a><span class="st">    L.tileLayer(&quot;https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw&quot;, {</span></span>
+<span id="cb20-12"><a href="#cb20-12" tabindex="-1"></a><span class="st">        maxZoom: 18,</span></span>
+<span id="cb20-13"><a href="#cb20-13" tabindex="-1"></a><span class="st">        attribution: </span><span class="sc">\&#39;</span><span class="st">Map data &amp;copy; &lt;a href=&quot;https://www.openstreetmap.org/&quot;&gt;OpenStreetMap&lt;/a&gt; contributors, &lt;a href=&quot;https://creativecommons.org/licenses/by-sa/2.0/&quot;&gt;CC-BY-SA&lt;/a&gt;, Imagery © &lt;a href=&quot;https://www.mapbox.com/&quot;&gt;Mapbox&lt;/a&gt;</span><span class="sc">\&#39;</span><span class="st">,</span></span>
+<span id="cb20-14"><a href="#cb20-14" tabindex="-1"></a><span class="st">        id: &quot;mapbox.streets&quot;</span></span>
+<span id="cb20-15"><a href="#cb20-15" tabindex="-1"></a><span class="st">  }).addTo(map);   </span></span>
+<span id="cb20-16"><a href="#cb20-16" tabindex="-1"></a><span class="st">  var json = &#39;</span>, geojson, <span class="st">&#39;;&#39;</span>, </span>
+<span id="cb20-17"><a href="#cb20-17" tabindex="-1"></a>  <span class="st">&#39;</span></span>
+<span id="cb20-18"><a href="#cb20-18" tabindex="-1"></a><span class="st">  var geojsonMarkerOptions = {</span></span>
+<span id="cb20-19"><a href="#cb20-19" tabindex="-1"></a><span class="st">    radius: 6,</span></span>
+<span id="cb20-20"><a href="#cb20-20" tabindex="-1"></a><span class="st">    color: &quot;#000&quot;,</span></span>
+<span id="cb20-21"><a href="#cb20-21" tabindex="-1"></a><span class="st">    weight: 1,</span></span>
+<span id="cb20-22"><a href="#cb20-22" tabindex="-1"></a><span class="st">    opacity: 1,</span></span>
+<span id="cb20-23"><a href="#cb20-23" tabindex="-1"></a><span class="st">    fillOpacity: 0.5</span></span>
+<span id="cb20-24"><a href="#cb20-24" tabindex="-1"></a><span class="st">  };</span></span>
+<span id="cb20-25"><a href="#cb20-25" tabindex="-1"></a><span class="st">  var layer = L.geoJSON(json, {</span></span>
+<span id="cb20-26"><a href="#cb20-26" tabindex="-1"></a><span class="st">    pointToLayer: function (feature, latlng) {</span></span>
+<span id="cb20-27"><a href="#cb20-27" tabindex="-1"></a><span class="st">        return L.circleMarker(latlng, geojsonMarkerOptions);</span></span>
+<span id="cb20-28"><a href="#cb20-28" tabindex="-1"></a><span class="st">    },</span></span>
+<span id="cb20-29"><a href="#cb20-29" tabindex="-1"></a><span class="st">    style: function(feature) {</span></span>
+<span id="cb20-30"><a href="#cb20-30" tabindex="-1"></a><span class="st">      switch (feature.properties.accident_severity) {</span></span>
+<span id="cb20-31"><a href="#cb20-31" tabindex="-1"></a><span class="st">          case &quot;Serious&quot;: return {color: &quot;#FEB24C&quot;};</span></span>
+<span id="cb20-32"><a href="#cb20-32" tabindex="-1"></a><span class="st">          case &quot;Fatal&quot;:   return {color: &quot;#BD0026&quot;};</span></span>
+<span id="cb20-33"><a href="#cb20-33" tabindex="-1"></a><span class="st">       }</span></span>
+<span id="cb20-34"><a href="#cb20-34" tabindex="-1"></a><span class="st">    }</span></span>
+<span id="cb20-35"><a href="#cb20-35" tabindex="-1"></a><span class="st">  }).addTo(map);</span></span>
+<span id="cb20-36"><a href="#cb20-36" tabindex="-1"></a><span class="st">  map.fitBounds(layer.getBounds());</span></span>
+<span id="cb20-37"><a href="#cb20-37" tabindex="-1"></a><span class="st">  var legend = L.control({position: &quot;bottomright&quot;});</span></span>
+<span id="cb20-38"><a href="#cb20-38" tabindex="-1"></a><span class="st">    legend.onAdd = function (map) {</span></span>
+<span id="cb20-39"><a href="#cb20-39" tabindex="-1"></a><span class="st">        var div = L.DomUtil.create(&quot;div&quot;, &quot;info legend&quot;), labels = [];</span></span>
+<span id="cb20-40"><a href="#cb20-40" tabindex="-1"></a><span class="st">    labels.push(&quot;&lt;i style=</span><span class="sc">\&#39;</span><span class="st">background:#FEB24C</span><span class="sc">\&#39;</span><span class="st">&gt;&lt;/i&gt;Serious&quot;);</span></span>
+<span id="cb20-41"><a href="#cb20-41" tabindex="-1"></a><span class="st">    labels.push(&quot;&lt;i style=</span><span class="sc">\&#39;</span><span class="st">background:#BD0026</span><span class="sc">\&#39;</span><span class="st">&gt;&lt;/i&gt;Fatal&quot;);</span></span>
+<span id="cb20-42"><a href="#cb20-42" tabindex="-1"></a><span class="st">        div.innerHTML = labels.join(&quot;&lt;br&gt;&quot;);</span></span>
+<span id="cb20-43"><a href="#cb20-43" tabindex="-1"></a><span class="st">        return div;</span></span>
+<span id="cb20-44"><a href="#cb20-44" tabindex="-1"></a><span class="st">    };</span></span>
+<span id="cb20-45"><a href="#cb20-45" tabindex="-1"></a><span class="st">  legend.addTo(map);</span></span>
+<span id="cb20-46"><a href="#cb20-46" tabindex="-1"></a><span class="st">  // control that shows state info on hover</span></span>
+<span id="cb20-47"><a href="#cb20-47" tabindex="-1"></a><span class="st">    var info = L.control();</span></span>
+<span id="cb20-48"><a href="#cb20-48" tabindex="-1"></a><span class="st">    info.onAdd = function (map) {</span></span>
+<span id="cb20-49"><a href="#cb20-49" tabindex="-1"></a><span class="st">        this._div = L.DomUtil.create(&quot;div&quot;, &quot;info&quot;);</span></span>
+<span id="cb20-50"><a href="#cb20-50" tabindex="-1"></a><span class="st">        this.update();</span></span>
+<span id="cb20-51"><a href="#cb20-51" tabindex="-1"></a><span class="st">        return this._div;</span></span>
+<span id="cb20-52"><a href="#cb20-52" tabindex="-1"></a><span class="st">    };</span></span>
+<span id="cb20-53"><a href="#cb20-53" tabindex="-1"></a><span class="st">    info.update = function (props) {</span></span>
+<span id="cb20-54"><a href="#cb20-54" tabindex="-1"></a><span class="st">        this._div.innerHTML = &quot;&lt;h6&gt;Crashes in West Yorkshire (2022)&lt;/h6&gt;&quot;;</span></span>
+<span id="cb20-55"><a href="#cb20-55" tabindex="-1"></a><span class="st">    };</span></span>
+<span id="cb20-56"><a href="#cb20-56" tabindex="-1"></a><span class="st">    info.addTo(map);</span></span>
+<span id="cb20-57"><a href="#cb20-57" tabindex="-1"></a><span class="st">&lt;/script&gt;</span></span>
+<span id="cb20-58"><a href="#cb20-58" tabindex="-1"></a><span class="st">&lt;style&gt;</span></span>
+<span id="cb20-59"><a href="#cb20-59" tabindex="-1"></a><span class="st">.info { padding: 6px 8px; font: 14px/16px Arial, Helvetica, sans-serif; background: white; background: rgba(255,255,255,0.8); box-shadow: 0 0 15px rgba(0,0,0,0.2); border-radius: 5px; } .info h4 { margin: 0 0 5px; color: #777; }</span></span>
+<span id="cb20-60"><a href="#cb20-60" tabindex="-1"></a><span class="st">.legend { text-align: left; line-height: 18px; color: #555; } .legend i { width: 18px; height: 18px; float: left; margin-right: 8px; opacity: 0.7; }&lt;/style&gt;</span></span>
+<span id="cb20-61"><a href="#cb20-61" tabindex="-1"></a><span class="st">&lt;/div&gt;&#39;</span>)</span>
+<span id="cb20-62"><a href="#cb20-62" tabindex="-1"></a>path <span class="ot">=</span> <span class="fu">file.path</span>(<span class="fu">tempdir</span>(), <span class="st">&quot;temp.html&quot;</span>)</span>
+<span id="cb20-63"><a href="#cb20-63" tabindex="-1"></a><span class="fu">write</span>(template, path)</span>
+<span id="cb20-64"><a href="#cb20-64" tabindex="-1"></a><span class="fu">includeHTML</span>(path)</span></code></pre></div>
 </div>
 <div id="conclusion" class="section level4">
 <h4>Conclusion</h4>
@@ -736,8 +714,7 @@ us.</p>
 <p>There are many possible next steps, including:</p>
 <ul>
 <li>Comparing these datasets with interventions such as <a href="https://pubmed.ncbi.nlm.nih.gov/20007666/">20 mph zones</a> and
-links with street morphology <span class="citation">(Sarkar, Webster,
-and Kumari 2018)</span>.</li>
+links with street morphology <span class="citation">(<strong>sarkar_street_2018?</strong>)</span>.</li>
 <li>The creation of more general software for accessing and working with
 road crash data worldwide.</li>
 <li>Making the data even more available by provide the data as part of
@@ -751,16 +728,8 @@ release of <code>stats19</code> 🎉, thank rOpenSci for a great review
 process 🙏 and let you know: the package and data are now out there, and
 are ready to be used 🚀.</p>
 </div>
-<div id="references" class="section level4 unnumbered">
-<h4 class="unnumbered">References</h4>
-<div id="refs" class="references csl-bib-body hanging-indent">
-<div id="ref-sarkar_street_2018" class="csl-entry">
-Sarkar, Chinmoy, Chris Webster, and Sarika Kumari. 2018. <span>“Street
-Morphology and Severity of Road Casualties: <span>A</span> 5-Year Study
-of <span>Greater London</span>.”</span> <em>International Journal of
-Sustainable Transportation</em> 12 (7): 510–25. <a href="https://doi.org/10.1080/15568318.2017.1402972">https://doi.org/10.1080/15568318.2017.1402972</a>.
-</div>
-</div>
+<div id="references" class="section level4">
+<h4>References</h4>
 </div>
 
 

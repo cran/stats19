@@ -1,4 +1,4 @@
-## ---- message=FALSE, warning=FALSE, eval=FALSE--------------------------------
+## ----message=FALSE, warning=FALSE, eval=FALSE---------------------------------
 #  library(pct)      # access travel data from DfT-funded PCT project
 #  library(sf)       # spatial vector data classes
 #  library(stats19)  # get stats19 data
@@ -6,7 +6,7 @@
 #  library(tidyverse)# packages for 'data science'
 #  library(tmap)     # interactive maps
 
-## ---- include = FALSE---------------------------------------------------------
+## ----include = FALSE----------------------------------------------------------
 
 knitr::opts_chunk$set(
   collapse = TRUE,
@@ -26,7 +26,7 @@ pkgs = c(
 ## ----cite, echo=FALSE---------------------------------------------------------
 knitr::write_bib(x = pkgs, "packages.bib")
 
-## ---- eval=FALSE, echo=FALSE--------------------------------------------------
+## ----eval=FALSE, echo=FALSE---------------------------------------------------
 #  remotes::install_cran(pkgs)
 #  # remotes::install_github("ITSLeeds/pct")
 
@@ -36,7 +36,7 @@ knitr::include_graphics("https://raw.githubusercontent.com/ITSLeeds/TDS/master/c
 ## ----edit, eval=FALSE---------------------------------------------------------
 #  file.edit("stats19-lesson-1.R")
 
-## ---- eval=FALSE--------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 #  x = 1:5
 #  y = c(0, 1, 3, 9, 18)
 #  plot(x, y)
@@ -94,20 +94,20 @@ identical(crashes, crashes2)
 #  crashes3 = readr::read_csv("crashes.csv")
 #  identical(crashes3, crashes)
 
-## ---- eval=FALSE--------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 #  casualty_age[2:3] # second and third casualty_age
 #  crashes[c(1, 2), ] # first and second row of crashes
 #  crashes$vehicle_type # returns just one column
 #  crashes[, c("casualty_type", "casualty_age")] # first and third columns
 
-## ---- eval=FALSE, echo=FALSE--------------------------------------------------
+## ----eval=FALSE, echo=FALSE---------------------------------------------------
 #  crashes[, c(1, 3)] # first and third column of crashes by positional numbers
 #  crashes[c(2), c(3)]
 #  crashes[c(2), c(2, 3)]
 #  class(crashes[, c(1, 3)])
 #  class(crashes[c(2), c(3)])
 
-## ---- eval=FALSE--------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 #  x[c(TRUE, FALSE, TRUE, FALSE, TRUE)] # 1st, 3rd, and 5th element in x
 #  x[x == 5] # only when x == 5 (notice the use of double equals)
 #  x[x < 3] # less than 3
@@ -115,26 +115,26 @@ identical(crashes, crashes2)
 #  casualty_age[casualty_age %% 6 == 0] # just the ages that are a multiple of 6
 #  crashes[crashes$dark == FALSE, ]
 
-## ---- eval=FALSE, echo=FALSE--------------------------------------------------
+## ----eval=FALSE, echo=FALSE---------------------------------------------------
 #  casualty_age[casualty_age < 50] # the  casualty_age less than 50
 #  crashes[crashes$vehicle_type == "tank", ] # rows where the name is tank
 #  crashes$casualty_age[crashes$vehicle_type == "tank"] = 61
 
-## ---- eval=FALSE--------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 #  z = c(4, 5, NA, 7)
 
-## ---- eval=FALSE--------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 #  sum(z) # result is NA
 
-## ---- eval=FALSE--------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 #  sum(z, na.rm = TRUE) # result is equal to 4 + 5 + 7
 
-## ---- eval=FALSE--------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 #  is.na(z)
 #  z_nona = z[!is.na(z)] # note the use of the not operator !
 #  sum(z)
 
-## ---- echo=FALSE, eval=FALSE--------------------------------------------------
+## ----echo=FALSE, eval=FALSE---------------------------------------------------
 #  crashes$vehicle_type = as.character(crashes$vehicle_type)
 #  as.matrix(crashes)
 
@@ -153,7 +153,7 @@ mouth = matrix(mouth, ncol = 2, byrow = T)
 plot(eyes, type = "p", main = "RRR!", cex = 2, xlim = c(1, 5), ylim = c(0, 5))
 lines(mouth, type = "l", col = "red")
 
-## ---- eval=FALSE--------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 #  install.packages("sf")
 #  # remotes::install_github("r-spatial/sf")
 
@@ -168,7 +168,7 @@ library(sf)
 #    dark
 #  )
 
-## ---- message=FALSE, out.width="40%", eval=FALSE------------------------------
+## ----message=FALSE, out.width="40%", eval=FALSE-------------------------------
 #  library(ggplot2)
 #  ggplot(crashes) + geom_point(aes(x = casualty_type, y = casualty_age))
 
@@ -190,7 +190,7 @@ library(dplyr)
 class(crashes)       
 crashes %>% class()
 
-## ---- eval=FALSE--------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 #  crashes %>%
 #    filter(casualty_age > 50) # filter rows
 #  crashes %>%
@@ -208,20 +208,20 @@ crashes %>% class()
 #    mutate(birth_year = 2019 - casualty_age) %>%
 #    filter(birth_year > 1969)
 
-## ---- message=FALSE-----------------------------------------------------------
+## ----message=FALSE------------------------------------------------------------
 library(lubridate)
 
 ## -----------------------------------------------------------------------------
 today()
 
-## ---- eval=FALSE--------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 #  x = today()
 #  day(x)
 #  month(x)
 #  year(x)
 #  weekdays(x)
 
-## ---- eval=FALSE--------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 #  as.Date("2019-10-17") # works
 #  as.Date("2019 10 17") # fails
 #  ymd("2019 10 17") # works
@@ -232,7 +232,7 @@ x = c("2009-01-01", "2009-02-02", "2009-03-03")
 x_date = ymd(x)
 x_date
 
-## ---- echo=FALSE, eval=FALSE--------------------------------------------------
+## ----echo=FALSE, eval=FALSE---------------------------------------------------
 #  # 1. Extract the day, the year-day, the month and the weekday (as a non-abbreviated character vector) of each element of `x_date`.
 #  day(x_date)
 #  yday(x_date)
@@ -267,40 +267,40 @@ x = c("18:23", "00:00", "12:34")
 crashes$casualty_hms = hms(c("18:23:35", "00:00:01", "12:34:56"))
 crashes$casualty_hour = hour(crashes$casualty_hms)
 
-## ---- eval=FALSE--------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 #  library(stats19)
-#  crashes_2017 = stats19::get_stats19(year = 2017, type = "ac")
-#  crashes_2017
+#  crashes_2022 = stats19::get_stats19(year = 2022, type = "ac")
+#  crashes_2022
 
-## ---- eval=FALSE, echo=FALSE--------------------------------------------------
+## ----eval=FALSE, echo=FALSE---------------------------------------------------
 #  # solutions
 #  crashes %>% filter(casualty_hour >= 12)
 #  crashes %>% filter(casualty_hour > 15 & casualty_hour < 19)
 #  
-#  crashes_2017 %>%
+#  crashes_2022 %>%
 #    mutate(my_weekdays = weekdays(date)) %>%
 #    filter(my_weekdays == "Monday") %>%
 #    nrow()
-#  crashes_2017 %>%
+#  crashes_2022 %>%
 #    mutate(my_weekdays = weekdays(date)) %>%
 #    filter(my_weekdays == "Friday") %>%
 #    nrow()
 #  
-#  crashes_2017 %>%
+#  crashes_2022 %>%
 #    mutate(my_weekdays = weekdays(date)) %>%
 #    group_by(my_weekdays) %>%
 #    summarize(n = n()) %>%
 #    ggplot() +
 #    geom_col(aes(x = my_weekdays, y = n))
 #  
-#  crashes_2017 %>%
+#  crashes_2022 %>%
 #    mutate(my_hours = hour(hm(time))) %>%
 #    group_by(my_hours) %>%
 #    summarize(n = n()) %>%
 #    ggplot() +
 #    geom_col(aes(x = my_hours, y = n))
 #  
-#  crashes_2017 %>%
+#  crashes_2022 %>%
 #    mutate(my_weekdays = weekdays(date), my_hours = hour(hm(time))) %>%
 #    group_by(my_weekdays, my_hours) %>%
 #    summarise(n = n()) %>%
@@ -328,7 +328,7 @@ plot(crashes_sf[2:3, "dark"])
 # write_sf(crashes_sf, "crashes_sf.geojson")
 # piggyback::pb_upload("crashes_sf.geojson")
 
-## ---- eval=FALSE--------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 #  write_sf(zones, "zones.geojson") # save geojson file
 #  write_sf(zones, "zmapinfo", driver = "MapInfo file")
 #  read_sf("zmapinfo") # read in mapinfo file
@@ -339,12 +339,12 @@ knitr::opts_chunk$set(eval = FALSE)
 ## -----------------------------------------------------------------------------
 #  zones = pct::get_pct_zones("isle-of-wight")[1:9]
 
-## ---- echo=FALSE--------------------------------------------------------------
+## ----echo=FALSE---------------------------------------------------------------
 #  # class(zones)
 #  # names(zones)
 #  zones[1:2, c(1, 5, 6, 7, 8)]
 
-## ---- message=FALSE-----------------------------------------------------------
+## ----message=FALSE------------------------------------------------------------
 #  zones_containing_crashes = zones[crashes_sf, ]
 
 ## ----sp-ex, echo=FALSE, out.width="33%", fig.show='hold', message=FALSE, warning=FALSE----
@@ -356,7 +356,7 @@ knitr::opts_chunk$set(eval = FALSE)
 #  plot(zones[zones_containing_crashes, ], col = "yellow", add = TRUE)
 #  plot(crashes_sf$geometry, pch = 20, add = TRUE)
 
-## ---- message=FALSE-----------------------------------------------------------
+## ----message=FALSE------------------------------------------------------------
 #  zones_joined = st_join(zones[1], crashes_sf)
 
 ## ----joinf, echo=FALSE, out.width="40%", fig.show='hold', message=FALSE-------
@@ -376,7 +376,7 @@ knitr::opts_chunk$set(eval = FALSE)
 #  zones_first_and_third_column = zones[c(1, 3)]
 #  zones_just_all = zones["all"]
 
-## ---- echo=FALSE, eval=FALSE--------------------------------------------------
+## ----echo=FALSE, eval=FALSE---------------------------------------------------
 #  # 1. Practice subsetting techniques you have learned on the `sf data.frame` object `zones`:
 #  #      1. Create an object called `zones_small` which contains only regions with less than 3000 people in the `all` column
 #  # in base R
@@ -443,11 +443,11 @@ knitr::opts_chunk$set(eval = FALSE)
 #  # zones_joined = readRDS(url(u))
 #  # qtm(zones_joined)
 
-## ---- eval=FALSE--------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 #  vignette(package = "stats19") # view all vignettes available on stats19
 #  vignette("stats19") # view the introductory vignette
 
-## ---- echo=FALSE, results='hide', message=FALSE, eval=FALSE-------------------
+## ----echo=FALSE, results='hide', message=FALSE, eval=FALSE--------------------
 #  library(stats19)
 #  library(dplyr)
 #  library(sf)
@@ -477,10 +477,10 @@ knitr::opts_chunk$set(eval = FALSE)
 #  roads = roads_wgs %>% st_transform(crs = 27700)
 
 ## -----------------------------------------------------------------------------
-#  u = "https://github.com/ropensci/stats19/releases/download/1.1.0/car_accidents_2017_iow.Rds"
+#  u = "https://github.com/ropensci/stats19/releases/download/1.1.0/car_collisions_2022_iow.Rds"
 #  crashes_iow = readRDS(url(u))
 
-## ---- echo=FALSE, out.width="49%", fig.show='hold', message=FALSE-------------
+## ----echo=FALSE, out.width="49%", fig.show='hold', message=FALSE--------------
 #  plot(roads$geometry)
 #  plot(crashes_iow["accident_severity"], add = TRUE)
 #  roads_buffer = st_buffer(roads, 200, endCapStyle = "FLAT")

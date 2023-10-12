@@ -1,14 +1,14 @@
-## ---- include = FALSE---------------------------------------------------------
+## ----include = FALSE----------------------------------------------------------
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
   out.width = "50%"
 )
 
-## ---- eval=FALSE--------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 #  source("https://git.io/JeaZH")
 
-## ---- eval=FALSE--------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 #  install.packages("remotes")
 #  pkgs = c(
 #    "pct",         # package for getting travel data in the UK
@@ -25,7 +25,7 @@ knitr::opts_chunk$set(
 #  library(stats19)
 #  library(tidyverse)
 #  library(tmap) # installed alongside mapview
-#  crashes = get_stats19(year = 2017, type = "ac")
+#  crashes = get_stats19(year = 2022, type = "ac")
 #  crashes_iow = crashes %>%
 #    filter(local_authority_district == "Isle of Wight") %>%
 #    format_sf()

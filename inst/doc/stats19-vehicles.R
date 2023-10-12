@@ -1,4 +1,4 @@
-## ---- include = FALSE---------------------------------------------------------
+## ----include = FALSE----------------------------------------------------------
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
@@ -35,7 +35,7 @@ knitr::opts_chunk$set(
 #  summary(v$age_of_vehicle)
 
 ## -----------------------------------------------------------------------------
-#  a = get_stats19(year = 2018, type = "accidents")
+#  a = get_stats19(year = 2018, type = collision)
 #  va = dplyr::inner_join(v, a)
 
 ## -----------------------------------------------------------------------------
@@ -43,7 +43,7 @@ knitr::opts_chunk$set(
 #  dim(va)
 #  names(va)
 
-## ---- out.width="100%"--------------------------------------------------------
+## ----out.width="100%"---------------------------------------------------------
 #  xtabs(~vehicle_type2 + accident_severity, data = va) %>% prop.table()
 #  xtabs(~vehicle_type2 + accident_severity, data = va) %>% prop.table() %>% plot()
 
@@ -53,7 +53,7 @@ knitr::opts_chunk$set(
 ## -----------------------------------------------------------------------------
 #  summary(vac$engine_capacity_cc)
 
-## ---- echo=FALSE, eval=FALSE--------------------------------------------------
+## ----echo=FALSE, eval=FALSE---------------------------------------------------
 #  library(tidyverse)
 #  
 #  max_engine_size = 5000
@@ -65,7 +65,7 @@ knitr::opts_chunk$set(
 #  sum(sel_too_small) / nrow(vac)
 #  vac$engine_capacity_cc[sel_too_big | sel_too_small] = NA
 
-## ---- eval=FALSE, echo=FALSE--------------------------------------------------
+## ----eval=FALSE, echo=FALSE---------------------------------------------------
 #  
 #  vac = vac %>% filter(val_size)
 #  vac %>%
@@ -81,7 +81,7 @@ knitr::opts_chunk$set(
 #  m = lm(sev_numeric ~ engine_capacity_cc + age_of_driver + speed_limit, data = vac)
 #  summary(m)
 
-## ---- echo=FALSE, eval=FALSE--------------------------------------------------
+## ----echo=FALSE, eval=FALSE---------------------------------------------------
 #  table_vehicle_type = xtabs(cbind(accident_severity, vehicle_type) ~ accident_severity, data = va)
 #  group_totals = va %>%
 #    group_by(accident_severity) %>%
