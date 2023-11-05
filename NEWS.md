@@ -1,6 +1,16 @@
+# stats19 3.0.2
+
+* Fix issue with coordinates as characters (#228)
+
+# stats19 3.0.1 2023-10
+
+* Minor update to increase default `timeout` in `get_stats19()` to 10 minutes (#226)
+
 # stats19 3.0.0 2023-10
 
-* Major update so the package works with the new csv files
+* Major update so the package works with the new csv files (up to 2022)
+* Deprecation of `read_accidents` in favour of `read_collisions` and using consistent `collision` instead of `accidents`.
+* Other minor improvements
 
 # stats19 2.0.1 2022-11
 

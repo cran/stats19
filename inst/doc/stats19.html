@@ -12,7 +12,7 @@
 
 <meta name="author" content="R Lovelace, M Morgan, L Hama and M Padgham" />
 
-<meta name="date" content="2023-10-11" />
+<meta name="date" content="2023-11-04" />
 
 <title>Introducing stats19</title>
 
@@ -362,7 +362,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 <h1 class="title toc-ignore">Introducing stats19</h1>
 <h4 class="author">R Lovelace, M Morgan, L Hama and M Padgham</h4>
-<h4 class="date">2023-10-11</h4>
+<h4 class="date">2023-11-04</h4>
 
 
 
@@ -459,8 +459,7 @@ downloads and unzips a .zip file containing STATS19 data from 2022:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="fu">dl_stats19</span>(<span class="at">year =</span> <span class="dv">2022</span>, <span class="at">type =</span> <span class="st">&quot;collision&quot;</span>, <span class="at">ask =</span> <span class="cn">FALSE</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="co">#&gt; Files identified: dft-road-casualty-statistics-collision-2022.csv</span></span>
 <span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="co">#&gt;    https://data.dft.gov.uk/road-accidents-safety-data/dft-road-casualty-statistics-collision-2022.csv</span></span>
-<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a><span class="co">#&gt; Data already exists in data_dir, not downloading</span></span>
-<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a><span class="co">#&gt; Data saved at ~/data/stats19/dft-road-casualty-statistics-collision-2022.csv</span></span></code></pre></div>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a><span class="co">#&gt; Data already exists in data_dir, not downloading</span></span></code></pre></div>
 <p>Note that in the previous command, <code>ask = FALSE</code>, meaning
 you will not be asked. By default you are asked to confirm, before
 downloading large files. Currently, these files are downloaded to a
@@ -512,18 +511,17 @@ storage in a user-defined location.</p>
 <span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a><span class="co">#&gt; Files identified: dft-road-casualty-statistics-collision-2022.csv</span></span>
 <span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a><span class="co">#&gt;    https://data.dft.gov.uk/road-accidents-safety-data/dft-road-casualty-statistics-collision-2022.csv</span></span>
 <span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a><span class="co">#&gt; Data already exists in data_dir, not downloading</span></span>
-<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a><span class="co">#&gt; Data saved at ~/data/stats19/dft-road-casualty-statistics-collision-2022.csv</span></span>
-<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a><span class="co">#&gt; Reading in:</span></span>
-<span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a><span class="co">#&gt; ~/data/stats19/dft-road-casualty-statistics-collision-2022.csv</span></span>
-<span id="cb7-8"><a href="#cb7-8" tabindex="-1"></a><span class="co">#&gt; Rows: 106004 Columns: 36</span></span>
-<span id="cb7-9"><a href="#cb7-9" tabindex="-1"></a><span class="co">#&gt; ── Column specification ────────────────────────────────────────────────────────</span></span>
-<span id="cb7-10"><a href="#cb7-10" tabindex="-1"></a><span class="co">#&gt; Delimiter: &quot;,&quot;</span></span>
-<span id="cb7-11"><a href="#cb7-11" tabindex="-1"></a><span class="co">#&gt; chr   (6): accident_index, accident_reference, date, local_authority_ons_dis...</span></span>
-<span id="cb7-12"><a href="#cb7-12" tabindex="-1"></a><span class="co">#&gt; dbl  (29): accident_year, location_easting_osgr, location_northing_osgr, lon...</span></span>
-<span id="cb7-13"><a href="#cb7-13" tabindex="-1"></a><span class="co">#&gt; time  (1): time</span></span>
-<span id="cb7-14"><a href="#cb7-14" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-15"><a href="#cb7-15" tabindex="-1"></a><span class="co">#&gt; ℹ Use `spec()` to retrieve the full column specification for this data.</span></span>
-<span id="cb7-16"><a href="#cb7-16" tabindex="-1"></a><span class="co">#&gt; ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</span></span></code></pre></div>
+<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a><span class="co">#&gt; Reading in:</span></span>
+<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a><span class="co">#&gt; ~/data/stats19/dft-road-casualty-statistics-collision-2022.csv</span></span>
+<span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a><span class="co">#&gt; Rows: 106004 Columns: 36</span></span>
+<span id="cb7-8"><a href="#cb7-8" tabindex="-1"></a><span class="co">#&gt; ── Column specification ────────────────────────────────────────────────────────</span></span>
+<span id="cb7-9"><a href="#cb7-9" tabindex="-1"></a><span class="co">#&gt; Delimiter: &quot;,&quot;</span></span>
+<span id="cb7-10"><a href="#cb7-10" tabindex="-1"></a><span class="co">#&gt; chr   (6): accident_index, accident_reference, date, local_authority_ons_dis...</span></span>
+<span id="cb7-11"><a href="#cb7-11" tabindex="-1"></a><span class="co">#&gt; dbl  (29): accident_year, location_easting_osgr, location_northing_osgr, lon...</span></span>
+<span id="cb7-12"><a href="#cb7-12" tabindex="-1"></a><span class="co">#&gt; time  (1): time</span></span>
+<span id="cb7-13"><a href="#cb7-13" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb7-14"><a href="#cb7-14" tabindex="-1"></a><span class="co">#&gt; ℹ Use `spec()` to retrieve the full column specification for this data.</span></span>
+<span id="cb7-15"><a href="#cb7-15" tabindex="-1"></a><span class="co">#&gt; ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</span></span></code></pre></div>
 <p><strong>stats19</strong> imports data with
 <code>readr::read_csv()</code> which results in a ‘tibble’ object: a
 data frame with more user-friendly printing and a few other
@@ -687,34 +685,32 @@ respective data frames, as illustrated below:</p>
 <span id="cb13-6"><a href="#cb13-6" tabindex="-1"></a><span class="co">#&gt; Files identified: dft-road-casualty-statistics-vehicle-2022.csv</span></span>
 <span id="cb13-7"><a href="#cb13-7" tabindex="-1"></a><span class="co">#&gt;    https://data.dft.gov.uk/road-accidents-safety-data/dft-road-casualty-statistics-vehicle-2022.csv</span></span>
 <span id="cb13-8"><a href="#cb13-8" tabindex="-1"></a><span class="co">#&gt; Data already exists in data_dir, not downloading</span></span>
-<span id="cb13-9"><a href="#cb13-9" tabindex="-1"></a><span class="co">#&gt; Data saved at ~/data/stats19/dft-road-casualty-statistics-vehicle-2022.csv</span></span>
-<span id="cb13-10"><a href="#cb13-10" tabindex="-1"></a>vehicles_2022_raw <span class="ot">=</span> <span class="fu">read_vehicles</span>(<span class="at">year =</span> <span class="dv">2022</span>)</span>
-<span id="cb13-11"><a href="#cb13-11" tabindex="-1"></a><span class="co">#&gt; Rows: 193545 Columns: 28</span></span>
-<span id="cb13-12"><a href="#cb13-12" tabindex="-1"></a><span class="co">#&gt; ── Column specification ────────────────────────────────────────────────────────</span></span>
-<span id="cb13-13"><a href="#cb13-13" tabindex="-1"></a><span class="co">#&gt; Delimiter: &quot;,&quot;</span></span>
-<span id="cb13-14"><a href="#cb13-14" tabindex="-1"></a><span class="co">#&gt; chr  (4): accident_index, accident_reference, generic_make_model, lsoa_of_dr...</span></span>
-<span id="cb13-15"><a href="#cb13-15" tabindex="-1"></a><span class="co">#&gt; dbl (24): accident_year, vehicle_reference, vehicle_type, towing_and_articul...</span></span>
-<span id="cb13-16"><a href="#cb13-16" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb13-17"><a href="#cb13-17" tabindex="-1"></a><span class="co">#&gt; ℹ Use `spec()` to retrieve the full column specification for this data.</span></span>
-<span id="cb13-18"><a href="#cb13-18" tabindex="-1"></a><span class="co">#&gt; ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</span></span>
-<span id="cb13-19"><a href="#cb13-19" tabindex="-1"></a>vehicles_2022 <span class="ot">=</span> <span class="fu">format_vehicles</span>(vehicles_2022_raw)</span>
-<span id="cb13-20"><a href="#cb13-20" tabindex="-1"></a></span>
-<span id="cb13-21"><a href="#cb13-21" tabindex="-1"></a><span class="co"># casualties data for 2022</span></span>
-<span id="cb13-22"><a href="#cb13-22" tabindex="-1"></a><span class="fu">dl_stats19</span>(<span class="at">year =</span> <span class="dv">2022</span>, <span class="at">type =</span> <span class="st">&quot;casualty&quot;</span>, <span class="at">ask =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb13-23"><a href="#cb13-23" tabindex="-1"></a><span class="co">#&gt; Files identified: dft-road-casualty-statistics-casualty-2022.csv</span></span>
-<span id="cb13-24"><a href="#cb13-24" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb13-25"><a href="#cb13-25" tabindex="-1"></a><span class="co">#&gt;    https://data.dft.gov.uk/road-accidents-safety-data/dft-road-casualty-statistics-casualty-2022.csv</span></span>
-<span id="cb13-26"><a href="#cb13-26" tabindex="-1"></a><span class="co">#&gt; Data already exists in data_dir, not downloading</span></span>
-<span id="cb13-27"><a href="#cb13-27" tabindex="-1"></a><span class="co">#&gt; Data saved at ~/data/stats19/dft-road-casualty-statistics-casualty-2022.csv</span></span>
-<span id="cb13-28"><a href="#cb13-28" tabindex="-1"></a>casualties_2022 <span class="ot">=</span> <span class="fu">read_casualties</span>(<span class="at">year =</span> <span class="dv">2022</span>)</span>
-<span id="cb13-29"><a href="#cb13-29" tabindex="-1"></a><span class="co">#&gt; Rows: 135480 Columns: 19</span></span>
-<span id="cb13-30"><a href="#cb13-30" tabindex="-1"></a><span class="co">#&gt; ── Column specification ────────────────────────────────────────────────────────</span></span>
-<span id="cb13-31"><a href="#cb13-31" tabindex="-1"></a><span class="co">#&gt; Delimiter: &quot;,&quot;</span></span>
-<span id="cb13-32"><a href="#cb13-32" tabindex="-1"></a><span class="co">#&gt; chr  (3): accident_index, accident_reference, lsoa_of_casualty</span></span>
-<span id="cb13-33"><a href="#cb13-33" tabindex="-1"></a><span class="co">#&gt; dbl (16): accident_year, vehicle_reference, casualty_reference, casualty_cla...</span></span>
-<span id="cb13-34"><a href="#cb13-34" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb13-35"><a href="#cb13-35" tabindex="-1"></a><span class="co">#&gt; ℹ Use `spec()` to retrieve the full column specification for this data.</span></span>
-<span id="cb13-36"><a href="#cb13-36" tabindex="-1"></a><span class="co">#&gt; ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</span></span></code></pre></div>
+<span id="cb13-9"><a href="#cb13-9" tabindex="-1"></a>vehicles_2022_raw <span class="ot">=</span> <span class="fu">read_vehicles</span>(<span class="at">year =</span> <span class="dv">2022</span>)</span>
+<span id="cb13-10"><a href="#cb13-10" tabindex="-1"></a><span class="co">#&gt; Rows: 193545 Columns: 28</span></span>
+<span id="cb13-11"><a href="#cb13-11" tabindex="-1"></a><span class="co">#&gt; ── Column specification ────────────────────────────────────────────────────────</span></span>
+<span id="cb13-12"><a href="#cb13-12" tabindex="-1"></a><span class="co">#&gt; Delimiter: &quot;,&quot;</span></span>
+<span id="cb13-13"><a href="#cb13-13" tabindex="-1"></a><span class="co">#&gt; chr  (4): accident_index, accident_reference, generic_make_model, lsoa_of_dr...</span></span>
+<span id="cb13-14"><a href="#cb13-14" tabindex="-1"></a><span class="co">#&gt; dbl (24): accident_year, vehicle_reference, vehicle_type, towing_and_articul...</span></span>
+<span id="cb13-15"><a href="#cb13-15" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb13-16"><a href="#cb13-16" tabindex="-1"></a><span class="co">#&gt; ℹ Use `spec()` to retrieve the full column specification for this data.</span></span>
+<span id="cb13-17"><a href="#cb13-17" tabindex="-1"></a><span class="co">#&gt; ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</span></span>
+<span id="cb13-18"><a href="#cb13-18" tabindex="-1"></a>vehicles_2022 <span class="ot">=</span> <span class="fu">format_vehicles</span>(vehicles_2022_raw)</span>
+<span id="cb13-19"><a href="#cb13-19" tabindex="-1"></a></span>
+<span id="cb13-20"><a href="#cb13-20" tabindex="-1"></a><span class="co"># casualties data for 2022</span></span>
+<span id="cb13-21"><a href="#cb13-21" tabindex="-1"></a><span class="fu">dl_stats19</span>(<span class="at">year =</span> <span class="dv">2022</span>, <span class="at">type =</span> <span class="st">&quot;casualty&quot;</span>, <span class="at">ask =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb13-22"><a href="#cb13-22" tabindex="-1"></a><span class="co">#&gt; Files identified: dft-road-casualty-statistics-casualty-2022.csv</span></span>
+<span id="cb13-23"><a href="#cb13-23" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb13-24"><a href="#cb13-24" tabindex="-1"></a><span class="co">#&gt;    https://data.dft.gov.uk/road-accidents-safety-data/dft-road-casualty-statistics-casualty-2022.csv</span></span>
+<span id="cb13-25"><a href="#cb13-25" tabindex="-1"></a><span class="co">#&gt; Data already exists in data_dir, not downloading</span></span>
+<span id="cb13-26"><a href="#cb13-26" tabindex="-1"></a>casualties_2022 <span class="ot">=</span> <span class="fu">read_casualties</span>(<span class="at">year =</span> <span class="dv">2022</span>)</span>
+<span id="cb13-27"><a href="#cb13-27" tabindex="-1"></a><span class="co">#&gt; Rows: 135480 Columns: 19</span></span>
+<span id="cb13-28"><a href="#cb13-28" tabindex="-1"></a><span class="co">#&gt; ── Column specification ────────────────────────────────────────────────────────</span></span>
+<span id="cb13-29"><a href="#cb13-29" tabindex="-1"></a><span class="co">#&gt; Delimiter: &quot;,&quot;</span></span>
+<span id="cb13-30"><a href="#cb13-30" tabindex="-1"></a><span class="co">#&gt; chr  (3): accident_index, accident_reference, lsoa_of_casualty</span></span>
+<span id="cb13-31"><a href="#cb13-31" tabindex="-1"></a><span class="co">#&gt; dbl (16): accident_year, vehicle_reference, casualty_reference, casualty_cla...</span></span>
+<span id="cb13-32"><a href="#cb13-32" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb13-33"><a href="#cb13-33" tabindex="-1"></a><span class="co">#&gt; ℹ Use `spec()` to retrieve the full column specification for this data.</span></span>
+<span id="cb13-34"><a href="#cb13-34" tabindex="-1"></a><span class="co">#&gt; ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</span></span></code></pre></div>
 <p>The package automates this two-step <code>read_*</code> and
 <code>format_*</code> process by defaulting in all cases to
 <code>data_year = read_*(year, format = TRUE)</code>.
@@ -1438,20 +1434,19 @@ downloaded, read-in and formatted as follows:</p>
 <span id="cb18-2"><a href="#cb18-2" tabindex="-1"></a><span class="co">#&gt; Files identified: dft-road-casualty-statistics-casualty-2022.csv</span></span>
 <span id="cb18-3"><a href="#cb18-3" tabindex="-1"></a><span class="co">#&gt;    https://data.dft.gov.uk/road-accidents-safety-data/dft-road-casualty-statistics-casualty-2022.csv</span></span>
 <span id="cb18-4"><a href="#cb18-4" tabindex="-1"></a><span class="co">#&gt; Data already exists in data_dir, not downloading</span></span>
-<span id="cb18-5"><a href="#cb18-5" tabindex="-1"></a><span class="co">#&gt; Data saved at ~/data/stats19/dft-road-casualty-statistics-casualty-2022.csv</span></span>
-<span id="cb18-6"><a href="#cb18-6" tabindex="-1"></a>casualties_2022 <span class="ot">=</span> <span class="fu">read_casualties</span>(<span class="at">year =</span> <span class="dv">2022</span>)</span>
-<span id="cb18-7"><a href="#cb18-7" tabindex="-1"></a><span class="co">#&gt; Rows: 135480 Columns: 19</span></span>
-<span id="cb18-8"><a href="#cb18-8" tabindex="-1"></a><span class="co">#&gt; ── Column specification ────────────────────────────────────────────────────────</span></span>
-<span id="cb18-9"><a href="#cb18-9" tabindex="-1"></a><span class="co">#&gt; Delimiter: &quot;,&quot;</span></span>
-<span id="cb18-10"><a href="#cb18-10" tabindex="-1"></a><span class="co">#&gt; chr  (3): accident_index, accident_reference, lsoa_of_casualty</span></span>
-<span id="cb18-11"><a href="#cb18-11" tabindex="-1"></a><span class="co">#&gt; dbl (16): accident_year, vehicle_reference, casualty_reference, casualty_cla...</span></span>
-<span id="cb18-12"><a href="#cb18-12" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb18-13"><a href="#cb18-13" tabindex="-1"></a><span class="co">#&gt; ℹ Use `spec()` to retrieve the full column specification for this data.</span></span>
-<span id="cb18-14"><a href="#cb18-14" tabindex="-1"></a><span class="co">#&gt; ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</span></span>
-<span id="cb18-15"><a href="#cb18-15" tabindex="-1"></a><span class="fu">nrow</span>(casualties_2022)</span>
-<span id="cb18-16"><a href="#cb18-16" tabindex="-1"></a><span class="co">#&gt; [1] 135480</span></span>
-<span id="cb18-17"><a href="#cb18-17" tabindex="-1"></a><span class="fu">ncol</span>(casualties_2022)</span>
-<span id="cb18-18"><a href="#cb18-18" tabindex="-1"></a><span class="co">#&gt; [1] 19</span></span></code></pre></div>
+<span id="cb18-5"><a href="#cb18-5" tabindex="-1"></a>casualties_2022 <span class="ot">=</span> <span class="fu">read_casualties</span>(<span class="at">year =</span> <span class="dv">2022</span>)</span>
+<span id="cb18-6"><a href="#cb18-6" tabindex="-1"></a><span class="co">#&gt; Rows: 135480 Columns: 19</span></span>
+<span id="cb18-7"><a href="#cb18-7" tabindex="-1"></a><span class="co">#&gt; ── Column specification ────────────────────────────────────────────────────────</span></span>
+<span id="cb18-8"><a href="#cb18-8" tabindex="-1"></a><span class="co">#&gt; Delimiter: &quot;,&quot;</span></span>
+<span id="cb18-9"><a href="#cb18-9" tabindex="-1"></a><span class="co">#&gt; chr  (3): accident_index, accident_reference, lsoa_of_casualty</span></span>
+<span id="cb18-10"><a href="#cb18-10" tabindex="-1"></a><span class="co">#&gt; dbl (16): accident_year, vehicle_reference, casualty_reference, casualty_cla...</span></span>
+<span id="cb18-11"><a href="#cb18-11" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb18-12"><a href="#cb18-12" tabindex="-1"></a><span class="co">#&gt; ℹ Use `spec()` to retrieve the full column specification for this data.</span></span>
+<span id="cb18-13"><a href="#cb18-13" tabindex="-1"></a><span class="co">#&gt; ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</span></span>
+<span id="cb18-14"><a href="#cb18-14" tabindex="-1"></a><span class="fu">nrow</span>(casualties_2022)</span>
+<span id="cb18-15"><a href="#cb18-15" tabindex="-1"></a><span class="co">#&gt; [1] 135480</span></span>
+<span id="cb18-16"><a href="#cb18-16" tabindex="-1"></a><span class="fu">ncol</span>(casualties_2022)</span>
+<span id="cb18-17"><a href="#cb18-17" tabindex="-1"></a><span class="co">#&gt; [1] 19</span></span></code></pre></div>
 <p>The results show that there were</p>
 <p>170,993 casualties reported by the police in the STATS19 dataset in
 2022, and</p>
@@ -1494,20 +1489,19 @@ read-in and formatted as follows:</p>
 <span id="cb21-2"><a href="#cb21-2" tabindex="-1"></a><span class="co">#&gt; Files identified: dft-road-casualty-statistics-vehicle-2022.csv</span></span>
 <span id="cb21-3"><a href="#cb21-3" tabindex="-1"></a><span class="co">#&gt;    https://data.dft.gov.uk/road-accidents-safety-data/dft-road-casualty-statistics-vehicle-2022.csv</span></span>
 <span id="cb21-4"><a href="#cb21-4" tabindex="-1"></a><span class="co">#&gt; Data already exists in data_dir, not downloading</span></span>
-<span id="cb21-5"><a href="#cb21-5" tabindex="-1"></a><span class="co">#&gt; Data saved at ~/data/stats19/dft-road-casualty-statistics-vehicle-2022.csv</span></span>
-<span id="cb21-6"><a href="#cb21-6" tabindex="-1"></a>vehicles_2022 <span class="ot">=</span> <span class="fu">read_vehicles</span>(<span class="at">year =</span> <span class="dv">2022</span>)</span>
-<span id="cb21-7"><a href="#cb21-7" tabindex="-1"></a><span class="co">#&gt; Rows: 193545 Columns: 28</span></span>
-<span id="cb21-8"><a href="#cb21-8" tabindex="-1"></a><span class="co">#&gt; ── Column specification ────────────────────────────────────────────────────────</span></span>
-<span id="cb21-9"><a href="#cb21-9" tabindex="-1"></a><span class="co">#&gt; Delimiter: &quot;,&quot;</span></span>
-<span id="cb21-10"><a href="#cb21-10" tabindex="-1"></a><span class="co">#&gt; chr  (4): accident_index, accident_reference, generic_make_model, lsoa_of_dr...</span></span>
-<span id="cb21-11"><a href="#cb21-11" tabindex="-1"></a><span class="co">#&gt; dbl (24): accident_year, vehicle_reference, vehicle_type, towing_and_articul...</span></span>
-<span id="cb21-12"><a href="#cb21-12" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb21-13"><a href="#cb21-13" tabindex="-1"></a><span class="co">#&gt; ℹ Use `spec()` to retrieve the full column specification for this data.</span></span>
-<span id="cb21-14"><a href="#cb21-14" tabindex="-1"></a><span class="co">#&gt; ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</span></span>
-<span id="cb21-15"><a href="#cb21-15" tabindex="-1"></a><span class="fu">nrow</span>(vehicles_2022)</span>
-<span id="cb21-16"><a href="#cb21-16" tabindex="-1"></a><span class="co">#&gt; [1] 193545</span></span>
-<span id="cb21-17"><a href="#cb21-17" tabindex="-1"></a><span class="fu">ncol</span>(vehicles_2022)</span>
-<span id="cb21-18"><a href="#cb21-18" tabindex="-1"></a><span class="co">#&gt; [1] 28</span></span></code></pre></div>
+<span id="cb21-5"><a href="#cb21-5" tabindex="-1"></a>vehicles_2022 <span class="ot">=</span> <span class="fu">read_vehicles</span>(<span class="at">year =</span> <span class="dv">2022</span>)</span>
+<span id="cb21-6"><a href="#cb21-6" tabindex="-1"></a><span class="co">#&gt; Rows: 193545 Columns: 28</span></span>
+<span id="cb21-7"><a href="#cb21-7" tabindex="-1"></a><span class="co">#&gt; ── Column specification ────────────────────────────────────────────────────────</span></span>
+<span id="cb21-8"><a href="#cb21-8" tabindex="-1"></a><span class="co">#&gt; Delimiter: &quot;,&quot;</span></span>
+<span id="cb21-9"><a href="#cb21-9" tabindex="-1"></a><span class="co">#&gt; chr  (4): accident_index, accident_reference, generic_make_model, lsoa_of_dr...</span></span>
+<span id="cb21-10"><a href="#cb21-10" tabindex="-1"></a><span class="co">#&gt; dbl (24): accident_year, vehicle_reference, vehicle_type, towing_and_articul...</span></span>
+<span id="cb21-11"><a href="#cb21-11" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb21-12"><a href="#cb21-12" tabindex="-1"></a><span class="co">#&gt; ℹ Use `spec()` to retrieve the full column specification for this data.</span></span>
+<span id="cb21-13"><a href="#cb21-13" tabindex="-1"></a><span class="co">#&gt; ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</span></span>
+<span id="cb21-14"><a href="#cb21-14" tabindex="-1"></a><span class="fu">nrow</span>(vehicles_2022)</span>
+<span id="cb21-15"><a href="#cb21-15" tabindex="-1"></a><span class="co">#&gt; [1] 193545</span></span>
+<span id="cb21-16"><a href="#cb21-16" tabindex="-1"></a><span class="fu">ncol</span>(vehicles_2022)</span>
+<span id="cb21-17"><a href="#cb21-17" tabindex="-1"></a><span class="co">#&gt; [1] 28</span></span></code></pre></div>
 <p>The results show that there were</p>
 <p>238,926 vehicles involved in crashes reported by the police in the
 STATS19 dataset in 2022, with</p>
