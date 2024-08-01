@@ -16,22 +16,22 @@ knitr::opts_chunk$set(
 )
 
 ## ----pkgs, warning=FALSE, echo=FALSE------------------------------------------
-#  pkgs = c(
-#    "sf",          # spatial data package
-#    "stats19",     # downloads and formats open stats19 crash data
-#    "dplyr",       # a package data manipulation, part of the tidyverse
-#    "tmap"         # for making maps
-#  )
+pkgs = c(
+  "sf",          # spatial data package
+  "stats19",     # downloads and formats open stats19 crash data
+  "dplyr",       # a package data manipulation, part of the tidyverse
+  "tmap"         # for making maps
+)
 
 ## ----cite, echo=FALSE---------------------------------------------------------
-#  knitr::write_bib(x = pkgs, "packages.bib")
+knitr::write_bib(x = pkgs, "packages.bib")
 
 ## ----eval=FALSE, echo=FALSE---------------------------------------------------
 #  remotes::install_cran(pkgs)
 #  # remotes::install_github("ITSLeeds/pct")
 
 ## ----rstudioui, echo=FALSE, out.width="70%"-----------------------------------
-#  knitr::include_graphics("https://raw.githubusercontent.com/ITSLeeds/TDS/master/courses/2day/images/rstudio-ui.png")
+knitr::include_graphics("https://raw.githubusercontent.com/ITSLeeds/TDS/master/courses/2day/images/rstudio-ui.png")
 
 ## ----edit, eval=FALSE---------------------------------------------------------
 #  file.edit("stats19-lesson-1.R")
@@ -42,16 +42,16 @@ knitr::opts_chunk$set(
 #  plot(x, y)
 
 ## -----------------------------------------------------------------------------
-#  vehicle_type = c("car", "bus", "tank")
-#  casualty_type = c("pedestrian", "cyclist", "cat")
-#  casualty_age = seq(from = 20, to = 60, by = 20)
-#  set.seed(1)
-#  dark = sample(x = c(TRUE, FALSE), size = 3, replace = TRUE)
-#  small_matrix = matrix(1:24, nrow = 12)
-#  crashes = data.frame(vehicle_type, casualty_type, casualty_age, dark)
+vehicle_type = c("car", "bus", "tank")
+casualty_type = c("pedestrian", "cyclist", "cat")
+casualty_age = seq(from = 20, to = 60, by = 20)
+set.seed(1)
+dark = sample(x = c(TRUE, FALSE), size = 3, replace = TRUE)
+small_matrix = matrix(1:24, nrow = 12)
+crashes = data.frame(vehicle_type, casualty_type, casualty_age, dark)
 
 ## ----summary------------------------------------------------------------------
-#  summary(casualty_age)
+summary(casualty_age)
 
 ## ----summary-answers, echo=FALSE, eval=FALSE----------------------------------
 #  summary(vehicle_type)
@@ -69,25 +69,25 @@ knitr::opts_chunk$set(
 #  )
 
 ## ----autocomp, echo=FALSE-----------------------------------------------------
-#  knitr::include_graphics("https://raw.githubusercontent.com/ITSLeeds/TDS/master/courses/2day/images/autocomplete.jpg")
+knitr::include_graphics("https://raw.githubusercontent.com/ITSLeeds/TDS/master/courses/2day/images/autocomplete.jpg")
 
 ## ----help, echo=FALSE---------------------------------------------------------
-#  knitr::include_graphics("https://raw.githubusercontent.com/ITSLeeds/TDS/master/courses/2day/images/fucntionhelp.jpg")
+knitr::include_graphics("https://raw.githubusercontent.com/ITSLeeds/TDS/master/courses/2day/images/fucntionhelp.jpg")
 
 ## -----------------------------------------------------------------------------
-#  # Create vector objects (a whole line comment)
-#  x = 1:5 # a seqence of consecutive integers (inline comment)
-#  y = c(0, 1, 3, 9, 18.1)
+# Create vector objects (a whole line comment)
+x = 1:5 # a seqence of consecutive integers (inline comment)
+y = c(0, 1, 3, 9, 18.1) 
 
 ## ----debug, echo=FALSE, out.width="60%"---------------------------------------
-#  knitr::include_graphics("https://raw.githubusercontent.com/ropensci/stats19/master/inst/rstudio-autocomplete.png")
+knitr::include_graphics("https://raw.githubusercontent.com/ropensci/stats19/master/inst/rstudio-autocomplete.png")
 
 ## -----------------------------------------------------------------------------
-#  saveRDS(crashes, "crashes.Rds")
+saveRDS(crashes, "crashes.Rds")
 
 ## -----------------------------------------------------------------------------
-#  crashes2 = readRDS("crashes.Rds")
-#  identical(crashes, crashes2)
+crashes2 = readRDS("crashes.Rds")
+identical(crashes, crashes2)
 
 ## ----readr-write, eval=FALSE--------------------------------------------------
 #  readr::write_csv(crashes, "crashes.csv")
@@ -139,26 +139,26 @@ knitr::opts_chunk$set(
 #  as.matrix(crashes)
 
 ## -----------------------------------------------------------------------------
-#  z = c(1, 2, -1, 1, 3)
-#  l = c(NA, "a", "b", "c") # labels in ascending order
-#  z_factor = factor(z, labels = l)
-#  z_charcter = as.character(z_factor)
-#  z_charcter
+z = c(1, 2, -1, 1, 3)
+l = c(NA, "a", "b", "c") # labels in ascending order
+z_factor = factor(z, labels = l)
+z_charcter = as.character(z_factor)
+z_charcter
 
 ## ----smile, out.width="30%", fig.align="center"-------------------------------
-#  eyes = c(2.3, 4, 3.7, 4)
-#  eyes = matrix(eyes, ncol = 2, byrow = T)
-#  mouth = c(2, 2, 2.5, 1.3, 3, 1, 3.5, 1.3, 4, 2)
-#  mouth = matrix(mouth, ncol = 2, byrow = T)
-#  plot(eyes, type = "p", main = "RRR!", cex = 2, xlim = c(1, 5), ylim = c(0, 5))
-#  lines(mouth, type = "l", col = "red")
+eyes = c(2.3, 4, 3.7, 4)
+eyes = matrix(eyes, ncol = 2, byrow = T)
+mouth = c(2, 2, 2.5, 1.3, 3, 1, 3.5, 1.3, 4, 2)
+mouth = matrix(mouth, ncol = 2, byrow = T)
+plot(eyes, type = "p", main = "RRR!", cex = 2, xlim = c(1, 5), ylim = c(0, 5))
+lines(mouth, type = "l", col = "red")
 
 ## ----eval=FALSE---------------------------------------------------------------
 #  install.packages("sf")
 #  # remotes::install_github("r-spatial/sf")
 
 ## -----------------------------------------------------------------------------
-#  library(sf)
+library(sf)
 
 ## ----tibble2, eval=FALSE------------------------------------------------------
 #  crashes_tibble = tibble::tibble(
@@ -182,13 +182,13 @@ knitr::opts_chunk$set(
 #  ggsave(filename = "inst/ggtheme-plot.png", width = 8, height = 2, dpi = 80)
 
 ## ----gg2, echo=FALSE, out.width="80%", fig.align="center"---------------------
-#  library(ggplot2)
-#  knitr::include_graphics("https://raw.githubusercontent.com/ropensci/stats19/b4c40ad4c134853007493a9eac116b00acd4ec5a/inst/ggtheme-plot.png")
+library(ggplot2)
+knitr::include_graphics("https://raw.githubusercontent.com/ropensci/stats19/b4c40ad4c134853007493a9eac116b00acd4ec5a/inst/ggtheme-plot.png")
 
 ## -----------------------------------------------------------------------------
-#  library(dplyr)
-#  class(crashes)
-#  crashes %>% class()
+library(dplyr)
+class(crashes)       
+crashes %>% class()
 
 ## ----eval=FALSE---------------------------------------------------------------
 #  crashes %>%
@@ -209,10 +209,10 @@ knitr::opts_chunk$set(
 #    filter(birth_year > 1969)
 
 ## ----message=FALSE------------------------------------------------------------
-#  library(lubridate)
+library(lubridate)
 
 ## -----------------------------------------------------------------------------
-#  today()
+today()
 
 ## ----eval=FALSE---------------------------------------------------------------
 #  x = today()
@@ -228,9 +228,9 @@ knitr::opts_chunk$set(
 #  dmy("17/10/2019") # works
 
 ## -----------------------------------------------------------------------------
-#  x = c("2009-01-01", "2009-02-02", "2009-03-03")
-#  x_date = ymd(x)
-#  x_date
+x = c("2009-01-01", "2009-02-02", "2009-03-03")
+x_date = ymd(x)
+x_date
 
 ## ----echo=FALSE, eval=FALSE---------------------------------------------------
 #  # 1. Extract the day, the year-day, the month and the weekday (as a non-abbreviated character vector) of each element of `x_date`.
@@ -243,29 +243,29 @@ knitr::opts_chunk$set(
 #  wday(dmy("09/09/93"))
 
 ## -----------------------------------------------------------------------------
-#  crashes$casualty_day = x_date
+crashes$casualty_day = x_date
 
 ## -----------------------------------------------------------------------------
-#  filter(crashes, day(casualty_day) < 7) # the events that ocurred in the first week of the month
-#  filter(crashes, weekdays(casualty_day) == "Monday") # the events occurred on monday
+filter(crashes, day(casualty_day) < 7) # the events that ocurred in the first week of the month
+filter(crashes, weekdays(casualty_day) == "Monday") # the events occurred on monday
 
 ## -----------------------------------------------------------------------------
-#  x = c("18:23:35", "00:00:01", "12:34:56")
-#  x_hour = hms(x)
-#  x_hour
+x = c("18:23:35", "00:00:01", "12:34:56")
+x_hour = hms(x)
+x_hour
 
 ## -----------------------------------------------------------------------------
-#  hour(x_hour)
-#  minute(x_hour)
-#  second(x_hour)
+hour(x_hour)
+minute(x_hour)
+second(x_hour)
 
 ## -----------------------------------------------------------------------------
-#  x = c("18:23", "00:00", "12:34")
-#  (x_hour = hm(x))
+x = c("18:23", "00:00", "12:34")
+(x_hour = hm(x))
 
 ## -----------------------------------------------------------------------------
-#  crashes$casualty_hms = hms(c("18:23:35", "00:00:01", "12:34:56"))
-#  crashes$casualty_hour = hour(crashes$casualty_hms)
+crashes$casualty_hms = hms(c("18:23:35", "00:00:01", "12:34:56"))
+crashes$casualty_hour = hour(crashes$casualty_hms)
 
 ## ----eval=FALSE---------------------------------------------------------------
 #  library(stats19)
@@ -309,24 +309,24 @@ knitr::opts_chunk$set(
 #  # the legend needs some reordering
 
 ## ----crashes-sf, fig.height=2, fig.width=3------------------------------------
-#  library(sf) # load the sf package for working with spatial data
-#  crashes_sf = crashes # create copy of crashes dataset
-#  crashes_sf$longitude = c(-1.3, -1.2, -1.1)
-#  crashes_sf$latitude = c(50.7, 50.7, 50.68)
-#  crashes_sf = st_as_sf(crashes_sf, coords = c("longitude", "latitude"), crs = 4326)
-#  # plot(crashes_sf[1:4]) # basic plot
-#  # mapview::mapview(crashes_sf) # for interactive map
+library(sf) # load the sf package for working with spatial data
+crashes_sf = crashes # create copy of crashes dataset
+crashes_sf$longitude = c(-1.3, -1.2, -1.1)
+crashes_sf$latitude = c(50.7, 50.7, 50.68)
+crashes_sf = st_as_sf(crashes_sf, coords = c("longitude", "latitude"), crs = 4326)
+# plot(crashes_sf[1:4]) # basic plot
+# mapview::mapview(crashes_sf) # for interactive map
 
 ## ----crashes-sf-ex, echo=FALSE, out.width="30%", fig.show='hold'--------------
-#  plot(crashes_sf$geometry)
-#  plot(crashes_sf["casualty_age"])
-#  plot(crashes_sf[2:3, "dark"])
-#  # st_distance(crashes_sf)
-#  # Bembridge
-#  
-#  # # updload geographic crash data
-#  # write_sf(crashes_sf, "crashes_sf.geojson")
-#  # piggyback::pb_upload("crashes_sf.geojson")
+plot(crashes_sf$geometry)
+plot(crashes_sf["casualty_age"])
+plot(crashes_sf[2:3, "dark"])
+# st_distance(crashes_sf)
+# Bembridge
+
+# # updload geographic crash data
+# write_sf(crashes_sf, "crashes_sf.geojson")
+# piggyback::pb_upload("crashes_sf.geojson")
 
 ## ----eval=FALSE---------------------------------------------------------------
 #  write_sf(zones, "zones.geojson") # save geojson file
@@ -334,7 +334,7 @@ knitr::opts_chunk$set(
 #  read_sf("zmapinfo") # read in mapinfo file
 
 ## -----------------------------------------------------------------------------
-#  knitr::opts_chunk$set(eval = FALSE)
+knitr::opts_chunk$set(eval = FALSE)
 
 ## -----------------------------------------------------------------------------
 #  zones = pct::get_pct_zones("isle-of-wight")[1:9]

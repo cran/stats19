@@ -47,7 +47,7 @@ read_collisions = function(year = NULL,
   }
   # read the data in
   suppressWarnings({
-    ac = readr::read_csv(path)
+    ac = readr::read_csv(path, col_types = col_spec())
   })
 
   if(format)
@@ -168,6 +168,33 @@ read_ve_ca = function(path) {
 }
 
 read_null = function(path, ...) {
-  if(is.null(path)) return(NULL)
-  readr::read_csv(path, ...)
+  if (is.null(path)) {
+    return(NULL)
+  }
+  readr::read_csv(path, col_types = col_spec(), ...)
+}
+
+# possibly in utils
+# Convert the 'type' column to readr's col_type format
+convert_to_col_type = function(type) {
+  switch(type,
+         character = readr::col_character(),
+         numeric = readr::col_integer(),
+         integer = readr::col_integer(),
+         logical = readr::col_logical(),
+         date = readr::col_date(),
+         datetime = readr::col_datetime(),
+         readr::col_guess())
+}
+
+col_spec = function() {
+    # Create a named list of column types
+  unique_vars = unique(stats19::stats19_variables$variable)
+  unique_types = sapply(unique_vars, function(v) {
+    type = stats19::stats19_variables$type[stats19::stats19_variables$variable == v][1]
+    convert_to_col_type(type)
+  })
+
+  col_types = stats::setNames(unique_types, unique_vars)
+  do.call(readr::cols, col_types)
 }

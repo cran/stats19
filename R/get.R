@@ -36,8 +36,10 @@
 #' @examples
 #' \donttest{
 #' if(curl::has_internet()) {
-#' x = get_stats19(2022, silent = TRUE, format = TRUE)
-#' class(x)
+#' col = get_stats19(year = 2022, type = "collision")
+#' cas2 = get_stats19(year = 2022, type = "casualty")
+#' veh = get_stats19(year = 2022, type = "vehicle")
+#' class(col)
 #' # data.frame output
 #' x = get_stats19(2022, silent = TRUE, output_format = "data.frame")
 #' class(x)
@@ -97,8 +99,9 @@ get_stats19 = function(year = NULL,
                       silent = FALSE,
                       output_format = "tibble",
                       ...) {
-  if(!exists("type")) {
-    stop("Type is required", call. = FALSE)
+  # Set type to "collision" if it's "accident" or similar:
+  if (grepl("acc", x = type, ignore.case = TRUE)) {
+    type = "collision"
   }
   if (!output_format %in% c("tibble", "data.frame", "sf", "ppp")) {
     warning(
@@ -121,6 +124,11 @@ get_stats19 = function(year = NULL,
     output_format = "tibble"
   }
 
+  # Update year to 1979 if it's NULL or before 2018:
+  if (is.null(year) || year < 2018) {
+    year = 1979
+  }
+
   # download what the user wanted
   dl_stats19(year = year,
              type = type,
@@ -130,12 +138,12 @@ get_stats19 = function(year = NULL,
              silent = silent)
   read_in = NULL
   # read in
-  if(grepl(type, "vehicles",  ignore.case = TRUE)){
+  if(grepl("veh", x = type, ignore.case = TRUE)){
     read_in = read_vehicles(
       year = year,
       data_dir = data_dir,
       format = format)
-  } else if(grepl(type, "casualty", ignore.case = TRUE)) {
+  } else if(grepl("cas", x = type, ignore.case = TRUE)) {
     read_in = read_casualties(
       year = year,
       data_dir = data_dir,
