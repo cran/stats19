@@ -10,7 +10,7 @@ knitr::opts_chunk$set(
 #  library(dplyr)
 
 ## -----------------------------------------------------------------------------
-#  v = get_stats19(year = 2018, type = "vehicle")
+#  v = get_stats19(year = 2022, type = "vehicle")
 #  names(v)
 #  v
 
@@ -35,7 +35,7 @@ knitr::opts_chunk$set(
 #  summary(v$age_of_vehicle)
 
 ## -----------------------------------------------------------------------------
-#  a = get_stats19(year = 2018, type = collision)
+#  a = get_stats19(year = 2022, type = collision)
 #  va = dplyr::inner_join(v, a)
 
 ## -----------------------------------------------------------------------------
