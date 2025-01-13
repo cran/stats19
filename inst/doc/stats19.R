@@ -7,10 +7,10 @@ knitr::opts_chunk$set(
 )
 
 ## ----eval=FALSE---------------------------------------------------------------
-#  # from CRAN
-#  install.packages("stats19")
-#  # you can install the latest development (discoraged) using:
-#  remotes::install_github("ITSLeeds/stats19")
+# # from CRAN
+# install.packages("stats19")
+# # you can install the latest development (discoraged) using:
+# remotes::install_github("ITSLeeds/stats19")
 
 ## -----------------------------------------------------------------------------
 library(stats19)
@@ -18,11 +18,8 @@ library(stats19)
 ## ----dl2022-accidents---------------------------------------------------------
 dl_stats19(year = 2022, type = "collision", ask = FALSE)
 
-## -----------------------------------------------------------------------------
-stats19::file_names$DigitalBreathTestData2013.zip
-
 ## ----dl2022-all, eval=FALSE---------------------------------------------------
-#  dl_stats19(year = 2022)
+# dl_stats19(year = 2022)
 
 ## ----dl2022-read--------------------------------------------------------------
 crashes_2022_raw = get_stats19(year = 2022, type = "collision", format = FALSE)
@@ -46,16 +43,17 @@ nrow(crashes_2022)
 ncol(crashes_2022)
 
 ## ----crashes2022-columns------------------------------------------------------
-crashes_2022_raw[c(7, 18, 23, 25)]
-crashes_2022[c(7, 18, 23, 25)]
+names(crashes_2022_raw)
+crashes_2022_raw[c(8, 18, 23, 25)]
+crashes_2022[c(8, 18, 23, 25)]
 
 ## ----echo=FALSE, eval=FALSE---------------------------------------------------
-#  # commented out as confusing...
-#  key_patt = "severity|speed|light|human"
-#  key_vars = grep(key_patt, x = names(crashes_2022_raw), ignore.case = TRUE)
-#  random_n = sample(x = nrow(crashes_2022_raw), size = 3)
-#  crashes_2022_raw[random_n, key_vars]
-#  crashes_2022[random_n, key_vars]
+# # commented out as confusing...
+# key_patt = "severity|speed|light|human"
+# key_vars = grep(key_patt, x = names(crashes_2022_raw), ignore.case = TRUE)
+# random_n = sample(x = nrow(crashes_2022_raw), size = 3)
+# crashes_2022_raw[random_n, key_vars]
+# crashes_2022[random_n, key_vars]
 
 ## ----variables-and-schema-----------------------------------------------------
 stats19_variables
@@ -66,10 +64,9 @@ format_column_names(stats19_variables$variable[1:3])
 
 ## ----format-main--------------------------------------------------------------
 crashes_2022 = format_collisions(crashes_2022_raw)
-
 # vehicle data for 2022
 dl_stats19(year = 2022, type = "vehicle", ask = FALSE)
-vehicles_2022_raw = read_vehicles(year = 2022)
+vehicles_2022_raw = read_vehicles(year = 2022, format = FALSE)
 vehicles_2022 = format_vehicles(vehicles_2022_raw)
 
 # casualties data for 2022
@@ -130,18 +127,18 @@ vehicles_2022[c(3, 14:16)]
 names(vehicles_2022)
 
 ## ----eval=FALSE, echo=FALSE---------------------------------------------------
-#  # old code to be up-dated
-#  d14 = "Stats19_Data_2005-2014"
-#  crashes_2005_2014 = read_collisions(data_dir = d14)
-#  crashes_2005_2014_f = format_stats19_2005_2014_ac(crashes_2005_2014)
-#  d15 = "RoadSafetyData_2015"
-#  crashes_2015 = read_collisions(data_dir = d15, filename = "Accidents_2015.csv")
-#  crashes_2015_f = format_stats19_2015_ac(crashes_2015)
-#  d16 = "dftRoadSafety_Accidents_2016"
-#  crashes_2016 = read_collisions(data_dir = d16, filename = "dftRoadSafety_Accidents_2016.csv")
-#  crashes_2016_f = format_stats19_2016_ac(crashes_2016)
-#  all_crashes = rbind(crashes_2015_f, crashes_2016_f, crashes_2022_f)
-#  table(ac$Accident_Severity)
+# # old code to be up-dated
+# d14 = "Stats19_Data_2005-2014"
+# crashes_2005_2014 = read_collisions(data_dir = d14)
+# crashes_2005_2014_f = format_stats19_2005_2014_ac(crashes_2005_2014)
+# d15 = "RoadSafetyData_2015"
+# crashes_2015 = read_collisions(data_dir = d15, filename = "Accidents_2015.csv")
+# crashes_2015_f = format_stats19_2015_ac(crashes_2015)
+# d16 = "dftRoadSafety_Accidents_2016"
+# crashes_2016 = read_collisions(data_dir = d16, filename = "dftRoadSafety_Accidents_2016.csv")
+# crashes_2016_f = format_stats19_2016_ac(crashes_2016)
+# all_crashes = rbind(crashes_2015_f, crashes_2016_f, crashes_2022_f)
+# table(ac$Accident_Severity)
 
 ## ----format-crashes-sf--------------------------------------------------------
 crashes_sf = format_sf(crashes_2022)
@@ -169,6 +166,7 @@ library(tidyr)
 library(dplyr)
 sel = casualties_2022$accident_index %in% crashes_wy$accident_index
 casualties_wy = casualties_2022[sel, ]
+table(casualties_wy$casualty_type)
 cas_types = casualties_wy %>% 
   select(accident_index, casualty_type) %>% 
   group_by(accident_index) %>% 
@@ -179,6 +177,7 @@ cas_types = casualties_wy %>%
     passenger = sum(casualty_type == "Car occupant")
     ) 
 cj = left_join(crashes_wy, cas_types)
+summary(cj)
 
 ## ----table-join-examples------------------------------------------------------
 base::setdiff(names(cj), names(crashes_wy))
