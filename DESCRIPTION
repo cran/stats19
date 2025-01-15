@@ -1,6 +1,6 @@
 Package: stats19
 Title: Work with Open Road Traffic Casualty Data from Great Britain
-Version: 3.3.0
+Version: 3.3.1
 Authors@R: c(
     person("Robin", "Lovelace", email = "rob00x@gmail.com", role = c("aut", "cre"),
       comment = c(ORCID = "0000-0001-5679-6536")),
@@ -51,7 +51,7 @@ Language: en-US
 X-schema.org-keywords: stats19, road-safety, transport, car-crashes,
         ropensci, data
 NeedsCompilation: no
-Packaged: 2025-01-13 00:10:17 UTC; robin
+Packaged: 2025-01-14 23:50:12 UTC; robin
 Author: Robin Lovelace [aut, cre] (<https://orcid.org/0000-0001-5679-6536>),
   Malcolm Morgan [aut] (<https://orcid.org/0000-0002-9488-9183>),
   Layik Hama [aut] (<https://orcid.org/0000-0003-1912-4890>),
@@ -62,4 +62,4 @@ Author: Robin Lovelace [aut, cre] (<https://orcid.org/0000-0001-5679-6536>),
   RAC Foundation [fnd]
 Maintainer: Robin Lovelace <rob00x@gmail.com>
 Repository: CRAN
-Date/Publication: 2025-01-13 00:30:02 UTC
+Date/Publication: 2025-01-15 08:00:02 UTC
